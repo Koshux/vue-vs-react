@@ -53,10 +53,10 @@ import Day1Slides from './slides/SlidesDay1.vue'
 const deckRef = ref(null)
 
 onMounted(() => {
-  nextTick(() => {
+  // nextTick(() => {
     if (deckRef.value) {
       const deck = new Reveal(deckRef.value, {
-        embedded: true,
+        // embedded: true,
         // keyboardCondition: 'focused',
         hash: true,
         slideNumber: true,
@@ -71,7 +71,7 @@ onMounted(() => {
         },
       })
     }
-  })
+  // })
 })
 </script>
 
@@ -82,8 +82,8 @@ onMounted(() => {
 @import 'reveal.js/plugin/highlight/monokai.css';
 
 html, body, #app {
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   margin: 0;
   padding: 0;
   overflow: hidden;

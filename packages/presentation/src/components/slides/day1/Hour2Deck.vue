@@ -52,16 +52,17 @@ function MyComponent() {
 <div class="d-flex">
     <div class="col">
         <h4>Options API (Legacy)</h4>
-        - OOP-style (data, methods, computed)
-        - Concerns are separated by *option*
-        - Can become hard to read in large components
+
+- OOP-style (data, methods, computed)
+- Concerns are separated by *option*
+- Can become hard to read in large components
     </div>
     <div class="col">
         <h4>Composition API (Modern)</h4>
-        - Inspired by React Hooks.
-        - Logic is grouped by *feature*.
-        - More flexible, reusable, and TypeScript-friendly.
-        - **We will use this.**
+- Inspired by React Hooks.
+- Logic is grouped by *feature*.
+- More flexible, reusable, and TypeScript-friendly.
+- **We will use this.**
     </div>
 </div>
       </textarea>
