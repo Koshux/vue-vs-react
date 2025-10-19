@@ -1,0 +1,8 @@
+{
+  "name": "vue-vs-react-workshop",
+  "private": true,
+  "scripts": {
+    "dev:presentation": "pnpm --filter presentation dev",
+    "start": "pnpm dev:presentation"
+  }
+}
