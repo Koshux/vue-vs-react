@@ -42,7 +42,7 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, nextTick } from 'vue'
 
 import Reveal from 'reveal.js'
 import Markdown from 'reveal.js/plugin/markdown/markdown.js'
@@ -53,27 +53,26 @@ import Day1Slides from './slides/SlidesDay1.vue'
 const deckRef = ref(null)
 
 onMounted(() => {
-  if (deckRef.value) {
-    const deck = new Reveal(deckRef.value, {
-      // embedded: true,
-      // keyboardCondition: 'focused',
-      // hash: true,
-      slideNumber: true,
-      plugins: [Markdown, Highlight],
-    })
-    deck.initialize({
-      markdown: {
-        smartypants: true
-      },
-      highlight: {
-        highlightOnLoad: true
-      },
-      // width: '2560',
-      // height: '1440',
-    })
-    console.log('Reveal deck initialized:', deck.getConfig())
-  }
-});
+  nextTick(() => {
+    if (deckRef.value) {
+      const deck = new Reveal(deckRef.value, {
+        embedded: true,
+        // keyboardCondition: 'focused',
+        hash: true,
+        slideNumber: true,
+        plugins: [Markdown, Highlight],
+      })
+      deck.initialize({
+        markdown: {
+          smartypants: true
+        },
+        highlight: {
+          highlightOnLoad: true
+        },
+      })
+    }
+  })
+})
 </script>
 
 <style>
@@ -81,6 +80,14 @@ onMounted(() => {
 @import 'reveal.js/dist/reveal.css';
 @import 'reveal.js/dist/theme/moon.css';
 @import 'reveal.js/plugin/highlight/monokai.css';
+
+html, body, #app {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
 
 /* Custom styles for a cleaner look */
 :root {
