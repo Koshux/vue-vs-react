@@ -25,10 +25,14 @@
         <h3>Building Applications: State, Routing & Data</h3>
       </section>
 
+      <Day2Slides />
+
       <section>
         <h2>Day 3</h2>
         <h3>The Professional Ecosystem: Tooling, Testing & Advanced Topics</h3>
       </section>
+
+      <Day3Slides />
 
       <section data-markdown>
         <textarea data-template>
@@ -49,6 +53,8 @@ import Markdown from 'reveal.js/plugin/markdown/markdown.js'
 import Highlight from 'reveal.js/plugin/highlight/highlight.js'
 
 import Day1Slides from './slides/SlidesDay1.vue'
+import Day2Slides from './slides/SlidesDay2.vue'
+import Day3Slides from './slides/SlidesDay3.vue'
 
 const deckRef = ref(null)
 
