@@ -5,6 +5,7 @@ export type Task = {
   id: string
   title: string
   done: boolean
+  assigneeId?: number | null
 }
 
 export type Filter = 'all' | 'active' | 'done'
@@ -18,7 +19,15 @@ export const useTasks = defineStore('tasks', () => {
       id: crypto.randomUUID(),
       title,
       done: false,
+      assigneeId: null,
     })
+  }
+
+  function assign(id: string, userId: number | null) {
+    const task = items.value.find(x => x.id === id)
+    if (task) {
+      task.assigneeId = userId
+    }
   }
 
   function toggle(id: string) {
@@ -46,6 +55,7 @@ export const useTasks = defineStore('tasks', () => {
   const isDone = computed(() => currentFilter.value === 'done')
 
   return {
+    assign,
     isAll,
     isActive,
     isDone,

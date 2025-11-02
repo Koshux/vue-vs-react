@@ -12,7 +12,7 @@ const pinia = createPinia()
 
 pinia.use(createPersistPlugin({
   paths: ['items', 'currentFilter'],
-  version: 1,
+  version: 2,
 }))
 
 app
