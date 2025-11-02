@@ -1,31 +1,64 @@
 <template>
-  <section>
-    <h1>Task Tracker (Vue)</h1>
+  <section class="max-w-2xl mx-auto space-y-4">
+    <h1 class="text-2xl font-semibold">Task Tracker (Vue)</h1>
 
     <form
       @submit.prevent="handleAdd"
-      class="tasks-form"
+      class="flex gap-2"
     >
       <input
         type="text"
         v-model="title"
         placeholder="New task..."
+        class="
+          flex-1 rounded-xl border border-gray-300 px-3 py-2 outline-none
+          focus:ring-2 focus:ring-primary/40 focus:border-primary/60
+          placeholder-gray-500 dark:placeholder-gray-400
+          dark:bg-gray-900 dark:border-gray-700
+        "
       />
-      <button type="submit">Add</button>
+      <button
+        type="submit"
+        class="rounded-xl bg-primary text-white px-4 py-2 hover:opacity-90 active:opacity-80"
+      >
+        Add
+      </button>
     </form>
 
-    <div class="tasks-actions">
+    <div class="flex gap-2">
       <button
         @click="set('all')"
         :disabled="isAll"
-      >All</button>
+        class="
+          rounded-xl border px-3 py-1.5
+          border-gray-300 text-gray-800
+          hover:bg-gray-100
+          dark:border-gray-700 dark:text-grayt-100 dark:hover:bg-gray-800
+        "
+        :class="isAll
+          ? 'bg-gray-200 dark:bg-gray-700 dark:bg-gray-800 dark:text-gray-300'
+          : ''
+          "
+      >
+        All
+      </button>
       <button
         @click="set('active')"
         :disabled="isActive"
-      >Active</button>
+        :class="isActive
+          ? 'bg-gray-200 dark:bg-gray-700 dark:bg-gray-800 dark:text-gray-300'
+          : ''
+          "
+      >
+        Active
+      </button>
       <button
         @click="set('done')"
         :disabled="isDone"
+        :class="isDone
+          ? 'bg-gray-200 dark:bg-gray-700 dark:bg-gray-800 dark:text-gray-300'
+          : ''
+          "
       >Done</button>
     </div>
 
@@ -49,19 +82,20 @@
       </span>
     </div>
 
-    <ul class="tasks-list">
+    <ul class="space-y-2">
       <li
         v-for="task in filteredItems"
         :key="task.id"
-        class="tasks-list--item"
+        class="card flex items-center gap-3"
       >
-        <label class="tasks-list--label">
+        <label class="flex-1 flex items-center gap-2">
           <input
             type="checkbox"
             :checked="task.done"
             @change="tasks.toggle(task.id)"
+            class="size-4"
           />
-          <span :class="{ 'tasks-list--item-completed': task.done }">
+          <span :class="{ 'line-through text-gray-800 dark:text-gray-100': task.done }">
             {{ task.title }}
           </span>
         </label>
@@ -69,6 +103,11 @@
         <select
           v-if="users.list.length"
           :value="task.assigneeId ?? ''"
+          class="
+            rounded-xl border border-gray-300 px-2 py-1#
+            text-gray-800 dark:text-gray-100
+            dark:bg-gray-900 dark:border-gray-700
+          "
           @change="tasks.assign(task.id, (
             $event.target as HTMLSelectElement).value
             ? Number(($event.target as HTMLSelectElement).value)
@@ -88,7 +127,7 @@
         <!-- Fallback label before loading users -->
         <small
           v-else
-          class="tasks-list--loader"
+          class="opacity-70"
         >
           {{ nameOf(task.assigneeId) }}
         </small>
@@ -126,33 +165,3 @@ const nameOf = (id: number | null | undefined) => {
   return id == null ? 'Unassigned' : users.byId(id)?.name ?? `User #${id}`
 }
 </script>
-
-<style scoped>
-.tasks-form {
-  margin-bottom: 1rem;
-}
-
-.tasks-actions {
-  margin-bottom: 1rem;
-}
-
-.tasks-list--item {
-  /* margin-bottom: 0.5rem; */
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.tasks-list--label {
-  flex: 1;
-}
-
-.tasks-list--loader {
-  margin-bottom: 1rem;
-  opacity: 0.7;
-}
-
-.tasks-list--item-completed {
-  text-decoration: line-through;
-}
-</style>

@@ -2,6 +2,8 @@
   "name": "vue-vs-react-workshop",
   "private": true,
   "scripts": {
+    "llm:vue": "node combine-files.cjs --path ./packages/vue-app",
+    "llm:react": "node combine-files.cjs --path ./packages/vue-app",
     "dev:vue-app:format": "pnpm --filter vue-app format",
     "dev:vue-app": "pnpm --filter vue-app dev",
     "dev:presentation": "pnpm --filter presentation dev",
@@ -10,6 +12,7 @@
   "devDependencies": {
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.4",
+    "minimist": "^1.2.8",
     "prettier": "3.6.2"
   }
 }
