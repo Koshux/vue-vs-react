@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg: #ffffff;
+    --text: #0b1220;
+    --muted: #4b5563;
+    --card-bg: #ffffff;
+    --card-border: #e5e7eb;
+  }
+
+  .dark {
+    --bg: #0b1220;
+    --text: #e5e7eb;
+    --muted: #9ca3af;
+    --card-bg: #0f172a;
+    --card-border: #334155;
+  }
+
+  .card {
+    @apply rounded-xl shadow-soft border p-4;
+    background: var(--card-bg);
+    color: var(--card-text);
+    border-color: var(--card-border);
+  }
+
+  html,
+  body {
+    @apply bg-[var(--bg)] text-[color:var(--text)];
+  }
+
+  a {
+    @apply text-primary hover:opacity-90 focus-visible:ring-2 focus-visible:ring-primary/60;
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-xl border p-4 shadow-soft bg-[var(--card-bg)] border-[color:var(--card-border)];
+  }
+}
