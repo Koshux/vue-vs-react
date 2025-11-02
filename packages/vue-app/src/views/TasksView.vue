@@ -17,16 +17,17 @@
           dark:bg-gray-900 dark:border-gray-700
         "
       />
-      <button
+      <VBtn
         type="submit"
         class="rounded-xl bg-primary text-white px-4 py-2 hover:opacity-90 active:opacity-80"
       >
         Add
-      </button>
+      </Vbtn>
     </form>
 
     <div class="flex gap-2">
-      <button
+      <VBtn
+        type="button"
         @click="set('all')"
         :disabled="isAll"
         class="
@@ -41,29 +42,42 @@
           "
       >
         All
-      </button>
-      <button
+      </VBtn>
+      <VBtn
         @click="set('active')"
         :disabled="isActive"
+        class="
+          rounded-xl border px-3 py-1.5
+          border-gray-300 text-gray-800
+          hover:bg-gray-100
+          dark:border-gray-700 dark:text-grayt-100 dark:hover:bg-gray-800
+        "
         :class="isActive
           ? 'bg-gray-200 dark:bg-gray-700 dark:bg-gray-800 dark:text-gray-300'
           : ''
           "
       >
         Active
-      </button>
-      <button
+      </VBtn>
+      <VBtn
         @click="set('done')"
         :disabled="isDone"
+        class="
+          rounded-xl border px-3 py-1.5
+          border-gray-300 text-gray-800
+          hover:bg-gray-100
+          dark:border-gray-700 dark:text-grayt-100 dark:hover:bg-gray-800
+        "
         :class="isDone
           ? 'bg-gray-200 dark:bg-gray-700 dark:bg-gray-800 dark:text-gray-300'
           : ''
           "
-      >Done</button>
+      >Done</VBtn>
     </div>
 
     <div class="tasks-assignee">
-      <button
+      <VBtn
+        type="button"
         @click="users.fetchUsers()"
         :disabled="users.loading || users.loaded"
         title="Fetch assignees from API"
@@ -73,7 +87,7 @@
             ? 'Assignees loaded'
             : (users.loading ? 'Loading...' : 'Load assignees')
         }}
-      </button>
+      </VBtn>
       <span
         v-if="users.error"
         class="tasks-assignee--error"
@@ -141,6 +155,7 @@ import { ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useTasks, type Filter } from '../stores/tasks'
 import { useUsers } from '../stores/users'
+import { VBtn } from 'vuetify/components'
 
 const tasks = useTasks()
 const users = useUsers()
