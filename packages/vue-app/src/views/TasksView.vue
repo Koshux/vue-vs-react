@@ -1,5 +1,3 @@
-
-
 <template>
   <section>
     <h1>Task Tracker (Vue)</h1>
@@ -18,11 +16,7 @@
     <ul>
       <li v-for="task in filteredItems" :key="task.id">
         <label>
-          <input
-            type="checkbox"
-            :checked="task.done"
-            @change="tasks.toggle(task.id)"
-          />
+          <input type="checkbox" :checked="task.done" @change="tasks.toggle(task.id)" />
           <span :class="{ completed: task.done }">
             {{ task.title }}
           </span>
@@ -39,12 +33,7 @@ import { useTasks, type Filter } from '../stores/tasks'
 const tasks = useTasks()
 const title = ref('')
 
-const {
-  isAll,
-  isActive,
-  isDone,
-  filteredItems
-} = storeToRefs(tasks)
+const { isAll, isActive, isDone, filteredItems } = storeToRefs(tasks)
 
 function handleAdd() {
   const value = title.value.trim()

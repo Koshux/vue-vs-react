@@ -2,11 +2,10 @@ import { computed, ref } from 'vue'
 import { defineStore } from 'pinia'
 
 export type Task = {
-  id: string;
-  title: string;
-  done: boolean;
+  id: string
+  title: string
+  done: boolean
 }
-
 
 export type Filter = 'all' | 'active' | 'done'
 
@@ -23,7 +22,7 @@ export const useTasks = defineStore('tasks', () => {
   }
 
   function toggle(id: string) {
-    const task = items.value.find(item => item.id === id)
+    const task = items.value.find((item) => item.id === id)
 
     if (task) {
       task.done = !task.done
@@ -37,9 +36,9 @@ export const useTasks = defineStore('tasks', () => {
   const filteredItems = computed<Task[]>(() => {
     return currentFilter.value === 'all'
       ? items.value
-      : items.value.filter(item => {
-          return currentFilter.value === 'done' ? item.done : !item.done
-        })
+      : items.value.filter((item) => {
+        return currentFilter.value === 'done' ? item.done : !item.done
+      })
   })
 
   const isAll = computed(() => currentFilter.value === 'all')
