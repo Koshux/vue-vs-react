@@ -49,6 +49,7 @@ export const useTasks = defineStore('tasks', () => {
     isAll,
     isActive,
     isDone,
+    items,
     currentFilter,
     add,
     toggle,
