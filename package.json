@@ -4,6 +4,7 @@
   "scripts": {
     "llm:vue": "node combine-files.cjs --path ./packages/vue-app",
     "llm:react": "node combine-files.cjs --path ./packages/vue-app",
+    "test:e2e:v": "pnpm -C packages/vue-app test:e2e",
     "dev:vue-app:format": "pnpm --filter vue-app format",
     "dev:vue-app": "pnpm --filter vue-app dev",
     "dev:presentation": "pnpm --filter presentation dev",
