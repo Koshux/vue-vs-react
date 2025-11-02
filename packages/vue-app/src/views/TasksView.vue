@@ -10,19 +10,18 @@
         type="text"
         v-model="title"
         placeholder="New task..."
-        class="
-          flex-1 rounded-xl border border-gray-300 px-3 py-2 outline-none
+        class="flex-1 rounded-xl border border-gray-300 px-3 py-2 outline-none
           focus:ring-2 focus:ring-primary/40 focus:border-primary/60
           placeholder-gray-500 dark:placeholder-gray-400
-          dark:bg-gray-900 dark:border-gray-700
-        "
+          text-[rgb(var(--v-theme-on-surface))]
+          dark:bg-gray-900 dark:border-gray-700"
       />
       <VBtn
         type="submit"
         class="rounded-xl bg-primary text-white px-4 py-2 hover:opacity-90 active:opacity-80"
       >
         Add
-      </Vbtn>
+      </VBtn>
     </form>
 
     <div class="flex gap-2">
@@ -30,49 +29,36 @@
         type="button"
         @click="set('all')"
         :disabled="isAll"
-        class="
-          rounded-xl border px-3 py-1.5
-          border-gray-300 text-gray-800
+        class="rounded-xl border px-3 py-1.5
+          border-gray-300 text-[rgb(var(--v-theme-on-surface))]
           hover:bg-gray-100
-          dark:border-gray-700 dark:text-grayt-100 dark:hover:bg-gray-800
-        "
-        :class="isAll
-          ? 'bg-gray-200 dark:bg-gray-700 dark:bg-gray-800 dark:text-gray-300'
-          : ''
-          "
+          dark:border-gray-700 dark:hover:bg-gray-800"
+        :class="isAll ? 'bg-gray-200 dark:bg-gray-800' : ''"
       >
         All
       </VBtn>
       <VBtn
         @click="set('active')"
         :disabled="isActive"
-        class="
-          rounded-xl border px-3 py-1.5
-          border-gray-300 text-gray-800
+        class="rounded-xl border px-3 py-1.5
+          border-gray-300 text-[rgb(var(--v-theme-on-surface))]
           hover:bg-gray-100
-          dark:border-gray-700 dark:text-grayt-100 dark:hover:bg-gray-800
-        "
-        :class="isActive
-          ? 'bg-gray-200 dark:bg-gray-700 dark:bg-gray-800 dark:text-gray-300'
-          : ''
-          "
+          dark:border-gray-700 dark:hover:bg-gray-800"
+        :class="isActive ? 'bg-gray-200 dark:bg-gray-800' : ''"
       >
         Active
       </VBtn>
       <VBtn
         @click="set('done')"
         :disabled="isDone"
-        class="
-          rounded-xl border px-3 py-1.5
-          border-gray-300 text-gray-800
+        class="rounded-xl border px-3 py-1.5
+          border-gray-300 text-[rgb(var(--v-theme-on-surface))]
           hover:bg-gray-100
-          dark:border-gray-700 dark:text-grayt-100 dark:hover:bg-gray-800
-        "
-        :class="isDone
-          ? 'bg-gray-200 dark:bg-gray-700 dark:bg-gray-800 dark:text-gray-300'
-          : ''
-          "
-      >Done</VBtn>
+          dark:border-gray-700 dark:hover:bg-gray-800"
+        :class="isDone ? 'bg-gray-200 dark:bg-gray-800' : ''"
+      >
+        Done
+      </VBtn>
     </div>
 
     <div class="tasks-assignee">
@@ -117,11 +103,9 @@
         <select
           v-if="users.list.length"
           :value="task.assigneeId ?? ''"
-          class="
-            rounded-xl border border-gray-300 px-2 py-1#
-            text-gray-800 dark:text-gray-100
-            dark:bg-gray-900 dark:border-gray-700
-          "
+          class="rounded-xl border border-gray-300 px-2 py-1
+            text-[rgb(var(--v-theme-on-surface))]
+            dark:bg-gray-900 dark:border-gray-700"
           @change="tasks.assign(task.id, (
             $event.target as HTMLSelectElement).value
             ? Number(($event.target as HTMLSelectElement).value)

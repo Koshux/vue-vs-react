@@ -5,8 +5,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#4F46E5',
-        secondary: '#EC4899',
+        primary: 'rgb(var(--v-theme-primary))',
+        surface: 'rgb(var(--v-theme-surface))',
+        'on-surface': 'rgb(var(--v-theme-on-surface))',
       },
       borderRadius: {
         xl: '0.75rem',
