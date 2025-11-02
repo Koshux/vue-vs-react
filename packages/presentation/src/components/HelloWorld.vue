@@ -1,5 +1,8 @@
 <template>
-  <div class="reveal" ref="deckRef">
+  <div
+    class="reveal"
+    ref="deckRef"
+  >
     <div class="slides">
       <!-- Slide 1: Title -->
       <section data-markdown>
@@ -60,23 +63,23 @@ const deckRef = ref(null)
 
 onMounted(() => {
   // nextTick(() => {
-    if (deckRef.value) {
-      const deck = new Reveal(deckRef.value, {
-        // embedded: true,
-        // keyboardCondition: 'focused',
-        hash: true,
-        slideNumber: true,
-        plugins: [Markdown, Highlight],
-      })
-      deck.initialize({
-        markdown: {
-          smartypants: true
-        },
-        highlight: {
-          highlightOnLoad: true
-        },
-      })
-    }
+  if (deckRef.value) {
+    const deck = new Reveal(deckRef.value, {
+      // embedded: true,
+      // keyboardCondition: 'focused',
+      hash: true,
+      slideNumber: true,
+      plugins: [Markdown, Highlight],
+    })
+    deck.initialize({
+      markdown: {
+        smartypants: true
+      },
+      highlight: {
+        highlightOnLoad: true
+      },
+    })
+  }
   // })
 })
 </script>
@@ -87,7 +90,9 @@ onMounted(() => {
 @import 'reveal.js/dist/theme/moon.css';
 @import 'reveal.js/plugin/highlight/monokai.css';
 
-html, body, #app {
+html,
+body,
+#app {
   width: 100vw;
   height: 100vh;
   margin: 0;
@@ -97,31 +102,39 @@ html, body, #app {
 
 /* Custom styles for a cleaner look */
 :root {
-    --r-main-font: "Inter", "sans-serif";
-    --r-heading-font: "Inter", "sans-serif";
-    --r-heading-text-transform: none;
+  --r-main-font: "Inter", "sans-serif";
+  --r-heading-font: "Inter", "sans-serif";
+  --r-heading-text-transform: none;
 }
+
 .reveal .slides section .fragment.fade-in-then-out {
-    opacity: 0;
-    display: none;
+  opacity: 0;
+  display: none;
 }
+
 .reveal .slides section .fragment.fade-in-then-out.current-fragment {
-    opacity: 1;
-    display: inline;
+  opacity: 1;
+  display: inline;
 }
-.reveal h1, .reveal h2, .reveal h3 {
-    font-weight: 600;
+
+.reveal h1,
+.reveal h2,
+.reveal h3 {
+  font-weight: 600;
 }
+
 .reveal .col {
-    flex: 1;
-    padding: 0 20px;
+  flex: 1;
+  padding: 0 20px;
 }
+
 .reveal .d-flex {
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
 }
+
 .reveal ul {
-    width: 100%;
+  width: 100%;
 }
 </style>

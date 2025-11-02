@@ -2,7 +2,14 @@
   "name": "vue-vs-react-workshop",
   "private": true,
   "scripts": {
+    "dev:vue-app:format": "pnpm --filter vue-app format",
+    "dev:vue-app": "pnpm --filter vue-app dev",
     "dev:presentation": "pnpm --filter presentation dev",
     "start": "pnpm dev:presentation"
+  },
+  "devDependencies": {
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
+    "prettier": "3.6.2"
   }
 }
