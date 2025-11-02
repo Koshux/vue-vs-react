@@ -30,7 +30,7 @@ export const useTasks = defineStore('tasks', () => {
     }
   }
 
-  function toggle(id: string) {
+  function toggle(id: string | undefined) {
     const task = items.value.find((item) => item.id === id)
 
     if (task) {

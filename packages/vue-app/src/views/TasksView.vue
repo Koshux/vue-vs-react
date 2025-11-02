@@ -18,6 +18,7 @@
       />
       <VBtn
         type="submit"
+        name="add"
         class="rounded-xl bg-primary text-white px-4 py-2 hover:opacity-90 active:opacity-80"
       >
         Add
@@ -91,6 +92,7 @@
         <label class="flex-1 flex items-center gap-2">
           <input
             type="checkbox"
+            name="done"
             :checked="task.done"
             @change="tasks.toggle(task.id)"
             class="size-4"
