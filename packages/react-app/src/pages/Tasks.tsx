@@ -57,9 +57,9 @@ export default function Tasks() {
           onChange={(e) => setTitle(e.target.value)}
           placeholder="New task…"
           className="flex-1 rounded-xl border border-gray-300 px-3 py-2 outline-none
-                     focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400
-                     placeholder-gray-500 dark:placeholder-gray-400
-                     text-[rgb(var(--v-theme-on-surface))] dark:bg-gray-900 dark:border-gray-700"
+             focus:ring-2 focus:ring-primary/40 focus:border-primary/60
+             placeholder-gray-500 dark:placeholder-gray-400
+             text-on-surface bg-surface dark:border-gray-700"
         />
         <button
           type="submit"
@@ -132,7 +132,7 @@ export default function Tasks() {
                   )
                 }
                 className="rounded-xl border border-gray-300 px-2 py-1
-                           text-[rgb(var(--v-theme-on-surface))] dark:bg-gray-900 dark:border-gray-700"
+                  text-on-surface bg-surface dark:border-gray-700"
               >
                 <option value="">Unassigned</option>
                 {users.map((u) => (

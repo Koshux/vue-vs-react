@@ -22,9 +22,9 @@ export default function ThemeToggle() {
       aria-pressed={isDark}
       title={isDark ? 'Switch to Light' : 'Switch to Dark'}
       className="rounded-xl border px-3 py-1.5
-                 bg-white text-[rgb(var(--v-theme-on-surface))] border-gray-300 hover:bg-gray-50
-                 dark:bg-gray-900 dark:text-[rgb(var(--v-theme-on-surface))] dark:border-gray-700 dark:hover:bg-gray-800
-                 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+             bg-surface text-on-surface border-gray-300 hover:bg-gray-50
+             dark:border-gray-700 dark:hover:bg-gray-800
+             focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60"
     >
       {isDark ? '☾ Dark' : '☀︎ Light'}
     </button>
