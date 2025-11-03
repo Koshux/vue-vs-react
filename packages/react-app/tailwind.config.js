@@ -5,9 +5,16 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#4f46e5',
-        surface: '#ffffff',
-        'on-surface': '#0b1220',
+        /* Use CSS variables with alpha support */
+        primary: 'rgb(var(--color-primary) / <alpha-value>)',
+        surface: 'rgb(var(--color-surface) / <alpha-value>)',
+        'on-surface': 'rgb(var(--color-on-surface) / <alpha-value>)',
+      },
+      borderRadius: {
+        xl: 'var(--radius-xl)',
+      },
+      boxShadow: {
+        soft: 'var(--shadow-soft)',
       },
     },
   },
