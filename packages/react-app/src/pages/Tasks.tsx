@@ -60,6 +60,7 @@ export default function Tasks() {
              focus:ring-2 focus:ring-primary/40 focus:border-primary/60
              placeholder-gray-500 dark:placeholder-gray-400
              text-on-surface bg-surface dark:border-gray-700"
+          data-testid="task-input"
         />
         <button
           type="submit"
@@ -108,7 +109,7 @@ export default function Tasks() {
         {usersError && <span className="text-red-600">{usersError}</span>}
       </div>
 
-      <ul className="space-y-2">
+      <ul className="space-y-2" data-testid="task-list">
         {filtered.map((task) => (
           <li key={task.id} className="card flex items-center gap-3">
             <label className="flex-1 flex items-center gap-2">

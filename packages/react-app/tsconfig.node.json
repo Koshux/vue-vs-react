@@ -22,5 +22,12 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["src", "vitest.config.ts", "vitest.setup.ts", "src/vitest.d.ts"]
+  "include": [
+    "src",
+    "vitest.config.ts",
+    "vitest.setup.ts",
+    "src/vitest.d.ts",
+    "src/**/*.ts",
+    "playwright.config.ts"
+  ]
 }
