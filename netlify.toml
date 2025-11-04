@@ -3,9 +3,14 @@
   # Then build only the Vue app package:
   command = "pnpm -C packages/vue-app build"
   publish = "packages/vue-app/dist"
+  ignore = "git diff --quiet HEAD^ HEAD packages/vue-app && exit 0 || exit 1"
 
 [build.environment]
   # Pin Node so vite/vitest/playwright deps are happy
   NODE_VERSION = "22.12.0"
   # Netlify supports pnpm via Corepack; this makes sure it's available
   COREPACK_ENABLE_DOWNLOAD_PROMPT = "0"
+
+# skip build if vue-app didn’t change
+[build.processing]
+  skip_processing = false
