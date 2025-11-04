@@ -1,56 +1,117 @@
-# Vue vs React Workshop – Vue App
+# PTL Workshop 2025 – Vue & React Comparison
 
-This folder contains the **Vue 3** app used in the PTL workshop.
-Deployed at **https://ptl-workshop-vue.netlify.app**.
+This repo contains the two sibling apps we use in the workshop to show like-for-like Vue vs React implementations (routing, state, theming, API fetch, tests, and deploys).
 
-> Monorepo path: `packages/vue-app`
+- **Vue app (Netlify):** https://ptl-workshop-vue.netlify.app/
+- **React app (Vercel):** https://vue-vs-react-react-app.vercel.app/
 
----
-
-## Tech Stack
-
-- **Vite 7**, **TypeScript**, **Vue 3**
-- **Vue Router** (history mode)
-- **Pinia** (with a small custom **persist plugin**)
-- **Vuetify 3** + **Tailwind CSS** (Tailwind tokens mapped to Vuetify theme)
-- **Vitest + Vue Test Utils** (unit), **Playwright** (e2e)
+The repo is set up as a PNPM workspace.
 
 ---
 
-## Features in this app
+## 1. Structure
 
-- **Pages**
-  - `/` Home
-  - `/about` About
-  - `/assignees` Lazy-loaded, fetches users from `jsonplaceholder.typicode.com`
-  - `/tasks` Task tracker with filter (all/active/done), checkbox toggle, and assignees
-- **State**
-  - `stores/tasks.ts`: tasks CRUD + filter + computed selectors
-  - `stores/users.ts`: API fetch with loading/error/loaded flags and `byId` helper
-  - Persisted state (selected keys) via `src/plugins/persist.ts`
-- **UI**
-  - Light/Dark toggle (syncs Vuetify + Tailwind via CSS variables)
-  - SPA routing works on Netlify via `public/_redirects`
+```text
+.
+├─ packages/
+│  ├─ vue-app/     # Vue 3 + Vite + Pinia + Vue Router + Vuetify + Tailwind
+│  └─ react-app/   # React 19 + Vite + Redux Toolkit + React Router + Tailwind
+└─ ...
+```
+
+Each app is self-contained and has its own `package.json` with scripts. Run commands **from the app folder** when working on just one framework.
 
 ---
 
-## Requirements
+## 2. Prerequisites
 
-- **Node**: `^20.19.0 || >=22.12.0`
-- **pnpm** recommended (Corepack-enabled environments work well)
+- Node.js **20+**
+- **pnpm** installed globally (or `corepack enable` if your Node supports it)
+- Git
 
----
-
-## Scripts
-
-From the monorepo **root**:
+Install workspace deps from the repo root:
 
 ```bash
-pnpm -C packages/vue-app dev       # Start dev server
-pnpm -C packages/vue-app build     # Type-check + build
-pnpm -C packages/vue-app preview   # Preview the production build
-pnpm -C packages/vue-app test:unit # Run unit tests (Vitest)
-pnpm -C packages/vue-app test:e2e  # Run e2e tests (Playwright)
-pnpm -C packages/vue-app lint      # ESLint (with cache + fix)
-pnpm -C packages/vue-app format    # Prettier (src/ only)
+pnpm install
 ```
+
+---
+
+## 3. Running the apps
+
+### Vue app
+
+```bash
+cd packages/vue-app
+pnpm dev
+```
+
+- Vue Router routes: `/`, `/about`, `/assignees`, `/tasks`
+- State: Pinia store for tasks + persisted subset
+- UI: Vuetify + Tailwind
+- E2E: Playwright config present
+
+### React app
+
+```bash
+cd packages/react-app
+pnpm dev
+```
+
+- React Router routes: `/`, `/tasks` (and whatever you’ve mirrored from Vue)
+- State: Redux Toolkit slices (`tasks`, `users`) + small localStorage persistor
+- E2E: Playwright tests under `tests/e2e`
+
+---
+
+## 4. Features implemented in both
+
+- ✅ **Task tracker**: add → list → toggle → filter (all / active / done)
+- ✅ **Remote assignees**: fetch users from `https://jsonplaceholder.typicode.com/users` and bind to tasks
+- ✅ **Routing**: top-level pages (Home, Tasks, About/Assignees)
+- ✅ **Light/Dark**: Tailwind `dark` class, persisted choice
+- ✅ **Local persistence**: saved tasks survive reload
+- ✅ **Unit tests**: Vitest + (React) Testing Library / (Vue) Vue Test Utils equivalent
+- ✅ **Playwright E2E**: simple task flow coverage
+- ✅ **Deployed**: Vue → Netlify, React → Vercel
+
+---
+
+## 5. Deploy notes
+
+- **Netlify** is configured to build **only** `packages/vue-app`
+- **Vercel** is configured to build **only** `packages/react-app`
+- Push to `main` → only the app that changed is rebuilt
+
+(Those ignore rules live in the platform config, not here.)
+
+---
+
+## 6. Where to find scripts
+
+To keep the root clean, **use the scripts inside each package**:
+
+- `packages/vue-app/package.json` → `dev`, `build`, `test:unit`, `test:e2e`
+- `packages/react-app/package.json` → `dev`, `build`, `test`, `test:e2e`
+
+Run them like:
+
+```bash
+cd packages/react-app
+pnpm test
+```
+
+or
+
+```bash
+cd packages/vue-app
+pnpm test:e2e
+```
+
+---
+
+## 7. Contact
+
+Facilitated by **James Lanzon**
+📧 [lanzonprojects@gmail.com](mailto:lanzonprojects@gmail.com)
+GitHub: [https://github.com/Koshux/](https://github.com/Koshux/)

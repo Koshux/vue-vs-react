@@ -2,11 +2,12 @@
   "name": "vue-vs-react-workshop",
   "private": true,
   "scripts": {
-    "llm:vue": "node combine-files.cjs --path ./packages/vue-app",
-    "llm:react": "node combine-files.cjs --path ./packages/vue-app",
-    "test:e2e:v": "pnpm -C packages/vue-app test:e2e",
-    "dev:vue-app:format": "pnpm --filter vue-app format",
-    "dev:vue-app": "pnpm --filter vue-app dev",
+    "dev:vue": "pnpm --filter vue-app dev",
+    "dev:format:vue:": "pnpm --filter vue-app format",
+    "test:e2e:vue": "pnpm -C packages/vue-app test:e2e",
+    "dev:react": "pnpm --filter vue-app dev",
+    "dev:format:react:": "pnpm --filter vue-app format",
+    "test:e2e:react": "pnpm -C packages/vue-app test:e2e",
     "dev:presentation": "pnpm --filter presentation dev",
     "start": "pnpm dev:presentation"
   },
