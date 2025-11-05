@@ -1,41 +1,37 @@
-D3.1: Team Tooling
+## D3.1: Team Tooling & Automation
 
 branch: day-3/00-tooling
 
-Goal: Enforce code quality and consistency before it gets committed.
+### Goal: Code Consistency
 
-The Toolchain
+When working in a team, consistent code is readable and maintainable. We use tools to enforce quality _automatically_ before code is ever committed.
 
-ESLint: Finds syntax and style errors in JavaScript/TypeScript.
+---
 
-Prettier: An opinionated code formatter. It formats your code on save.
+### The Toolchain
 
-Husky: Runs scripts (like tests or linters) at different git stages (e.g., pre-commit).
+- **ESLint**: A linter that finds syntax errors and style issues in your code.
+- **Prettier**: An opinionated code _formatter_. It ends all debates about tabs vs. spaces by automatically reformatting your code on save.
+- **Husky**: A tool that runs scripts during `git` hooks (like `pre-commit`).
+- **lint-staged**: Runs your linters _only_ on the files you've staged for commit, making the check extremely fast.
 
-lint-staged: Runs linters only on the files you've staged for commit. This is fast and efficient.
+---
 
---
+### How It Works
 
-How It Works
+1.  You run `git commit`.
+2.  **Husky** intercepts this and triggers a `pre-commit` hook.
+3.  The hook runs **lint-staged**.
+4.  `lint-staged` runs `eslint --fix` and `prettier --write` on all your staged `.vue` and `.tsx` files.
+5.  If there are no errors, the commit proceeds. If there are, the commit is blocked.
 
-You run git commit.
+---
 
-Husky triggers the pre-commit hook.
-
-The hook runs lint-staged.
-
-lint-staged runs eslint --fix and prettier --write on all staged .vue and .tsx files.
-
-If there are no errors, the commit proceeds.
-
-Your Task
+### Your Task
 
 In both projects:
 
-Install husky and lint-staged.
-
-Configure husky to run lint-staged on pre-commit.
-
-Configure lint-staged to run eslint on all staged files.
-
-Make an intentional lint error in a file, try to commit it, and watch it fail.
+1.  Install `husky` and `lint-staged`.
+2.  Configure `husky` to run `lint-staged` on `pre-commit`.
+3.  Configure `lint-staged` in `package.json` to run `eslint --fix` on staged files.
+4.  Make an intentional lint error in a file, try to commit it, and watch it fail.

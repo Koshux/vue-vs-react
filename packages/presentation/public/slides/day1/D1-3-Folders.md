@@ -1,14 +1,20 @@
-D1.3: Folder Structure
-branch: day-1/02-structure
+### Scalable Architecture
 
-A standard, scalable structure:
+A predictable folder structure is key for maintainability. This is a common, scalable pattern for both frameworks.
 
-src/
-├── assets/
-├── components/  # Reusable UI (Button.vue)
-├── views/       # Pages (HomePage.vue)
-├── router/      # Routing config
-├── store/       # Global state
-└── main.ts      # App entry point
+`src/`
 
-Your Task: In both vue-app and react-app, create an empty file: src/components/Button.vue and src/components/Button.tsx.
+- `assets/`: Images, fonts, and global styles.
+- `components/`: **Reusable** UI pieces (Button, Modal).
+- `views/` (or `pages/`): Routed components (HomePage, AboutPage).
+- `router/`: Routing configuration.
+- `store/` (or `features/`): Global state (Pinia/Redux).
+
+---
+
+### Your Task
+
+In both `vue-app` and `react-app`, create an empty file:
+
+- `src/components/Button.vue`
+- `src/components/Button.tsx`

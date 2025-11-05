@@ -1,17 +1,17 @@
-D1.7: Slots vs Children
-
+D1.7: Slots vs. Children
 branch: day-1/06-slots-vs-children
 
-Concept
+### Concept: Content Projection
 
-Vue
+How do we pass _content_ (like HTML or other components) _into_ a component?
 
-React
+| Framework | Syntax             | Common Use                           |
+| :-------- | :----------------- | :----------------------------------- |
+| **Vue**   | `<slot />`         | Passing icons, text, or layout.      |
+| **React** | `{props.children}` | The standard way to wrap components. |
 
-Content Projection
+---
 
-<slot />
+### Your Task
 
-{props.children}
-
-Your Task: Modify your Button in both projects to accept an optional icon (e.g., an emoji) as a slot/child.
+Modify your **Button** in both projects to accept an optional icon (e.g., an - emoji) as a slot/child, appearing _before_ the label text.

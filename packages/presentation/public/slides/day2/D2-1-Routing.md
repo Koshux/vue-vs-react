@@ -1,33 +1,31 @@
-D2.1: Routing
+## D2.1: Advanced Routing
 
 branch: day-2/00-routing
 
-Vue Router: Mature, official router.
+### Vue Router: Guards
 
-React Router: v6+ is the modern standard, data-focused.
+Vue Router's "navigation guards" are its "middleware." They are perfect for checking auth or permissions before a user can see a page.
 
-Vue Router
+- `router.beforeEach`: A global guard that runs before _every single_ route change.
+- `beforeEnter`: An in-route guard for specific routes.
+- `beforeRouteLeave`: A component-level guard to prevent a user from leaving a page (e.g., "Are you sure you want to discard changes?").
 
-history: createWebHistory() for clean URLs.
+---
 
-routes: [...] array defines paths and components.
+### React Router v6: Data Routers
 
-Guards: beforeEach is a global "middleware" for checking auth, etc.
+The modern standard is using `createBrowserRouter`. This enables powerful "data-loading" features.
 
-Dynamic: <RouterView> + nested routes.
+- **`loader`**: A function you attach to a route that fetches data _before_ the component renders. No more loading spinners inside `useEffect`!
+- **`action`**: A function that handles data mutations (like form submissions) for a route.
+- **`useLoaderData`**: A hook to access the data from your loader in your component.
 
---
+---
 
-React Router v6
+### Your Task
 
-Data Routers: createBrowserRouter is the new standard.
-
-Actions/Loaders: Functions that run on navigation to fetch or submit data before the component renders.
-
-Dynamic: <Outlet> + child routes.
-
-Your Task
-
-Vue: Add a beforeEach navigation guard to your router that logs the "to" and "from" paths to the console.
-
-React: Refactor your routes to use createBrowserRouter. Add a loader to your /about route that returns a simple object { message: "Hello from the loader!" } and display it on the page.
+- **Vue**: Add a global `beforeEach` navigation guard to `src/router/index.ts` that simply `console.log`s the `to` and `from` paths.
+- **React**:
+  1.  Refactor your routes in `main.tsx` to use `createBrowserRouter`.
+  2.  Add a `loader` to your `/about` route that returns a simple object: `{ message: "Hello from the loader!" }`.
+  3.  Use the `useLoaderData` hook in your `About` component to display the message.

@@ -1,33 +1,44 @@
-D2.3: Advanced State
+## D2.3: Global State Management
 
 branch: day-2/02-advanced-state
 
-The Problem: Context API is simple, but Pinia/Redux offer more power, structure, and debugging tools.
+### The Problem
 
-DevTools: Both integrate with browser extensions for time-travel debugging.
+`useState` is local. `Context` is tree-based. But what if two _totally separate_ components need to share state?
 
-Pinia
+This is where a **global state manager** comes in. It's a single "source of truth" outside your component tree.
 
-The new official standard for Vue.
+[Image of global state management diagram]
 
-Plugins: Easy to add features like pinia-plugin-persistedstate to save state to localStorage.
+---
 
-SSR: Works seamlessly with Nuxt.
+### Vue: Pinia
 
---
+Pinia is the new official, simple state manager for Vue.
 
-Redux Toolkit (RTK)
+- **Store**: A "slice" of state defined with `defineStore`.
+- **Plugins**: Easy to add features like `pinia-plugin-persistedstate` to automatically save state to `localStorage`.
+- **DevTools**: Integrates perfectly with Vue DevTools for time-travel debugging.
 
-The modern standard for React.
+---
 
-createSlice: Replaces old "reducers", "actions", and "constants" with one function.
+### React: Redux Toolkit (RTK)
 
-RTK Query: A powerful data fetching & caching tool built-in. Solves fetching, loading states, and caching automatically.
+RTK is the modern standard for "heavy" state in React.
 
-Alternatives: Zustand is a much simpler, lightweight store inspired by hooks. Very popular.
+- **`createSlice`**: Replaces old "reducers" and "actions" with one simple function.
+- **`RTK Query`**: A _complete_ data-fetching and caching solution. It automatically handles fetching, loading states, and caching, often replacing `useEffect` entirely.
+- **Alternatives**: For simpler needs, **Zustand** is extremely popular. It feels like a simple hook (`useStore()`) but is global.
 
-Your Task
+---
 
-Vue: Add the pinia-plugin-persistedstate to your Pinia counter store. Refresh the page and prove the count is saved.
+### Your Task
 
-React: Refactor your useContext counter to a full Redux Toolkit createSlice. Connect it to your component and prove it still works.
+- **Vue**:
+  1.  Install `pinia-plugin-persistedstate`.
+  2.  Add it to your Pinia instance in `main.ts`.
+  3.  In your `useCounterStore`, add `persist: true` to the store options.
+  4.  Refresh the page and prove the count is saved.
+- **React**:
+  1.  Refactor your `CounterContext` to a full Redux Toolkit `createSlice` named `counterSlice`.
+  2.  Connect it to your components using `useSelector` and `useDispatch`.

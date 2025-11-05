@@ -1,9 +1,18 @@
 D1.8: Routing Basics
-
 branch: day-1/07-routing-basics
 
-Vue: Uses <RouterView> to display the page and <RouterLink to="/about"> to navigate.
+### Core Routing Concepts
 
-React: Uses <Outlet> to display the child route and <Link to="/about"> to navigate.
+Both frameworks use a "router" library to map a URL path to a specific component.
 
-Your Task: In both apps, add an /about route and page. Add a link to it from your home page.
+| Concept           | Vue (`vue-router`)         | React (`react-router-dom`) |
+| :---------------- | :------------------------- | :------------------------- |
+| **Link**          | `<RouterLink to="/about">` | `<Link to="/about">`       |
+| **Render Outlet** | `<RouterView />`           | `<Outlet />`               |
+
+---
+
+### Your Task
+
+1.  In both apps, add an `/about` route that renders a simple `About` component.
+2.  Add a navigation link to it from your main home page.

@@ -1,33 +1,36 @@
-D3.3: E2E Testing
+## D3.3: End-to-End (E2E) Testing
 
 branch: day-3/02-e2e-testing
 
-Goal: Test the entire application flow from a real user's perspective in a real browser.
+### What is E2E Testing?
 
-Tools: Cypress (the classic), Playwright (the modern, fast successor).
+E2E tests simulate a _real user's entire journey_ through your application in a _real browser_.
 
-Cypress vs. Playwright
+**Example Flow**:
 
-Cypress:
+1.  Launch Chrome.
+2.  Visit `localhost:5173`.
+3.  Click the "Login" link.
+4.  Fill in the "email" and "password" fields.
+5.  Click "Submit".
+6.  Assert that the URL is now `/dashboard`.
 
-Runs inside the browser.
+---
 
-Great "time-travel" debugger.
+### Cypress vs. Playwright
 
-Traditionally only supported Chrome-based browsers (now supports more).
+- **Cypress**: The classic E2E tool. Runs _inside_ the browser, which gives it a great time-traveling debugger.
+- **Playwright**: The modern successor from Microsoft. Runs _outside_ the browser, giving it more control. It's known for being extremely fast, reliable, and having excellent cross-browser support (Chrome, Firefox, Safari) with one API.
 
-Playwright:
+We are using **Playwright**.
 
-Runs outside the browser (like Puppeteer).
+---
 
-Controls Chrome, Firefox, and WebKit (Safari) with one API.
+### Playwright Example
 
-Extremely fast and reliable, with powerful auto-waits.
+Tests are written in a simple `test('name', ...)` format.
 
---
-
-Example (Playwright)
-
+```js
 import { test, expect } from '@playwright/test'
 
 test('counter page works', async ({ page }) => {
@@ -41,18 +44,16 @@ test('counter page works', async ({ page }) => {
   const count = await page.locator('.count-display')
   await expect(count).toHaveText('1')
 })
+```
 
+---
 
-Your Task
+### Your Task
 
 Choose one app (Vue or React):
 
-Add Playwright to the project.
-
-Write one E2E test that:
-
-Visits the home page.
-
-Clicks the link to the /about page.
-
-Asserts that the /about page shows the Pokémon's name you fetched earlier.
+1. Add Playwright to the project.
+2. Write one E2E test that:
+   - Visits the home page (/).
+   - Clicks the link to the /about page.
+   - Asserts that the /about page shows the Pokémon's name ("pikachu").

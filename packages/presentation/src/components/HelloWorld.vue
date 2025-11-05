@@ -5,7 +5,7 @@
   >
     <div class="slides">
       <!-- Slide 1: Title -->
-      <section data-markdown>
+      <!-- <section data-markdown>
         <textarea data-template>
           # Vue vs React
           ### A 3-Day Workshop
@@ -14,7 +14,8 @@
           <br>
           **Date:** October 20-22, 2025
         </textarea>
-      </section>
+      </section> -->
+      <IntroductionSlides />
 
       <section>
         <h2>Day 1</h2>
@@ -54,7 +55,7 @@ import { onMounted, ref, nextTick } from 'vue'
 import Reveal from 'reveal.js'
 import Markdown from 'reveal.js/plugin/markdown/markdown.js'
 import Highlight from 'reveal.js/plugin/highlight/highlight.js'
-
+import IntroductionSlides from './slides/WelcomeDeck.vue'
 import Day1Slides from './slides/SlidesDay1.vue'
 import Day2Slides from './slides/SlidesDay2.vue'
 import Day3Slides from './slides/SlidesDay3.vue'
@@ -72,6 +73,14 @@ onMounted(() => {
       plugins: [Markdown, Highlight],
     })
     deck.initialize({
+      width: 2048,
+      height: 1080,
+      margin: 0.04,
+      center: true,
+
+      // Bounds for smallest/largest possible scale to apply to content
+      minScale: 0.2,
+      maxScale: 2.0,
       markdown: {
         smartypants: true
       },
@@ -79,6 +88,11 @@ onMounted(() => {
         highlightOnLoad: true
       },
     })
+    // Change the size of our presentation
+    // document.querySelector('.reveal').style.width = '50vw';
+
+    // // Make reveal.js aware of the size change
+    // Reveal.layout();
   }
   // })
 })

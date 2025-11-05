@@ -1,19 +1,26 @@
-D3.2: Unit Testing
+## D3.2: Unit Testing
 
 branch: day-3/01-testing
 
-Goal: Test a single component or function in isolation.
+### The Testing Pyramid
 
-Tools: Jest or Vitest (test runners) + a component testing library.
+A model for a healthy testing strategy. We will focus on the bottom two layers.
 
-Vue: Vue Test Utils
+[Image of the testing pyramid]
 
-The official testing library for Vue.
+- **Unit Tests (Base)**: Fast, cheap. Test a single function or component in isolation. (We are here.)
+- **Integration Tests (Middle)**: Test how multiple components work _together_.
+- **E2E Tests (Top)**: Slow, expensive. Test the full application in a real browser.
 
-mount() or shallowMount() a component.
+---
 
-Find elements, interact (.trigger('click')), and assert the results.
+### Vue: `Vitest` + `Vue Test Utils`
 
+- **Vitest**: A modern, Vite-native test runner. It's fast and has a great API.
+- **Vue Test Utils**: The official library for mounting Vue components.
+- **Pattern**: `mount()` the component, use `wrapper.find()` to get elements, `wrapper.trigger('click')` to interact, and `expect()` to assert.
+
+```js
 import { mount } from '@vue/test-utils'
 import Counter from './Counter.vue'
 
@@ -22,18 +29,17 @@ test('it increments', async () => {
   await wrapper.find('button').trigger('click')
   expect(wrapper.html()).toContain('1')
 })
+```
 
+---
 
---
+### React: Vitest + React Testing Library
 
-React: React Testing Library (RTL)
+- React Testing Library (RTL): The industry standard.
+- Philosophy: "Test your components the way a user would." You find elements by their text, label, or role, not by class or ID. This makes tests less brittle.
+- Pattern: render() the component, use screen.getByText() to find elements, fireEvent.click() to interact, and expect() to assert.
 
-The industry standard.
-
-Philosophy: "Test your components the way a user would."
-
-Avoids implementation details. Find elements by text, label, or role, not CSS classes.
-
+```js
 import { render, screen, fireEvent } from '@testing-library/react'
 import Counter from './Counter'
 
@@ -42,14 +48,13 @@ test('it increments', () => {
   fireEvent.click(screen.getByText('Increment'))
   expect(screen.getByText('Count: 1')).toBeInTheDocument()
 })
+```
 
+---
 
-Your Task
+### Your Task
 
-In both apps, write a simple unit test for your Button component.
+In both apps, write a simple unit test for your Button component:
 
-Test:
-
-That it renders the label prop correctly.
-
-That the click handler is called when it's clicked.
+1. Test that it renders the label prop correctly.
+2. Test that the onClick handler (Vue: @click emit) is called when it's clicked.

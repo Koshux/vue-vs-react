@@ -1,9 +1,20 @@
 D1.6: React FC Basics
-
 branch: day-1/05-react-fc
 
-A function that accepts props and returns JSX.
+### React: Functional Components (FC) & JSX
 
-Types are defined with a TypeScript interface.
+React components are JavaScript functions that return UI.
 
-Your Task: Implement Button.tsx. It should accept a label prop and an onClick callback. Use it in your main component.
+- **Functional Component (FC):** A function that accepts `props` as its first argument and returns JSX.
+- **JSX:** A syntax extension for JavaScript that _looks_ like HTML but is actually JavaScript. It allows you to write your UI and logic in the same file.
+- **Typing:** We use a TypeScript `interface` or `type` to define the component's `props`.
+
+---
+
+### Your Task
+
+Implement `src/components/Button.tsx`.
+
+1.  Define a `ButtonProps` interface that accepts `label` (string) and `onClick` (a function).
+2.  Destructure the props in the function arguments.
+3.  Use it in your main component (`App.tsx`).
