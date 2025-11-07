@@ -7,6 +7,12 @@
       data-separator="^\r?\n---\r?\n$"
     ></section>
 
+    <!-- D1.1A Scaffolding Overview -->
+    <section
+      data-markdown="/slides/day1/D1-1A-Scaffolding.md"
+      data-separator="^\r?\n---\r?\n$"
+    ></section>
+
     <!-- D1.2 Vite in Vue & React -->
     <section
       data-markdown="/slides/day1/D1-2-Vite.md"

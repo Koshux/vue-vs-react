@@ -6,7 +6,7 @@ branch: day-3/01-testing
 
 A model for a healthy testing strategy. We will focus on the bottom two layers.
 
-[Image of the testing pyramid]
+![Image of the testing pyramid](../../type-of-tests.jpg 'Types of Tests')
 
 - **Unit Tests (Base)**: Fast, cheap. Test a single function or component in isolation. (We are here.)
 - **Integration Tests (Middle)**: Test how multiple components work _together_.

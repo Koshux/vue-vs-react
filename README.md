@@ -1,60 +1,206 @@
-# ⚡️ PTL Workshop 2025 – Vue & React Comparison
+# 🧩 PTL Workshop 2025 – Vue & React Comparison
 
-This monorepo contains the complete source code and presentation materials for the PTL Workshop 2025.
-
-It features a "Task Tracker" application built with feature-parity in both **Vue 3** and **React 19**. The goal is to provide a hands-on comparison of their ecosystems, state management patterns, and testing strategies in a modern Vite-powered environment.
+**Facilitated by James Lanzon**
 
 ---
 
-## 🚀 Live Demos
+## 📝 Overview
 
-- **Vue 3 App (Netlify):** [https://ptl-workshop-vue.netlify.app/](https://ptl-workshop-vue.netlify.app/)
-- **React 19 App (Vercel):** [https://vue-vs-react-react-app.vercel.app/](https://vue-vs-react-react-app.vercel.app/)
-
----
-
-## 📦 What's Inside?
-
-This repository is a monorepo managed with `pnpm workspaces`.
-
-- **`packages/vue-app`**
-  - The Vue 3 + Vite "Task Tracker" application.
-  - Uses **Pinia** for state management.
-  - Deployed on **Netlify**.
-
-- **`packages/react-app`**
-  - The React 19 + Vite "Task Tracker" application.
-  - Uses **Redux Toolkit** for state management.
-  - Deployed on **Vercel**.
-
-- **`packages/presentation`**
-  - The Reveal.js slide deck used for the workshop.
+This document outlines all setup requirements for participants attending the **PTL Workshop 2025 – Vue & React Comparison**, facilitated by **James Lanzon**.
+It ensures each participant is fully prepared to run both frameworks locally, follow along during hands-on exercises, and optionally deploy to **Netlify** (Vue) and **Vercel** (React).
 
 ---
 
-## ✨ Core Concepts Compared
+## ⚙️ 1. System Requirements
 
-Both applications are built with identical features to demonstrate the framework contrasts in:
+| Tool        | Minimum Version          | Description                                         |
+| ----------- | ------------------------ | --------------------------------------------------- |
+| **Node.js** | ≥ 20.19.0                | Required runtime for both Vue and React apps        |
+| **pnpm**    | ≥ 9.x                    | Efficient package manager for monorepo setup        |
+| **Git**     | Any modern version       | Source control & branching for workshop checkpoints |
+| **VS Code** | Latest                   | Recommended IDE with plugin support                 |
+| **Browser** | Chrome, Edge, or Firefox | Used for app testing and dev tools inspection       |
 
-- **State Management:** Pinia vs. Redux Toolkit (RTK)
-- **Routing:** `vue-router` vs. `react-router-dom`
-- **Styling:** A shared Tailwind CSS setup
-- **Unit Testing:** Vitest
-- **E2E Testing:** Playwright
-- **Data Persistence:** LocalStorage integration
-- **Deployment:** Continuous deployment to Netlify and Vercel
+> ✅ Verify installation:
+>
+> ```bash
+> node -v
+> pnpm -v
+> git --version
+> ```
 
 ---
 
-## 🛠 Running Locally
+## 🧱 2. Local Environment Setup
 
-1.  Clone this repository to your local machine.
+1. **Clone the workshop repository:**
 
-2.  Install all dependencies from the root directory using `pnpm`:
+```bash
+git clone https://github.com/Koshux/vue-vs-react.git
+cd vue-vs-react
+```
 
-    ```bash
-    pnpm install
-    ```
+2. Install dependencies:
 
-> **Note**
-> For specific commands to run, test, and build each individual app (e.g., `pnpm dev`), please see the `README.md` file inside its corresponding package directory (like `packages/vue-app/README.md`).
+```bash
+pnpm install
+```
+
+3. Start each app locally:
+
+```bash
+# Vue app
+cd packages/vue-app
+pnpm dev
+
+# React app (after creation)
+cd packages/react-app
+pnpm dev
+```
+
+4. Build for production:
+
+```bash
+pnpm build
+```
+
+## 🧩 3. Recommended Editor Setup (VS Code)
+
+For the best development experience, install the following VS Code extensions:
+
+| **Extension**                 | **ID**                      | **Description**                                        |
+| ----------------------------- | --------------------------- | ------------------------------------------------------ |
+| **Vue – Official**            | `Vue.volar`                 | Language support and IntelliSense for Vue 3            |
+| **ESLint**                    | `dbaeumer.vscode-eslint`    | Enforces consistent linting and style rules            |
+| **Prettier**                  | `esbenp.prettier-vscode`    | Auto-formats code on save                              |
+| **TypeScript Vue Plugin**     | _(included with Volar)_     | Adds full TypeScript awareness in `.vue` files         |
+| **Tailwind CSS IntelliSense** | `bradlc.vscode-tailwindcss` | Autocompletion and design-token hints for Tailwind CSS |
+
+### Optional (Highly Recommended)
+
+| **Extension**                   | **Purpose**                                      |
+| ------------------------------- | ------------------------------------------------ |
+| **GitLens**                     | Enhanced Git history, blame, and commit insights |
+| **REST Client**                 | Test APIs directly from `.http` files            |
+| **Playwright Test for VS Code** | Run and debug E2E tests interactively            |
+
+---
+
+## ☁️ 4. Cloud Development Options
+
+If installing dependencies locally isn’t possible, you can use a **cloud-based dev environment**:
+
+### **GitHub Codespaces**
+
+- Pre-configured Node.js + PNPM setup
+- Runs VS Code directly in the browser
+- Access via your GitHub account under your forked repo
+
+### **StackBlitz (Vite Mode)**
+
+- Visit [stackblitz.com](https://stackblitz.com/)
+- Import repository via GitHub URL
+- Supports both Vue and React with hot-reload out of the box
+
+> Both options support Node 20 + and require minimal local configuration.
+
+---
+
+## 🚀 5. Deployment Setup
+
+### 🟩 Deploying the Vue App to Netlify
+
+1. Go to [Netlify](https://app.netlify.com/).
+2. Click **“New Site from Git.”**
+3. Connect your **GitHub** repository.
+4. Select the **vue-app** directory as your root.
+5. Configure the build settings:
+
+```bash
+Build command: pnpm build
+Publish directory: dist
+```
+
+6. Click **Deploy Site**.
+
+> ✅ Example Deployment: [https://ptl-workshop-vue.netlify.app](https://ptl-workshop-vue.netlify.app)
+
+---
+
+### ⚫ Deploying the React App to Vercel
+
+1. Go to [Vercel](https://vercel.com/).
+2. Click **“Add New Project.”**
+3. Import your **GitHub** repository.
+4. Select the **react-app** directory.
+5. Configure the build settings:
+
+```bash
+Framework Preset: Vite
+Build Command: pnpm build
+Output Directory: dist
+```
+
+6. Click **Deploy**, and Vercel will automatically assign a live preview URL.
+
+> 💡 _Tip:_ You can link your custom domain in Vercel after deployment.
+
+---
+
+## 🧪 6. Testing Tools
+
+| **Framework** | **Unit Testing**             | **E2E Testing**       |
+| ------------- | ---------------------------- | --------------------- |
+| **Vue**       | Vitest + Vue Test Utils      | Playwright            |
+| **React**     | Jest + React Testing Library | Cypress or Playwright |
+
+### Run Tests Locally
+
+```bash
+pnpm test:unit     # Unit tests
+pnpm test:e2e      # End-to-end tests
+```
+
+---
+
+## 🧭 7. Troubleshooting & Tips
+
+- **Clear PNPM cache:**
+  ```bash
+  pnpm store prune
+  ```
+- Restart VS Code after installing new extensions.
+- Ensure Node is not using outdated global versions.
+- Run pnpm dev --force if hot reload fails.
+- On Windows, if Vite build errors occur:
+
+```bash
+rm -rf node_modules pnpm-lock.yaml
+pnpm install
+```
+
+---
+
+## ✅ 8. Final Participant Checklist
+
+| **Status** | **Item**                              |
+| :--------: | :------------------------------------ |
+|     ☐      | Node.js 20+ installed                 |
+|     ☐      | PNPM installed                        |
+|     ☐      | Git & VS Code installed               |
+|     ☐      | Repository cloned successfully        |
+|     ☐      | Dev server runs for both Vue & React  |
+|     ☐      | Netlify & Vercel accounts created     |
+|     ☐      | Recommended extensions installed      |
+|     ☐      | Tests pass locally (`pnpm test:unit`) |
+
+---
+
+## 📬 9. Contact
+
+**Facilitator:**
+**James Lanzon**
+📧 [lanzonprojects@gmail.com](mailto:lanzonprojects@gmail.com)
+💻 [github.com/Koshux](https://github.com/Koshux)
+
+> © 2025 Slow Burn Ltd. All rights reserved.
