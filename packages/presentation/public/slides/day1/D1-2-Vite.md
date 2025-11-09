@@ -1,6 +1,6 @@
 ## D1.2: Vite in Vue & React
 
-<!-- branch: day-1/01-vite-basics -->
+branch: day-1/02-vite-basics
 
 ### Build Tools: The "Why"
 

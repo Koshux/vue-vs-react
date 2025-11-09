@@ -1,3 +1,5 @@
+## D1.3: Directory structure
+
 ### Scalable Architecture
 
 A predictable folder structure is key for maintainability. This is a common, scalable pattern for both frameworks.

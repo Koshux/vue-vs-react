@@ -1,6 +1,8 @@
 ## D1.4: Our Monorepo Stack (Layer 1: PNPM)
 
 **branch:** `day-1/03-workspaces`
+<br />
+<br />
 
 ### Layer 1: The Package Manager
 
@@ -8,8 +10,11 @@
 
 A single repository containing multiple, distinct projects (or "packages").
 
-- **Why?** Simplified dependency management (via `pnpm workspaces`) and easy code sharing (e.g., a shared `ui-library` package).
-- **Our Structure:** `vue-app`, `react-app`, and `presentation` all live in one repo.
+- **Why?**
+  - Simplified dependency management (via `pnpm workspaces`)
+  - Easy code sharing (e.g., a shared `ui-library` package).
+- **Our Structure:**
+  - `vue-app`, `react-app`, and `presentation` all live in one repo.
 
 ---
 
@@ -30,7 +35,7 @@ Let's practice. Run these commands from the **root** of the monorepo:
 
 1.  `pnpm -F vue-app add axios`
 2.  `pnpm -F react-app add axios`
-    (We'll use this later for data fetching).
+    (We'll test this out later for data fetching, including fetch).
 
 ---
 

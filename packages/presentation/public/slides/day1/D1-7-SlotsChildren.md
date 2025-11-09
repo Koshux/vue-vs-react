@@ -1,4 +1,5 @@
-D1.7: Slots vs. Children
+## D1.7: Slots vs. Children
+
 branch: day-1/06-slots-vs-children
 
 ### Concept: Content Projection

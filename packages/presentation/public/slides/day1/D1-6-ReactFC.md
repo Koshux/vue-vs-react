@@ -1,4 +1,5 @@
-D1.6: React FC Basics
+## D1.6: React FC Basics
+
 branch: day-1/05-react-fc
 
 ### React: Functional Components (FC) & JSX

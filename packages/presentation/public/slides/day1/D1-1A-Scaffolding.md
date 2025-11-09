@@ -18,19 +18,31 @@
 ### Your Task: Scaffold Your App
 
 From the **root** of the `vue-vs-react` directory, run **one** of these commands:
+<br>
+<br>
 
-#### 🔵 Team Vue:
+<div class="d-flex">
+<div class="col">
+<h4>🔵 Team Vue:</h4>
 
 ```bash
 # This uses the official Vue scaffolder
 pnpm create vue@latest packages/vue-app --ts --router --pinia
 ```
 
-#### ⚛️ Team React:
+</div>
+
+<div class="col">
+<h4> ⚛️ Team React:</h4>
 
 ```bash
 # This uses the official Vite scaffolder
 pnpm create vite@latest packages/react-app -- --template react-ts
 ```
 
+</div>
+</div>
+<br>
+<br>
+<br>
 _Follow the prompts, and say 'Yes' to installing/using pnpm._

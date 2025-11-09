@@ -5,17 +5,12 @@
   >
     <div class="slides">
       <WelcomeSlides />
+
       <Day1Slides />
       <Day2Slides />
       <Day3Slides />
 
-      <section data-markdown>
-        <textarea data-template>
-          ## Questions?
-          ---
-          ### Thank You!
-        </textarea>
-      </section>
+      <FinalSlides />
     </div>
   </div>
 </template>
@@ -27,6 +22,7 @@ import Reveal from 'reveal.js'
 import Markdown from 'reveal.js/plugin/markdown/markdown.js'
 import Highlight from 'reveal.js/plugin/highlight/highlight.js'
 import WelcomeSlides from './slides/WelcomeDeck.vue'
+import FinalSlides from './slides/FinalDeck.vue'
 import Day1Slides from './slides/SlidesDay1.vue'
 import Day2Slides from './slides/SlidesDay2.vue'
 import Day3Slides from './slides/SlidesDay3.vue'

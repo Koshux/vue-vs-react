@@ -1,4 +1,5 @@
-D1.5: Vue SFC Basics
+## D1.5: Vue SFC Basics
+
 branch: day-1/04-vue-sfc
 
 ### Vue: The Single-File Component (SFC)
