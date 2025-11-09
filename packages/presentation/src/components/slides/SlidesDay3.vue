@@ -6,6 +6,13 @@
       <h3>The Professional Ecosystem: Tooling, Testing & Advanced Topics</h3>
     </section>
 
+    <!-- D3.0: Branching Strategies -->
+    <section
+      data-markdown="slides/day3/D3-0-Branching.md"
+      data-separator="^\r?\n---\r?\n$"
+    >
+    </section>
+
     <!-- D3.1: Tooling -->
     <section
       data-markdown="slides/day3/D3-1-Tooling.md"
