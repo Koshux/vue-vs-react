@@ -1,0 +1,5275 @@
+### **CONTEXT**
+
+- Great, I updated with what you provided and it looks good!
+
+### **REMEMBER**
+
+- I NEED to keep the same tech stack as described in the deliverables that implements every topic described but to the latest and greatest features available (therefore no deprecated code).
+
+### **Our Immediate Next Goal**
+
+- It seems like we never implemented the husky and lint-staged topics inside the monorepo that is published. I would like to implement them so that it's available please, as well as for my knowledge as I've only used them but not set them up properly (ensure latest and greatest of course!).
+- Look at my updated code below for reference and please revise the entire project below to ensure correctiveness and that all is well.
+
+
+ CODE:
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\checklist.md -----
+## 📋 Pre-Workshop Checklist (Your Prep)
+
+- [ ] **Hardware/Software:**
+  - [ ] Primary presentation machine (laptop).
+  - [ ] Second monitor (essential for seeing your speaker notes/cheatsheet on one screen and your presentation on the other).
+  - [ ] Stable internet connection.
+  - [ ] All prerequisite software installed (`pnpm`, `node`, `git`, VS Code).
+- [ ] **Student Materials:**
+  - [ ] `prerequisites.md` file emailed to all attendees at least 3 days in advance.
+  - [ ] `debug-pnpm.md` file ready to share if anyone has pnpm/corepack issues.
+  - [ ] The GitHub repo (`vue-vs-react`) pushed and public.
+- [ ] **Code Setup:**
+  - [ ] **Create Solution Branches:** Create git branches for _every single task_ (e.g., `solution/day-1/05-vue-sfc`). This is your most important backup. If a student group gets stuck, they can `git checkout` the solution and stay with the class.
+- [ ] **Dry Run:**
+  - [ ] Run `pnpm dev:presentation` and click through _all_ slides to ensure Markdown links and separators are working.
+
+---
+
+## ☀️ Day 1 Checklist: Setup & Core Concepts
+
+**Goal:** Get everyone scaffolding and building their first components.
+**Facilitator Guide:** `packages/presentation/public/slides/day1/D1-Facilitator.md`
+
+- [ ] **Presentation Assets:**
+  - [ ] `WelcomeDeck.vue` (for `introduction.md`).
+  - [ ] `SlidesDay1.vue` (loads all Day 1 slides).
+- [ ] **Cheatsheets (Facilitator Guide):**
+  - [ ] Have `D1-Facilitator.md` open on your second monitor.
+- [ ] **Key Checkpoints & Tasks:**
+  - [ ] **(Module 1.1)** Run the intro, poll, and goals slides.
+  - [ ] **(Module 1.1)** **Live Gate:** Perform the "Prerequisite Check" (`pnpm -v`, etc.).
+  - [ ] **(Module 1.1A)** **Live Task:** Pair up students. Walk Team Vue through `pnpm create vue...` and Team React through `pnpm create vite...`.
+  - [ ] **(Module 1.1A)** **Live Gate:** Ensure _everyone_ runs `pnpm install` from the root.
+  - [ ] **(Module 1.2)** Discuss Vite vs. Webpack. Show both `vite.config.ts` files.
+  - [ ] **(Module 1.3)** Discuss folder structure. **Task:** Students create empty `Button.vue` / `Button.tsx`.
+  - [ ] **(Module 1.4)** Explain monorepo commands (`-F`, `-r`). **Task:** Students install `axios`.
+  - [ ] **(Module 1.5)** Explain Vue SFC (`<template>`, `<script setup>`). **Task:** Build `Button.vue`.
+  - [ ] **(Module 1.6)** Explain React FC/JSX. **Task:** Build `Button.tsx`.
+  - [ ] **(Module 1.7)** Compare `<slot>` vs. `props.children`. **Task:** Update Button components.
+  - [ ] **(Module 1.8)** Explain basic routing (`<RouterLink>`, `<RouterView>`). **Task:** Add `/about` route.
+  - [ ] **(Module 1.9)** Explain Vue local state (`ref`, `computed`). **Task:** Build Vue counter.
+  - [ ] **(Module 1.10)** Explain React local state (`useState`, `useReducer`). **Task:** Build React counter.
+  - [ ] **(Module 1.11)** Tease global state (Pinia vs. Context). **Task:** Share state between components.
+
+---
+
+## ☀️ Day 2 Checklist: Advanced State & Ecosystem
+
+**Goal:** Build "real" app features: API data, global state, and 3rd-party UI.
+**Facilitator Guide:** `packages/presentation/public/slides/day2/D2-Facilitator.md`
+
+- [ ] **Presentation Assets:**
+  - [ ] `SlidesDay2.vue` (loads all Day 2 slides).
+- [ ] **Cheatsheets (Facilitator Guide):**
+  - [ ] Have `D2-Facilitator.md` open.
+- [ ] **Key Checkpoints & Tasks:**
+  - [ ] **Recap:** Briefly review Day 1 (SFC/FC, local state).
+  - [ ] **(Module 2.1)** Explain advanced routing. **Task:** Vue `beforeEach` guard, React `createBrowserRouter` + `loader`.
+  - [ ] **(Module 2.2)** Explain manual data fetching. **Task:** Fetch from PokéAPI in `onMounted` / `useEffect`.
+  - [ ] **(Module 2.3)** Explain global state. **Task:** Vue `pinia-plugin-persistedstate`, React refactor Context to RTK `createSlice`.
+  - [ ] **(Module 2.4)** Discuss UI library trade-offs. **Task:** Add Vuetify (`<v-btn>`) and MUI (`<Button>`).
+
+---
+
+## ☀️ Day 3 Checklist: Tooling, Testing & Deployment
+
+**Goal:** Professionalize the apps with team tooling, write tests, and deploy.
+**Facilitator Guide:** `packages/presentation/public/slides/day3/D3-Facilitator.md`
+
+- [ ] **Presentation Assets:**
+  - [ ] `SlidesDay3.vue` (loads all Day 3 slides).
+- [ ] **Cheatsheets (Facilitator Guide):**
+  - [ ] Have `D3-Facilitator.md` open.
+- [ ] **Key Checkpoints & Tasks:**
+  - [ ] **Recap:** Briefly review Day 2 (global state, UI libs).
+  - [ ] **(Module 3.1)** Explain professional tooling. **Task:** Set up `husky` and `lint-staged`. Make a commit fail.
+  - [ ] **(Module 3.2)** Explain Unit Testing (Testing Pyramid). **Task:** Write unit tests for the `Button` component using Vitest + VTU/RTL.
+  - [ ] **(Module 3.3)** Explain E2E Testing. **Task:** Write a Playwright test to check navigation to the `/about` page.
+  - [ ] **(Module 3.4)** Explain production builds & deployment. **Task:** Deploy the `vue-app` to Netlify and the `react-app` to Vercel.
+  - [ ] **(Module 3.4)** **Live Gate:** Have students share their live URLs. This is the final "win" for the workshop.
+- [ ] **Wrap-up:**
+  - [ ] Run the final "Questions" and "Thank You" slides.
+  - [ ] Collect feedback.
+
+---
+
+## 📬 Post-Workshop Checklist
+
+- [ ] **Share Materials (as promised in `entire-plan.md`):**
+  - [ ] Email attendees a link to the final GitHub repository (with your solution branches).
+  - [ ] Include the `prerequisites.md` and `debug-pnpm.md` as "setup guides."
+  - [ ] Include your new `FACILITATOR_GUIDE` files as "cheat sheets" or "extended notes" for them.
+  - [ ] Include the links to the Netlify and Vercel deployment guides from `prerequisites.md`.
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\checklist.md -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\debug-pnpm.md -----
+## 📦 Installing PNPM (Reliable, Cross-Platform)
+
+### ✅ Preferred: Use Corepack (Node ≥ 18.17 / 20.x)
+
+Corepack ships with Node and manages package managers by version, so everyone uses the **same PNPM version**.
+
+1. **Enable Corepack**
+
+```bash
+# macOS/Linux
+corepack enable
+
+# Windows PowerShell
+corepack enable
+```
+
+2. **Activate a specific PNPM version** (recommended)
+
+```bash
+corepack prepare pnpm@9 --activate
+```
+
+3. **(Optional but recommended)** Pin the version in your repo to keep CI/devs in sync:
+   Add this to your root `package.json`:
+
+```json
+{
+  "packageManager": "pnpm@9"
+}
+```
+
+> Now `pnpm -v` should print a 9.x version managed by Corepack:
+>
+> ```bash
+> pnpm -v
+> ```
+
+---
+
+### 🧯 Fallback: No Corepack available
+
+If Corepack isn’t present (older Node or restricted environment):
+
+**Option A – Install Corepack, then enable PNPM**
+
+```bash
+npm i -g corepack
+corepack enable
+corepack prepare pnpm@9 --activate
+```
+
+**Option B – Direct global PNPM (last resort)**
+
+```bash
+npm i -g pnpm@9
+pnpm -v
+```
+
+> Use this only if Corepack cannot be used. Global installs can drift across machines/CI.
+
+---
+
+### 🔎 Verify & Common Fixes
+
+- Check versions:
+
+  ```bash
+  node -v
+  pnpm -v
+  corepack -v   # should work on modern Node
+  ```
+
+- If `corepack` isn’t found, update Node or install Corepack globally.
+- If `pnpm` isn’t found after `corepack enable`, run:
+
+  ```bash
+  corepack prepare pnpm@9 --activate
+  ```
+
+- If a previously **globally** installed PNPM is shadowing Corepack, remove it:
+
+  ```bash
+  npm rm -g pnpm
+  corepack prepare pnpm@9 --activate
+  ```
+
+---
+
+### 🛠 CI Notes (Netlify & Vercel)
+
+- **Pin Node** to 20.x (via UI, `netlify.toml`, or `.nvmrc`) so Corepack is available.
+- With `packageManager: "pnpm@9"` set, **Netlify** and **Vercel** automatically use PNPM via Corepack.
+- Build commands stay the same:
+
+  ```bash
+  pnpm install
+  pnpm build
+  ```
+
+---
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\debug-pnpm.md -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\entire-plan.md -----
+# Entire Plan
+
+## Vue vs React Condensed Training Plan (8 Hours Total)
+
+### Day 1 (4 Hours) – Setup, Core Concepts & State Fundamentals
+
+#### 00:00–01:00: Project Setup & Architecture
+
+- Vite vs Vue CLI
+- Recommended folder structure (src/components, src/views, src/store, src/utils)
+- Vite vs Create React App; Monorepo intro (Turborepo, PNPM)
+
+#### 01:00–02:00: Component Basics & JSX/Templates
+
+- Vue: Single‑File Components (//), Composition vs Options API
+- React: Functional Components + JSX, TSX & PropTypes/TypeScript interfaces
+
+#### 02:00–03:00: State Management Patterns – Local vs Global
+
+- Vue: ref & reactive, Watchers & computed, Pinia vs Vuex stores, modules, plugins
+- React: useState & useReducer, Context API vs Redux Toolkit (slices, middleware, RTK Query)
+
+#### 03:00–04:00: Routing & Data Fetching
+
+- Vue Router: history mode, nested routes, navigation guards, axios + Composition API
+- React Router v6: , data routers, lazy loading, Fetch/Axios + Hooks
+
+### Day 2 (4 Hours) – Advanced State, Team Workflow & Deployments
+
+#### 00:00–01:00: Advanced State Management
+
+- Vue: Pinia Plugins (persist, devtools), namespaced modules, SSR support, Vuex 4 patterns
+- React: Redux Toolkit createSlice, RTK Query, middleware (logger, saga), alternatives (Zustand)
+
+#### 01:00–02:00: Component Library Integration & Theming
+
+- Vue: Vuetify 3, Headless UI + Tailwind CSS, custom theme overrides (SCSS tokens)
+- React: Material‑UI v5, Chakra UI, Tailwind UI, ThemeProvider & CSS‑in‑JS
+
+#### 02:00–03:00: Team Best Practices & Tooling
+
+- Git flow/trunk‑based flow, ESLint + Prettier + stylelint, Husky & lint‑staged
+- Conventional commits + Commitizen, GitHub Actions for lint, test, deploy
+
+#### 03:00–04:00: Testing Strategies & Production Readiness
+
+- Vue: Vue Test Utils + Jest, Cypress E2E, performance (bundle analysis)
+- React: React Testing Library + Jest, Cypress/Playwright, code‑splitting & lazy loading
+- Hands‑On Use Cases to Share
+  - E‑commerce Micro‑frontend: Product listing, cart, checkout flows; federated modules
+  - Real‑time Dashboard: WebSocket data stream, Chart updates (Recharts vs Vue‑Chartjs)
+  - Form Wizard with Validation: Multi‑step form, cross‑step state, Yup/Zod validation
+  - Library Starter Kit: Shared component library (Storybook) for Vue & React
+
+## Post‑Training Deliverables
+
+- Side‑by‑side sample repo with Vue & React versions
+- Starter templates (Vite configs, ESLint/Prettier setups, CI configs)
+- Deployment guide for Netlify, Vercel, GitHub Pages
+- Checklist: Framework selection decision tree, best‑practices cheat sheet, component library pros/cons
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\entire-plan.md -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\package.json -----
+{
+  "name": "vue-vs-react-workshop",
+  "private": true,
+  "packageManager": "pnpm@9.6.0",
+  "scripts": {
+    "llm:all": "node combine-files.cjs --path .",
+    "llm:react": "node combine-files.cjs --path ./packages/react-app",
+    "llm:vue": "node combine-files.cjs --path ./packages/vue-app",
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "format": "turbo run format",
+    "test:e2e": "turbo run test:e2e",
+    "dev:presentation": "pnpm --filter presentation dev",
+    "start": "pnpm dev:presentation"
+  },
+  "devDependencies": {
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
+    "minimist": "^1.2.8",
+    "prettier": "3.6.2",
+    "turbo": "^2.6.0"
+  }
+}
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\package.json -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\prerequisites.md -----
+# 🧩 PTL Workshop 2025 – Vue & React Comparison
+
+**Facilitated by James Lanzon**
+
+---
+
+## 📝 Overview
+
+This document outlines all setup requirements for participants attending the **PTL Workshop 2025 – Vue & React Comparison**, facilitated by **James Lanzon**.
+It ensures each participant is fully prepared to run both frameworks locally, follow along during hands-on exercises, and optionally deploy to **Netlify** (Vue) and **Vercel** (React).
+
+---
+
+## ⚙️ 1. System Requirements
+
+| Tool        | Minimum Version          | Description                                         |
+| ----------- | ------------------------ | --------------------------------------------------- |
+| **Node.js** | ≥ 20.19.0                | Required runtime for both Vue and React apps        |
+| **pnpm**    | ≥ 9.x                    | Efficient package manager for monorepo setup        |
+| **Git**     | Any modern version       | Source control & branching for workshop checkpoints |
+| **VS Code** | Latest                   | Recommended IDE with plugin support                 |
+| **Browser** | Chrome, Edge, or Firefox | Used for app testing and dev tools inspection       |
+
+> ✅ Verify installation:
+>
+> ```bash
+> node -v
+> pnpm -v
+> git --version
+> ```
+
+---
+
+## 🧱 2. Local Environment Setup
+
+1. **Clone the workshop repository:**
+
+```bash
+git clone https://github.com/Koshux/vue-vs-react.git
+cd vue-vs-react
+```
+
+2. Install dependencies:
+
+```bash
+pnpm install
+```
+
+3. Start each app locally:
+
+```bash
+# Vue app
+cd packages/vue-app
+pnpm dev
+
+# React app (after creation)
+cd packages/react-app
+pnpm dev
+```
+
+4. Build for production:
+
+```bash
+pnpm build
+```
+
+## 🧩 3. Recommended Editor Setup (VS Code)
+
+For the best development experience, install the following VS Code extensions:
+
+| **Extension**                 | **ID**                      | **Description**                                        |
+| ----------------------------- | --------------------------- | ------------------------------------------------------ |
+| **Vue – Official**            | `Vue.volar`                 | Language support and IntelliSense for Vue 3            |
+| **ESLint**                    | `dbaeumer.vscode-eslint`    | Enforces consistent linting and style rules            |
+| **Prettier**                  | `esbenp.prettier-vscode`    | Auto-formats code on save                              |
+| **TypeScript Vue Plugin**     | _(included with Volar)_     | Adds full TypeScript awareness in `.vue` files         |
+| **Tailwind CSS IntelliSense** | `bradlc.vscode-tailwindcss` | Autocompletion and design-token hints for Tailwind CSS |
+
+### Optional (Highly Recommended)
+
+| **Extension**                   | **Purpose**                                      |
+| ------------------------------- | ------------------------------------------------ |
+| **GitLens**                     | Enhanced Git history, blame, and commit insights |
+| **REST Client**                 | Test APIs directly from `.http` files            |
+| **Playwright Test for VS Code** | Run and debug E2E tests interactively            |
+
+---
+
+## ☁️ 4. Cloud Development Options
+
+If installing dependencies locally isn’t possible, you can use a **cloud-based dev environment**:
+
+### **GitHub Codespaces**
+
+- Pre-configured Node.js + PNPM setup
+- Runs VS Code directly in the browser
+- Access via your GitHub account under your forked repo
+
+### **StackBlitz (Vite Mode)**
+
+- Visit [stackblitz.com](https://stackblitz.com/)
+- Import repository via GitHub URL
+- Supports both Vue and React with hot-reload out of the box
+
+> Both options support Node 20 + and require minimal local configuration.
+
+---
+
+## 🚀 5. Deployment Setup
+
+### 🟩 Deploying the Vue App to Netlify
+
+1. Go to [Netlify](https://app.netlify.com/).
+2. Click **“New Site from Git.”**
+3. Connect your **GitHub** repository.
+4. Select the **vue-app** directory as your root.
+5. Configure the build settings:
+
+```bash
+Build command: pnpm build
+Publish directory: dist
+```
+
+6. Click **Deploy Site**.
+
+> ✅ Example Deployment: [https://ptl-workshop-vue.netlify.app](https://ptl-workshop-vue.netlify.app)
+
+---
+
+### ⚫ Deploying the React App to Vercel
+
+1. Go to [Vercel](https://vercel.com/).
+2. Click **“Add New Project.”**
+3. Import your **GitHub** repository.
+4. Select the **react-app** directory.
+5. Configure the build settings:
+
+```bash
+Framework Preset: Vite
+Build Command: pnpm build
+Output Directory: dist
+```
+
+6. Click **Deploy**, and Vercel will automatically assign a live preview URL.
+
+> 💡 _Tip:_ You can link your custom domain in Vercel after deployment.
+
+---
+
+## 🧪 6. Testing Tools
+
+| **Framework** | **Unit Testing**             | **E2E Testing**       |
+| ------------- | ---------------------------- | --------------------- |
+| **Vue**       | Vitest + Vue Test Utils      | Playwright            |
+| **React**     | Jest + React Testing Library | Cypress or Playwright |
+
+### Run Tests Locally
+
+```bash
+pnpm test:unit     # Unit tests
+pnpm test:e2e      # End-to-end tests
+```
+
+---
+
+## 🧭 7. Troubleshooting & Tips
+
+- **Clear PNPM cache:**
+  ```bash
+  pnpm store prune
+  ```
+- Restart VS Code after installing new extensions.
+- Ensure Node is not using outdated global versions.
+- Run pnpm dev --force if hot reload fails.
+- On Windows, if Vite build errors occur:
+
+```bash
+rm -rf node_modules pnpm-lock.yaml
+pnpm install
+```
+
+---
+
+## ✅ 8. Final Participant Checklist
+
+| **Status** | **Item**                              |
+| :--------: | :------------------------------------ |
+|     ☐      | Node.js 20+ installed                 |
+|     ☐      | PNPM installed                        |
+|     ☐      | Git & VS Code installed               |
+|     ☐      | Repository cloned successfully        |
+|     ☐      | Dev server runs for both Vue & React  |
+|     ☐      | Netlify & Vercel accounts created     |
+|     ☐      | Recommended extensions installed      |
+|     ☐      | Tests pass locally (`pnpm test:unit`) |
+
+---
+
+## 📬 9. Contact
+
+**Facilitator:**
+**James Lanzon**
+📧 [lanzonprojects@gmail.com](mailto:lanzonprojects@gmail.com)
+💻 [github.com/Koshux](https://github.com/Koshux)
+
+> © 2025 Slow Burn Ltd. All rights reserved.
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\prerequisites.md -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\turbo.json -----
+{
+  "$schema": "https://turbo.build/schema.json",
+  "tasks": {
+    "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "build": {
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        ".turbo/**",
+        "dist/**",
+        "build/**"
+      ]
+    },
+    "lint": {
+      "outputs": []
+    },
+    "test": {
+      "outputs": []
+    },
+    "test:e2e": {
+      "outputs": []
+    },
+    "format": {
+      "cache": false
+    }
+  }
+}
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\turbo.json -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\index.html -----
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>presentation</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\index.html -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\package.json -----
+{
+  "name": "presentation",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc -b && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "reveal.js": "^5.2.1",
+    "vue": "^3.5.22"
+  },
+  "devDependencies": {
+    "@types/node": "^24.6.0",
+    "@vitejs/plugin-vue": "^6.0.1",
+    "@vue/tsconfig": "^0.8.1",
+    "typescript": "~5.9.3",
+    "vite": "^7.1.7",
+    "vue-tsc": "^3.1.0"
+  }
+}
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\package.json -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\README.md -----
+# Vue 3 + TypeScript + Vite
+
+This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+
+Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\README.md -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\tsconfig.app.json -----
+{
+  "extends": "@vue/tsconfig/tsconfig.dom.json",
+  "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+    "types": ["vite/client"],
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "erasableSyntaxOnly": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedSideEffectImports": true
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"]
+}
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\tsconfig.app.json -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\tsconfig.json -----
+{
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
+}
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\tsconfig.json -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\tsconfig.node.json -----
+{
+  "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
+    "target": "ES2023",
+    "lib": ["ES2023"],
+    "module": "ESNext",
+    "types": ["node"],
+    "skipLibCheck": true,
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "erasableSyntaxOnly": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedSideEffectImports": true
+  },
+  "include": ["vite.config.ts"]
+}
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\tsconfig.node.json -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\vite.config.ts -----
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+
+// https://vite.dev/config/
+export default defineConfig({
+  base: '/',
+  plugins: [vue()],
+})
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\vite.config.ts -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\public\slides\final-slides.md -----
+## Thank You!
+
+### PTL Workshop 2025
+
+All code for this workshop is available on my GitHub:
+
+[**github.com/Koshux**](https://github.com/Koshux)
+
+**James Lanzon**
+`lanzonprojects@gmail.com`
+
+---
+
+## 📚 Recommended Cheatsheets
+
+<div
+  class="d-flex"
+  style="align-items: flex-start; justify-content: space-around;"
+>
+  <div
+    class="col"
+    style="flex: 1; padding: 0 20px;"
+  >
+    <h4>TypeScript</h4>
+    <ul>
+      <li>
+        <a
+          href="https://www.typescriptlang.org/cheatsheets"
+          target="_blank"
+        >Official Cheatsheets</a>
+      </li>
+      <li>
+        <a
+          href="https://react-typescript-cheatsheet.netlify.app/"
+          target="_blank"
+        >React + TS Cheatsheet
+        </a>
+      </li>
+      <li>
+        <a
+          href="https://devhints.io/vue"
+          target="_blank"
+        >Vue Cheatsheet
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div
+    class="col"
+    style="flex: 1; padding: 0 20px;"
+  >
+    <h4>Vue 3</h4>
+    <ul>
+      <li>
+        <a
+          href="https://nyxelldev.s3.amazonaws.com/eventMenu/690-4bh1n2hfk32mqeif94hmd5v9d9tpts46ltu4vcb4chnt2disqu9e1gsd0n8b.pdf"
+          target="_blank"
+        >Pinia Cheatsheet
+        </a>
+      </li>
+      <li>
+        <a
+          href="https://vue-cheatsheet.themeselection.com/vue-router/basic.html"
+          target="_blank"
+        >Vue Router Cheatsheet
+        </a>
+      </li>
+      <li>
+        <a
+          href="https://router.vuejs.org/guide/"
+          target="_blank"
+        >Vue Router Guide
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div
+    class="col"
+    style="flex: 1; padding: 0 20px;"
+  >
+    <h4>React</h4>
+    <ul>
+      <li><a
+          href="https://react.dev/reference/react"
+          target="_blank"
+        >Official Hooks Reference</a></li>
+      <li><a
+          href="https://redux-toolkit.js.org/usage/usage-guide"
+          target="_blank"
+        >Redux Toolkit Guide</a></li>
+      <li><a
+          href="https://reactrouter.com/en/main/guides/overview"
+          target="_blank"
+        >React Router Guide</a></li>
+    </ul>
+  </div>
+</div>
+
+---
+
+## 🎓 Where to Go From Here?
+
+<div
+  class="d-flex"
+  style="align-items: flex-start; justify-content: space-around;"
+>
+  <div
+    class="col"
+    style="flex: 1; padding: 0 20px;"
+  >
+    <h4>Deep Dive Courses (Udemy)</h4>
+    <ul>
+      <li><a
+          href="https://www.udemy.com/course/react-the-complete-guide-incl-redux/"
+          target="_blank"
+        >React - The Complete Guide</a><br>(Maximillian Schwarzmüller)</li>
+      <br>
+      <li><a
+          href="https://www.udemy.com/course/vue-the-complete-guide-incl-router-vuex-composition-api/"
+          target="_blank"
+        >Vue - The Complete Guide</a><br>(Maximillian Schwarzmüller)</li>
+    </ul>
+  </div>
+  <div
+    class="col"
+    style="flex: 1; padding: 0 20px;"
+  >
+    <h4>Free Resources & Experts</h4>
+    <ul>
+      <li><a
+          href="https://www.vuemastery.com/"
+          target="_blank"
+        >Vue Mastery</a> (Great for Vue/Nuxt)</li>
+      <li><a
+          href="https://react.dev/blog"
+          target="_blank"
+        >React Official Blog</a></li>
+      <li><a
+          href="https://www.youtube.com/@academind"
+          target="_blank"
+        >Academind YouTube</a></li>
+      <li><a
+          href="https://www.youtube.com/@TheAlexLichter"
+          target="_blank"
+        >Alexander Lichter (Nuxt/Vue)</a></li>
+    </ul>
+  </div>
+</div>
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\public\slides\final-slides.md -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\public\slides\day1\D1-1-Welcome.md -----
+## D1.1: Environment Check (Time: 15 mins)
+
+**branch:** `day-1/00-welcome`
+
+**Purpose:** Set expectations & confirm everyone is ready to code.
+
+---
+
+### Your Task:
+
+1.  Open your terminal.
+2.  Verify your setup:
+    ```bash
+    pnpm -v && node -v && git --version
+    ```
+3.  Install all project dependencies:
+    ```bash
+    pnpm install
+    ```
+4.  Start all development servers:
+    ```bash
+    pnpm dev
+    ```
+    _You should have three browser tabs open: the presentation, `vue-app`, and `react-app`._
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\public\slides\day1\D1-1-Welcome.md -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\public\slides\day1\D1-10-ReactState.md -----
+## D1.10: React Local State (Time: 25 mins)
+
+branch: day-1/09-react-local-state
+
+### React's Local State Hooks
+
+React's reactivity is based on re-rendering. When state changes, the component function runs again.
+
+- `useState()`: The primary Hook for local state. Returns an array `[value, setValue]`. Calling `setValue` triggers a re-render.
+- `useReducer()`: An alternative to `useState` for managing more complex state logic. It's similar to Redux but for a single component.
+
+---
+
+### What about Computed/Watch?
+
+- **Computed:** Just calculate the value directly in the render. React's re-render handles the update. (For expensive calculations, we use `useMemo`).
+- **Watch:** We use the `useEffect` Hook to run side effects _after_ a render, based on a dependency array.
+
+---
+
+### Your Task
+
+Build the same counter.
+
+1.  Create a `count` state using `useState()`.
+2.  Add `increment`, `decrement`, and `reset` functions.
+3.  Refactor it to use `useReducer` with actions for 'INCREMENT', 'DECREMENT', and 'RESET'.
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\public\slides\day1\D1-10-ReactState.md -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\public\slides\day1\D1-11-SharedState.md -----
+## D1.11: Shared State Teaser (Time: 20 mins)
+
+branch: day-1/10-shared-state-intro
+
+### The Problem
+
+Local state is great, but how do we share it between components that aren't parent/child? (This is called "prop drilling").
+
+---
+
+### The Solution
+
+<div class="d-flex">
+<div class="col">
+<h4>🔵Vue: Pinia</h4>
+
+- A centralized, global store.
+- Any component can `useStore()` to read or write state.
+- Simple, modular, and has great devtools.
+</div>
+<div class="col">
+<h4>⚛️React: Context</h4>
+
+- A way to "provide" state to a tree of components.
+- Any child component can "consume" the state.
+- Lighter than a full state library, but less powerful.
+</div>
+</div>
+
+---
+
+### Your Task
+
+1.  Create a new `DisplayCount` component in both projects.
+2.  **Vue:** Create a simple `useCounterStore` with Pinia and use it in both components.
+3.  **React:** Create a `CounterContext` and use it in both components.
+4.  Prove that clicking the button in one component updates the display in the other.
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\public\slides\day1\D1-11-SharedState.md -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\public\slides\day1\D1-1A-Scaffolding.md -----
+## D1.1A: Let's Build Our Apps! (Time: 15 mins)
+
+**branch:** `day-1/01-scaffolding`
+
+**Purpose:** Pair up and scaffold your group's application.
+
+---
+
+### Pair Up!
+
+- Find a partner (or group of 3).
+- **One half of the room:** You will be **Team Vue**.
+- **Other half of the room:** You will be **Team React**.
+- Your goal is to build your app from scratch. We'll compare notes at each step!
+
+---
+
+### Your Task: Scaffold Your App
+
+From the **root** of the `vue-vs-react` directory, run **one** of these commands:
+<br>
+<br>
+
+<div class="d-flex">
+<div class="col">
+<h4>🔵 Team Vue:</h4>
+
+```bash
+# This uses the official Vue scaffolder
+pnpm create vue@latest packages/vue-app --ts --router --pinia
+```
+
+</div>
+
+<div class="col">
+<h4> ⚛️ Team React:</h4>
+
+```bash
+# This uses the official Vite scaffolder
+pnpm create vite@latest packages/react-app -- --template react-ts
+```
+
+</div>
+</div>
+<br>
+<br>
+<br>
+_Follow the prompts, and say 'Yes' to installing/using pnpm._
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\public\slides\day1\D1-1A-Scaffolding.md -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\public\slides\day1\D1-2-Vite.md -----
+## D1.2: Vite in Vue & React (Time: 10 mins)
+
+branch: day-1/02-vite-basics
+
+### Build Tools: The "Why"
+
+_Browsers don't understand Vue SFCs, JSX, or TypeScript._
+
+We need a build tool to compile, transpile, and bundle our code into standard HTML, CSS, and JS.
+
+---
+
+### Legacy vs. Modern
+
+<div class="d-flex">
+<div class="col">
+<h4>Legacy (webpack-based)</h4>
+
+- Vue CLI / Create React App (CRA)
+- **Process:** Bundles the _entire app_ before starting.
+- **Result:** Slower dev server start, slower updates.
+</div>
+<div class="col">
+<h4>Modern (Native ESM)</h4>
+- **Vite**
+- **Process:** Serves files on demand using native browser ESM.
+- **Result:** Near-instant dev server start, lightning-fast HMR.
+</div>
+</div>
+
+---
+
+### Your Task
+
+**Demo:** Let's look at the `vite.config.ts` in both the `vue-app` and `react-app` to see the minimal plugin setup.
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\public\slides\day1\D1-2-Vite.md -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\public\slides\day1\D1-3-Folders.md -----
+## D1.3: Directory structure (Time: 10 mins)
+
+### Scalable Architecture
+
+A predictable folder structure is key for maintainability. This is a common, scalable pattern for both frameworks.
+
+`src/`
+
+- `assets/`: Images, fonts, and global styles.
+- `components/`: **Reusable** UI pieces (Button, Modal).
+- `views/` (or `pages/`): Routed components (HomePage, AboutPage).
+- `router/`: Routing configuration.
+- `store/` (or `features/`): Global state (Pinia/Redux).
+
+---
+
+### Your Task
+
+In both `vue-app` and `react-app`, create an empty file:
+
+- `src/components/Button.vue`
+- `src/components/Button.tsx`
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\public\slides\day1\D1-3-Folders.md -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\public\slides\day1\D1-4-Monorepo.md -----
+## D1.4: Our Monorepo Stack (Layer 1: PNPM) (Time: 15 mins)
+
+**branch:** `day-1/03-workspaces`
+<br />
+<br />
+
+### Layer 1: The Package Manager
+
+#### What is a Monorepo?
+
+A single repository containing multiple, distinct projects (or "packages").
+
+- **Why?**
+  - Simplified dependency management (via `pnpm workspaces`)
+  - Easy code sharing (e.g., a shared `ui-library` package).
+- **Our Structure:**
+  - `vue-app`, `react-app`, and `presentation` all live in one repo.
+
+---
+
+### Key `pnpm` Commands
+
+Our root `pnpm-workspace.yaml` file tells `pnpm` to manage the `packages/*` directory.
+
+- `pnpm -r <command>`
+  - Runs a command **r**ecursively in all packages (e.g., `pnpm -r build`).
+- `pnpm -F <package-name> <command>`
+  - **F**ilters the command to run in _only one_ package (e.g., `pnpm -F vue-app add axios`).
+
+---
+
+### Your Task
+
+Let's practice. Run these commands from the **root** of the monorepo:
+
+1.  `pnpm -F vue-app add axios`
+2.  `pnpm -F react-app add axios`
+    (We'll test this out later for data fetching, including fetch).
+
+---
+
+## D1.4: Our Monorepo Stack (Layer 2: Turborepo)
+
+### Layer 2: The Task Orchestrator
+
+**Turborepo** is our "smart" task runner. It sits _on top_ of PNPM.
+
+- **Why?** It's built for **speed**.
+- **Caching:** If we run `turbo build` and the code hasn't changed, it restores the `dist` folder from cache instantly.
+- **Pipelining:** It understands task dependencies (e.g., `build` must finish before `test`).
+- **Parallelism:** It runs tasks like `lint` for all packages at the same time.
+
+We define all our tasks in a single `turbo.json` at the root.
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\public\slides\day1\D1-4-Monorepo.md -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\public\slides\day1\D1-5-VueSFC.md -----
+## D1.5: Vue SFC Basics (Time: 30 mins)
+
+branch: day-1/04-vue-sfc
+
+### Vue: The Single-File Component (SFC)
+
+Vue's core abstraction. It co-locates the HTML, CSS, and JavaScript for a single component in one file.
+
+- `<template>`: The component's HTML markup.
+- `<script setup>`: The component's logic (Composition API). We import dependencies, define state, and write functions here.
+- `<style scoped>`: The component's CSS. The `scoped` attribute ensures these styles _only_ apply to this component.
+
+---
+
+### Your Task
+
+Implement `src/components/Button.vue`.
+
+1.  It should accept a `label` prop using `defineProps`.
+2.  It should emit a `click` event using `defineEmits`.
+3.  Use it in your main view (`App.vue` or `HomeView.vue`).
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\public\slides\day1\D1-5-VueSFC.md -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\public\slides\day1\D1-6-ReactFC.md -----
+## D1.6: React FC Basics (Time: 30 mins)
+
+branch: day-1/05-react-fc
+
+### React: Functional Components (FC) & JSX
+
+React components are JavaScript functions that return UI.
+
+- **Functional Component (FC):** A function that accepts `props` as its first argument and returns JSX.
+- **JSX:** A syntax extension for JavaScript that _looks_ like HTML but is actually JavaScript. It allows you to write your UI and logic in the same file.
+- **`.tsx`:** The file extension that tells TypeScript "this file contains JSX."
+
+---
+
+### How We Type Props
+
+How do we tell our component what `props` it accepts?
+
+<div class="d-flex" style="align-items: flex-start;">
+<div class="col">
+<h4>1. TypeScript (Modern)</h4>
+
+Uses an `interface` or `type` to provide **compile-time** type safety. This is the standard for all modern React projects (and what we are using).
+
+```tsx
+interface ButtonProps {
+  label: string
+  onClick: () => void
+}
+
+// The component is *typed* to use these props
+export function Button({ label, onClick }: ButtonProps) {
+  // ...
+}
+```
+
+</div>
+<div class="col">
+<h4>2. PropTypes (Legacy)</h4>
+A library that provides runtime type checking. You'll see this in older, non-TypeScript React projects.
+
+```js
+import PropTypes from 'prop-types'
+
+export function Button({ label, onClick }) {
+  // ...
+}
+
+// Checks props *in the browser* and logs a console error
+Button.propTypes = {
+  label: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
+}
+```
+
+</div>
+</div>
+
+We will be using TypeScript interfaces for this workshop.
+
+---
+
+### Your Task
+
+Implement `src/components/Button.tsx`.
+
+1.  Define a `ButtonProps` interface that accepts `label` (string) and `onClick` (a function).
+2.  Destructure the props in the function arguments.
+3.  Use it in your main component (`App.tsx`).
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\public\slides\day1\D1-6-ReactFC.md -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\public\slides\day1\D1-7-SlotsChildren.md -----
+## D1.7: Slots vs. Children (Time: 15 mins)
+
+branch: day-1/06-slots-vs-children
+
+### Concept: Content Projection
+
+How do we pass _content_ (like HTML or other components) _into_ a component?
+
+| Framework | Syntax             | Common Use                           |
+| :-------- | :----------------- | :----------------------------------- |
+| **Vue**   | `<slot />`         | Passing icons, text, or layout.      |
+| **React** | `{props.children}` | The standard way to wrap components. |
+
+---
+
+### Your Task
+
+Modify your **Button** in both projects to accept an optional icon (e.g., an - emoji) as a slot/child, appearing _before_ the label text.
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\public\slides\day1\D1-7-SlotsChildren.md -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\public\slides\day1\D1-8-Routing.md -----
+## D1.8: Routing Basics (Time: 30 mins)
+
+branch: day-1/07-routing-basics
+
+### Core Routing Concepts
+
+Both frameworks use a library to map a URL to a component.
+
+| Concept           | Vue (`vue-router`)         | React (`react-router-dom`) |
+| :---------------- | :------------------------- | :------------------------- |
+| **App Wrapper**   | `app.use(router)`          | `<BrowserRouter>`          |
+| **Link**          | `<RouterLink to="/about">` | `<Link to="/about">`       |
+| **Render Outlet** | **`<RouterView />`**       | **`<Outlet />`**           |
+
+`<RouterView />` and `<Outlet />` are the exact same concept: they are **placeholders** that render the component for the current URL.
+
+---
+
+### Example: How They Work
+
+<div class="d-flex">
+<div class="col">
+<h4>🔵 Vue: `App.vue`</h4>
+
+Your `App.vue` is the layout, and `<RouterView />` is the placeholder.
+
+```vue
+<template>
+  <header>
+    <nav>
+      <RouterLink to="/">Home</RouterLink>
+      <RouterLink to="/about">About</RouterLink>
+    </nav>
+  </header>
+
+  <RouterView />
+</template>
+```
+
+</div>
+<div class="col">
+<h4>⚛️ React: App.tsx</h4>
+
+Your App.tsx is the layout, and <Outlet /> is the placeholder.
+
+```tsx
+import { Link, Outlet } from 'react-router-dom'
+
+export function App() {
+  return (
+    <>
+      <header>
+        <nav>
+          <Link to="/">Home</Link>
+          <Link to="/about">About</Link>
+        </nav>
+      </header>
+
+      {/* Pages render here */}
+      <Outlet />
+    </>
+  )
+}
+```
+
+</div>
+</div>
+
+---
+
+## Your Task
+
+<div class="d-flex">
+<div class="col">
+<h4>🔵 Vue: `App.vue`</h4>
+
+- You already have <RouterView /> in App.vue, provided by the scaffolder.
+- Add the /about route in src/router/index.ts.
+
+</div>
+<div class="col">
+<h4>⚛️ React: App.tsx</h4>
+
+1. Install: pnpm -F react-app add react-router-dom
+2. Create: src/pages folder.
+3. Create page files:
+   - src/pages/Home.tsx
+   - src/pages/About.tsx
+   - (You can just put a simple `<h1>Home</h1>` or `<h1>About</h1>` in them for now).
+4. Create src/router.tsx: Add the code from the example to define your routes using createBrowserRouter, lazy, and Suspense.
+5. Replace src/App.tsx with the layout code from the example (the one with <Outlet />).
+6. Replace src/main.tsx to import and use the <RouterProvider />.
+
+</div>
+</div>
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\public\slides\day1\D1-8-Routing.md -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\public\slides\day1\D1-9-VueState.md -----
+## D1.9: Vue Local State (Time: 25 mins)
+
+branch: day-1/08-vue-local-state
+
+### What is Reactivity?
+
+The "magic" that automatically updates the UI (DOM) when your data (state) changes.
+
+---
+
+### Vue's Local State APIs
+
+- `ref()`: For primitive values (String, Number, Boolean). It wraps the value in an object, so we access it with `.value` in script.
+- `reactive()`: For objects. It makes the entire object deeply reactive.
+- `computed()`: For **derived state**. A cached value that automatically re-calculates when its dependencies change.
+- `watch()`: For running **side effects** in response to a state change (like logging or fetching data).
+
+---
+
+### Your Task
+
+Build a simple counter in your main view.
+
+1.  Create a `count` state using `ref()`.
+2.  Add `increment`, `decrement`, and `reset` functions.
+3.  Add a `computed` property that doubles the count.
+4.  Display the count and the doubled count.
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\public\slides\day1\D1-9-VueState.md -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\public\slides\day1\D1-Facilitator.md -----
+# 📚 Facilitator's Guide & Workshop Cheatsheet
+
+## Day 1: Fundamentals, Components & Local State
+
+**Goal:** Get everyone set up, introduce the core syntax of Vue and React, and build standalone components that manage their own local state.
+
+### D1.1: Welcome & Environment Check
+
+- **Slide:** `public/slides/welcome/introduction.md` & `public/slides/day1/D1-1-Welcome.md`
+- **Objective:** Welcome the attendees and ensure 100% of them have a working development environment before proceeding.
+
+#### 🗣️ Key Talking Points
+
+- **Intro:** Welcome\! I'm James Lanzon. This is the PTL Workshop on Vue vs. React.
+- **Goals:** "My goal for you over the next 3 days is to..." (Cover the goals from the slide).
+- **Poll:** Let's get a quick read of the room... (Run the poll). This helps me know where to spend more time.
+- **The "Why":** Why Vue vs. React? They are the two most dominant, in-demand frameworks. Learning one makes you hirable; knowing _both_ makes you a senior-level asset.
+- **Method:** This is a hands-on workshop. I'll introduce a concept ("I Do"), we'll code a bit together ("We Do"), and then you'll get a task to complete ("You Do").
+
+#### ✅ Live Checkpoints
+
+- [ ] **CRITICAL:** Start the "Environment Check" task.
+- [ ] Ask everyone to open their terminal.
+- [ ] Have them run `pnpm -v`, `node -v`, and `git --version`.
+- [ ] Have _everyone_ run `pnpm install` from the root. This is essential.
+- [ ] Have _everyone_ run `pnpm dev`.
+- [ ] **Gate:** Do not proceed until everyone confirms they have 3 browser tabs open and running.
+
+---
+
+### D1.1A: Let's Build Our Apps\!
+
+- **Slide:** _(You will need to create this new slide, see content below)_
+- **Objective:** Pair up students and have them use official CLI tools to scaffold their respective apps _inside_ the monorepo.
+
+#### 🗣️ Key Talking Points
+
+- "Okay, let's get to work. Find a partner or a group of 3."
+- "One half of the room, you will be **Team Vue**. The other half, you are **Team React**. Your mission is to build a "Task Tracker" app. We'll do this step-by-step, comparing our approaches at each stage."
+- "We will use the official, modern scaffolding tools for each framework: `create-vue` for Vue and `create-vite` for React."
+
+#### ✅ Live Checkpoints
+
+- [ ] **Task:** "Everyone, from the **root** of the `vue-vs-react` folder, run **ONE** of these commands."
+- [ ] **Team Vue:**
+
+  ```bash
+  pnpm create vue@latest packages/vue-app --ts --router --pinia
+  ```
+
+  - (This is the `pnpm` equivalent of the `npm` command you provided).
+
+- [ ] **Team React:**
+  ```bash
+  pnpm create vite@latest packages/react-app -- --template react-ts
+  ```
+- [ ] **Gate:** "After your app is scaffolded, you need to install all the _new_ dependencies. From the **root**, run `pnpm install`."
+- [ ] "This command will install all the deps for Vue, React, _and_ the presentation, and link them together in the monorepo."
+- [ ] **Final Check:** "Run `pnpm dev` from the root. This should now start all three apps: your presentation, your new Vue app, and your new React app."
+
+### D1.2: Vite in Vue & React
+
+- **Slide:** `public/slides/day1/D1-2-Vite.md`
+- **Objective:** Explain what Vite is and why it's the modern standard for building apps in _both_ ecosystems.
+
+#### 🗣️ Key Talking Points
+
+- **The Problem:** Why do we need a tool like Vite? Browsers don't understand `.vue` files, they don't understand JSX, and they don't understand TypeScript.
+- **The Old Way (webpack):** Tools like Create React App (CRA) and Vue CLI used webpack. Webpack bundles your _entire_ application into one or more JS files _before_ it can even start the server. For a large app, this "cold start" can take minutes.
+- **The New Way (Vite):** Vite uses **native ES Modules (ESM)**. When you ask for `App.vue`, it _only_ transforms and serves `App.vue`. It builds files on demand.
+- **The Benefit:** This results in a near-instant server start and lightning-fast "Hot Module Replacement" (HMR), which is when your code updates in the browser without a full refresh.
+
+#### ✅ Live Checkpoints
+
+- [ ] **Task:** Open `packages/vue-app/vite.config.ts`.
+- [ ] Point out the `@vitejs/plugin-vue` plugin. "This is all it takes to make Vite understand `.vue` files."
+- [ ] **Task:** Open `packages/react-app/vite.config.ts`.
+- [ ] Point out the `@vitejs/plugin-react` plugin. "Same thing for React. This is what makes JSX and Fast Refresh work."
+
+---
+
+### D1.3: Folder Structure
+
+- **Slide:** `public/slides/day1/D1-3-Folders.md`
+- **Objective:** Introduce a scalable, professional folder structure that works for both apps.
+
+#### 🗣️ Key Talking Points
+
+- "A predictable folder structure is key for maintainability. This is a common pattern you'll see in professional projects."
+- **`assets/`**: Holds static files like images, fonts, and global CSS.
+- **`components/`**: This is for **reusable, "dumb"** components. Think of `Button.vue` or `Modal.tsx`. They don't know about pages; they just receive props and emit events.
+- **`views/` (or `pages/`)**: This is for **routed, "smart"** components. `HomePage.vue` or `ProfilePage.tsx`. These components _use_ the reusable components to build a page, and they are often responsible for fetching data or connecting to the store.
+- **`router/`**: Holds the configuration for `vue-router` or `react-router-dom`.
+- **`store/` (or `features/`)**: Holds your global state logic (Pinia stores or Redux slices).
+
+#### ✅ Live Checkpoints
+
+- [ ] **Task:** Tell students to open _both_ the `vue-app` and `react-app` in their VS Code.
+- [ ] **Task:** Have them create the two empty files as specified on the slide.
+
+---
+
+### D1.4: Monorepo with pnpm
+
+- **Slide:** `public/slides/day1/D1-4-Monorepo.md`
+- **Objective:** Explain what a monorepo is and how to use `pnpm workspaces`.
+
+#### 🗣️ Key Talking Points
+
+- **What is it?** A single `git` repository that holds multiple, distinct projects (or "packages").
+- **Why?** The main benefit is **code sharing**. We could create a `packages/ui-library` and share the _exact_ same Button component between Vue and React. It also simplifies dependency management—one `pnpm install` at the root.
+- **How?** The "magic" file is `pnpm-workspace.yaml` at the root of our repo. It tells pnpm that any folder inside `packages/` is a separate project.
+- **Commands:** "You almost never `cd` into a package to run a command. You run it from the root using filters."
+  - `-r` is **recursive**: `pnpm -r build` will run `build` in _all_ packages.
+  - `-F` is **filter**: `pnpm -F vue-app add axios` will add `axios` _only_ to the `vue-app` package.
+  * "We are in a **monorepo**. This means we almost _never_ `cd` into a package to install things. We do it from the root."
+  * `pnpm -r <cmd>`: Runs a command **r**ecursively (in all packages).
+  * `pnpm -F <pkg> <cmd>`: **F**ilters to run _only_ in one package.
+
+#### ✅ Live Checkpoints
+
+- [ ] Show the `pnpm-workspace.yaml` file in the root.
+- [ ] **"You Do":** "Your task: Let's add `axios` (for data fetching later) to _both_ apps, without leaving the root."
+- [ ] `pnpm -F vue-app add axios`
+- [ ] `pnpm -F react-app add axios`
+
+---
+
+### D1.5: Vue SFC Basics
+
+- **Slide:** `public/slides/day1/D1-5-VueSFC.md`
+- **Objective:** Introduce Vue's core building block: the Single-File Component.
+
+#### 🗣️ Key Talking Points
+
+- "This is the core abstraction of Vue. All your Vue code will live in `.vue` files."
+- It's made of three blocks:
+  1.  **`<template>`**: Your HTML. This is what the component will render.
+  2.  **`<script setup>`**: Your logic. This is where you import, define state, and write functions. We use `setup` to opt into the **Composition API**, which is the modern standard. The "Options API" is the older way.
+  3.  **`<style scoped>`**: Your CSS. The `scoped` keyword is a built-in feature that ensures the styles here _only_ apply to this component and don't leak out.
+- **Props & Emits:** How does a component communicate?
+  - **Props:** Data _in_. We use `defineProps` to declare what data a component accepts.
+  - **Emits:** Events _out_. We use `defineEmits` to declare what events a component can send to its parent.
+
+#### ✅ Live Checkpoints
+
+- [ ] **Task:** Open `packages/vue-app/src/components/Button.vue`.
+- [ ] **"We Do":** Live-code the `defineProps` and `defineEmits` part.
+  ```vue
+  <script setup lang="ts">
+  defineProps<{ label: string }>()
+  const emit = defineEmits(['click'])
+  </script>
+  <template>
+    <button @click="emit('click')">{{ label }}</button>
+  </template>
+  ```
+- **"You Do":** Have them finish the component and import it into `App.vue` or `HomeView.vue`.
+
+---
+
+### D1.6: React FC Basics
+
+- **Slide:** `public/slides/day1/D1-6-ReactFC.md`
+- **Objective:** Introduce React's core building block: the Functional Component and JSX.
+
+#### 🗣️ Key Talking Points
+
+- "React's approach is different. A component is 'just a JavaScript function' that returns UI."
+- **Functional Component (FC):** A function that accepts `props` as its first argument.
+- **JSX:** This _looks_ like HTML, but it's a syntax extension for JavaScript. You're actually writing `React.createElement()` calls in disguise. This is why you can embed JavaScript logic directly inside `{curlies}`.
+- **Typing:** We use a TypeScript `interface` or `type` to define the shape of the `props` object.
+- **Events:** Instead of emitting events _up_, we pass callback functions _down_ as props (like `onClick`).
+
+#### ✅ Live Checkpoints
+
+- [ ] **Task:** Open `packages/react-app/src/components/Button.tsx`.
+- [ ] **"We Do":** Live-code the `ButtonProps` interface and the function signature.
+
+  ```tsx
+  import React from 'react'
+
+  interface ButtonProps {
+    label: string
+    onClick: () => void
+  }
+
+  export function Button({ label, onClick }: ButtonProps) {
+    return <button onClick={onClick}>{label}</button>
+  }
+  ```
+
+- **"You Do":** Have them finish the component and import it into `App.tsx`.
+
+---
+
+### D1.7: Slots vs. Children
+
+- **Slide:** `public/slides/day1/D1-7-SlotsChildren.md`
+- **Objective:** Compare how Vue and React handle "content projection."
+
+#### 🗣️ Key Talking Points
+
+- "How do we pass _content_, like an icon or other HTML, _inside_ our button?"
+- This is called "Content Projection."
+- **Vue:** Uses the `<slot />` element. You can have a default slot or named slots (e.g., `<slot name="icon" />`).
+- **React:** Uses a special, reserved prop called `children`. Whatever you nest inside a component in JSX becomes `props.children`.
+
+#### ✅ Live Checkpoints
+
+- [ ] **Task:** Update `Button.vue`:
+  ```html
+  <button @click="emit('click')"><slot /> {{ label }}</button>
+  ```
+- [ ] **Task:** Update `Button.tsx`:
+  ```tsx
+  export function Button({ label, onClick, children }: ButtonProps) {
+    return (
+      <button onClick={onClick}>
+        {children} {/* This is where the content will go */}
+        {label}
+      </button>
+    )
+  }
+  ```
+- **"You Do":** Have them update the `ButtonProps` interface in React and then use the button in both apps with an emoji inside: `<Button><span>icon</span></Button>`.
+
+---
+
+### D1.8: Routing Basics
+
+- **Slide:** `public/slides/day1/D1-8-Routing.md`
+- **Objective:** Set up basic page navigation.
+
+#### 🗣️ Key Talking Points
+
+- "Both frameworks rely on official libraries for routing."
+- **Comparison (show table):**
+  - To navigate, Vue uses `<RouterLink>` and React uses `<Link>`.
+  - To tell the router _where_ to render the page, Vue uses `<RouterView />` and React uses `<Outlet />`.
+- They are direct conceptual parallels.
+
+#### ✅ Live Checkpoints
+
+- [ ] **Vue:** Show `vue-app/src/router/index.ts` and the `routes` array. Show `<RouterView />` in `App.vue`.
+- [ ] **React:** Show `react-app/src/main.tsx` (or wherever routes are defined). Show `<Outlet />` in the root layout.
+- [ ] **"You Do":** Task: "In both apps, add a new `/about` route that renders a simple `About` component. Add a `<RouterLink>` / `<Link>` to it from your main page."
+
+---
+
+### D1.9: Vue Local State
+
+- **Slide:** `public/slides/day1/D1-9-VueState.md`
+- **Objective:** Introduce Vue's core reactivity APIs.
+
+#### 🗣️ Key Talking Points
+
+- **Reactivity:** The "magic" that updates the UI when data changes. In Vue, this is "fine-grained." It knows _exactly_ what data changed and updates _only_ that part of the DOM.
+- **`ref()`:** For simple values (primitives). `const count = ref(0)`. In your `<script>`, you MUST use `.value` to access or change it (`count.value++`). In your `<template>`, you can just write `{{ count }}`.
+- **`computed()`:** For derived state. `const double = computed(() => count.value * 2)`. This is _cached_. It only re-runs if `count` changes.
+- **`watch()`:** For side effects. "When `count` changes, do this _other_ thing (like log to console or save to localStorage)."
+
+#### ✅ Live Checkpoints
+
+- [ ] **"We Do":** In `HomeView.vue` (or `App.vue`), import `ref` and `computed`.
+- [ ] Create the `count` ref and the `increment` function.
+- [ ] **"You Do":** "Your task: Add the `decrement` and `reset` functions. Then, add a `computed` property that doubles the count. Display both in the template."
+
+---
+
+### D1.10: React Local State
+
+- **Slide:** `public/slides/day1/D1-10-ReactState.md`
+- **Objective:** Introduce React's state hooks.
+
+#### 🗣️ Key Talking Points
+
+- **Reactivity:** React's model is different. It is **not** fine-grained. When state changes, the _entire component function re-runs_. React then creates a "virtual DOM," compares it to the real DOM, and _then_ makes the necessary changes.
+- **`useState()`:** The main hook. `const [count, setCount] = useState(0)`. It returns an array with the value and a _setter function_.
+- **Immutable State:** You _never_ change state directly (like `count++`). You _must_ call the setter function (`setCount(count + 1)`). This is what tells React to re-render.
+- **`useReducer()`:** For complex state. Instead of just setting a value, you `dispatch` an "action" (an object), and a "reducer" function handles the logic. This is a preview of the Redux pattern.
+- **No `computed`/`watch`:** For computed properties, you just calculate it _during the render_. For `watch`, you use `useEffect`.
+
+#### ✅ Live Checkpoints
+
+- [ ] **"We Do":** In `App.tsx`, import `useState`. Create the `count` state and `increment` function.
+- [ ] **"You Do":** "Your task: Add `decrement` and `reset`. Then, refactor the whole thing to use `useReducer` instead of `useState`."
+
+---
+
+### D1.11: Shared State Teaser
+
+- **Slide:** `public/slides/day1/D1-11-SharedState.md`
+- **Objective:** Set up the problem that global state solves (prop drilling) and introduce the (different) solutions.
+
+#### 🗣️ Key Talking Points
+
+- **The Problem:** "Okay, so we have a counter. What if we want to show that count in the Navbar? And in a component in the footer? Local state can't do that."
+- **Prop Drilling:** The "bad" way is to pass the `count` prop all the way down from `App` to every child. This is messy and hard to maintain.
+
+- **The Solution:** We need to lift the state _out_ of the components.
+- **Vue (Pinia):** A global, centralized store. It's like a separate object that any component can import and use.
+- **React (Context):** A "provider" system. A parent component _provides_ the state, and any child component (no matter how deep) can _consume_ it. It's still tied to the component tree, but it avoids drilling.
+
+#### ✅ Live Checkpoints
+
+- [ ] **Task:** "To finish Day 1, create a new `DisplayCount` component in both apps. In Vue, create a `useCounterStore` with Pinia to share the state. In React, create a `CounterContext` to share the state. Prove that changing the count in one component updates the other."
+
+---
+
+This guide provides a clear, step-by-step script for you to follow.
+
+Would you like me to generate this same facilitator guide for **Day 2 and Day 3**?
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\public\slides\day1\D1-Facilitator.md -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\public\slides\day2\D2-1-Routing.md -----
+## D2.1: Advanced Routing (Time: 60 mins)
+
+branch: day-2/00-routing
+
+### Vue Router: Guards
+
+Vue Router's "navigation guards" are its "middleware." They are perfect for checking auth or permissions before a user can see a page.
+
+- `router.beforeEach`: A global guard that runs before _every single_ route change.
+- `beforeEnter`: An in-route guard for specific routes.
+- `beforeRouteLeave`: A component-level guard to prevent a user from leaving a page (e.g., "Are you sure you want to discard changes?").
+
+---
+
+### React Router v6: Data Routers
+
+The modern standard is using `createBrowserRouter`. This enables powerful "data-loading" features.
+
+- **`loader`**: A function you attach to a route that fetches data _before_ the component renders. No more loading spinners inside `useEffect`!
+- **`action`**: A function that handles data mutations (like form submissions) for a route.
+- **`useLoaderData`**: A hook to access the data from your loader in your component.
+
+---
+
+### Your Task
+
+- **Vue**: Add a global `beforeEach` navigation guard to `src/router/index.ts` that simply `console.log`s the `to` and `from` paths.
+- **React**:
+  1.  Refactor your routes in `main.tsx` to use `createBrowserRouter`.
+  2.  Add a `loader` to your `/about` route that returns a simple object: `{ message: "Hello from the loader!" }`.
+  3.  Use the `useLoaderData` hook in your `About` component to display the message.
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\public\slides\day2\D2-1-Routing.md -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\public\slides\day2\D2-2-DataFetching.md -----
+## D2.2: Basic Data Fetching (Time: 45 mins)
+
+branch: day-2/01-data-fetching
+
+### The Core Pattern
+
+Before we use fancy data loaders, it's critical to understand the manual, hook-based pattern. The goal is to fetch data when a component "mounts" (is first shown).
+
+---
+
+### Vue: `onMounted` + `ref`
+
+We use the `onMounted` lifecycle hook to run code once the component is added to the DOM. We store the result in a `ref`.
+
+```vue
+<script setup>
+import { ref, onMounted } from 'vue'
+const data = ref(null)
+const loading = ref(true)
+
+onMounted(async () => {
+  const res = await fetch('...')
+  data.value = await res.json()
+  loading.value = false
+})
+</script>
+```
+
+---
+
+### React: useEffect + useState
+
+We use the useEffect hook with an empty dependency array ([]) to run code only once on mount. We store the result in useState.
+
+```js
+import { useState, useEffect } from 'react'
+
+function MyComponent() {
+  const [data, setData] = useState(null)
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    async function fetchData() {
+      const res = await fetch('...')
+      setData(await res.json())
+      setLoading(false)
+    }
+    fetchData()
+  }, []) // <-- Empty array means "run on mount"
+}
+```
+
+---
+
+### Your Task
+
+In both apps, on your /about page:
+
+1. Fetch data from the free PokéAPI (https://pokeapi.co/api/v2/pokemon/pikachu).
+2. Display the Pokémon's name on the page.
+3. Add a simple "Loading..." message while the request is in progress.
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\public\slides\day2\D2-2-DataFetching.md -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\public\slides\day2\D2-3-AdvancedState.md -----
+## D2.3: Global State Management (Time: 75 mins)
+
+branch: day-2/02-advanced-state
+
+### The Problem
+
+`useState` is local. `Context` is tree-based. But what if two _totally separate_ components need to share state?
+
+This is where a **global state manager** comes in. It's a single "source of truth" outside your component tree.
+
+![Image of global state management diagram](../../global%20state%20diagram-1.gif 'redux flow')
+
+---
+
+### Vue: Pinia
+
+Pinia is the new official, simple state manager for Vue.
+
+- **Store**: A "slice" of state defined with `defineStore`.
+- **Plugins**: Easy to add features like `pinia-plugin-persistedstate` to automatically save state to `localStorage`.
+- **DevTools**: Integrates perfectly with Vue DevTools for time-travel debugging.
+
+---
+
+### React: Redux Toolkit (RTK)
+
+RTK is the modern standard for "heavy" state in React.
+
+- **`createSlice`**: Replaces old "reducers" and "actions" with one simple function.
+- **`RTK Query`**: A _complete_ data-fetching and caching solution. It automatically handles fetching, loading states, and caching, often replacing `useEffect` entirely.
+- **Alternatives**: For simpler needs, **Zustand** is extremely popular. It feels like a simple hook (`useStore()`) but is global.
+
+---
+
+### Your Task
+
+- **Vue**:
+  1.  Install `pinia-plugin-persistedstate`.
+  2.  Add it to your Pinia instance in `main.ts`.
+  3.  In your `useCounterStore`, add `persist: true` to the store options.
+  4.  Refresh the page and prove the count is saved.
+- **React**:
+  1.  Refactor your `CounterContext` to a full Redux Toolkit `createSlice` named `counterSlice`.
+  2.  Connect it to your components using `useSelector` and `useDispatch`.
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\public\slides\day2\D2-3-AdvancedState.md -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\public\slides\day2\D2-4-Theming.md -----
+## D2.4: Theming & UI Libraries (Time: 60 mins)
+
+branch: day-2/03-theming
+
+### Why Use a UI Library?
+
+- **Speed**: Don't reinvent the wheel for every button, modal, and form.
+- **Consistency**: Ensures a consistent, professional look across your app.
+- **Accessibility (a11y)**: Good libraries have accessibility (keyboard navigation, screen reader support) built-in.
+
+---
+
+### Two Main Approaches
+
+1.  **Component Libraries**: Pre-built, pre-styled components (e.g., Material Design).
+    - **Pros**: Extremely fast, batteries-included.
+    - **Cons**: Can all look the same, harder to customize.
+2.  **Utility-First / Headless**: You build your own components using low-level tools.
+    - **Pros**: Full custom control, unique designs.
+    - **Cons**: More work to build each component.
+
+---
+
+### Comparison
+
+| Category           | Vue                              | React                            |
+| :----------------- | :------------------------------- | :------------------------------- |
+| **Component Libs** | **Vuetify** (Material), PrimeVue | **Material-UI (MUI)**, Chakra UI |
+| **Utility-First**  | **Tailwind CSS**                 | **Tailwind CSS**                 |
+| **Headless UI**    | **Headless UI**                  | **Headless UI** (same library!)  |
+
+Our stack (`Tailwind + Headless UI`) is a popular, modern choice that works for both.
+
+---
+
+### Your Task
+
+1.  **Vue**: Add **Vuetify** to your project. Replace your plain `<button>` with a `<v-btn>`.
+2.  **React**: Add **MUI** (`@mui/material`) to your project. Replace your plain `<button>` with a `<Button>`.
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\public\slides\day2\D2-4-Theming.md -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\public\slides\day2\D2-Facilitator.md -----
+## ☀️ Day 2 Facilitator Guide (Revised)
+
+**Goal:** Move from single components to a real application. Connect to APIs, manage shared global state (Pinia/RTK), and integrate pre-built component libraries.
+**Total Time:** 240 Minutes (4 Hours)
+
+### D2.1: Advanced Routing (60 mins)
+
+- **Slide:** `public/slides/day2/D2-1-Routing.md`
+- **Objective:** Explain "middleware" (guards) in Vue and introduce data-driven routing ("loaders") in React.
+
+#### 🗣️ Key Talking Points
+
+- "Yesterday we set up basic routes. Today, let's look at the advanced features that make these routers powerful for real apps."
+- **Vue - Navigation Guards:**
+  - "Vue Router's power comes from **Navigation Guards**. These are 'middleware' functions that run before, during, or after a route change."
+  - `router.beforeEach`: This is the most common. It's a **global** guard that runs before _every_ route change. This is the perfect place to check: "Is the user logged in? If not, redirect them to `/login`."
+  - `beforeRouteLeave`: This is a guard you put _inside_ a component. It's used to prevent a user from leaving a page, like an unsaved form. "Are you sure you want to discard your changes?"
+- **React - Data Routers:**
+  - "This is a major concept. The modern React Router (`v6+`) has a powerful new 'Data Router' API, which we enable using `createBrowserRouter`."
+  - "Why do this? Because it unlocks the **`loader`** function. A `loader` is a function you attach to a route that fetches data _before_ the component even renders."
+  - "This completely changes how we fetch data. Instead of `useEffect` + `useState` + `setLoading(true)` inside the component, the router _waits_ for the data. The data is just _there_ when the component renders. React handles the loading states for us."
+  - `useLoaderData`: "This is the hook you use inside your component to get the data returned from your `loader`."
+
+#### ✅ Live Checkpoints
+
+- [ ] **Vue Task:**
+  - [ ] Open `vue-app/src/router/index.ts`.
+  - [ ] Add `router.beforeEach((to, from) => { ... })` after the `createRouter` call.
+  - [ ] Inside the guard, add `console.log('Navigating from:', from.path, 'to:', to.path)`.
+  - [ ] Navigate in the browser and show the console log.
+- [ ] **React Task (This is a 60-min refactor):**
+  - [ ] **"We Do":** This is a big one. Let's do this together. Open `react-app/src/main.tsx`.
+  - [ ] We will replace `<BrowserRouter>` with `createBrowserRouter` and pass it to `<RouterProvider>`. This is a significant structural change.
+  - [ ] **"We Do":** Add a `loader` property to the `/about` route: `loader: async () => { return { message: 'Hello from the loader!' } }`.
+  - [ ] **"You Do":** "Now, open `About.tsx`, import `useLoaderData`, call it, and display the `message` on the page. Notice there's no `useState` or `useEffect`."
+
+---
+
+### D2.2: Basic Data Fetching (45 mins)
+
+- **Slide:** `public/slides/day2/D2-2-DataFetching.md`
+- **Objective:** Teach the _fundamental_ manual data fetching pattern (mount/effect hooks) in both frameworks.
+
+#### 🗣️ Key Talking Points
+
+- "Before we _always_ use fancy loaders, you _must_ know the manual, hook-based pattern. This is the foundation for 90% of data fetching you'll see."
+- "The goal is to fetch data _once_ when the component first appears, or 'mounts'."
+- **Vue:**
+  - "In Vue's Composition API, we use the `onMounted` lifecycle hook. This function will run _after_ the component has been rendered to the DOM for the first time."
+  - "We create three `ref`s: one for the `data` (defaulting to `null`), one for `loading` (defaulting to `true`), and one for `error` (defaulting to `null`)."
+  - "Inside `onMounted`, we wrap our `async` call in a `try...catch...finally` block. This is how we handle errors and ensure `loading` is set to `false` even if the request fails."
+- **React:**
+  - "In React, we use the `useEffect` hook. This hook is for _all_ side effects."
+  - "The magic is the **dependency array**—the `[]` at the end. An empty array tells React: 'Only run this function _once_, after the first render'."
+  - **"CRITICAL:"** "If you forget the `[]`, you will create an **infinite loop**. The `fetch` will update the state, which causes a re-render, which runs `useEffect` again, which fetches again... and so on."
+  - "Like Vue, we use `useState` for `data`, `loading`, and `error`."
+
+#### ✅ Live Checkpoints
+
+- [ ] **Task:** "In both apps, go to your `About` page/component." (Note: React team may do this on `/home` if `/about` now uses a loader).
+- [ ] **Task:** "Add `onMounted` / `useEffect`."
+- [ ] **Task:** "Add `loading` and `error` state."
+- [ ] **Task:** "Inside the hook, `fetch` from `https://pokeapi.co/api/v2/pokemon/pikachu`."
+- [ ] **Task:** "Wrap the fetch in a `try...catch`."
+- [ ] **Task:** "Show a 'Loading...' message if `loading` is true. Show the error if `error` is set. When the data arrives, show the Pokémon's name (`data.name`)."
+
+---
+
+### D2.3: Global State Management (75 mins)
+
+- **Slide:** `public/slides/day2/D2-3-AdvancedState.md`
+- **Objective:** Compare Pinia and Redux Toolkit (RTK) as solutions to global state.
+
+#### 🗣️ Key Talking Points
+
+- "Yesterday, we saw the problem: sharing state between components. Prop drilling is bad. Context (React) and Pinia (Vue) are the solutions. Let's go deeper."
+- "We need a **global state manager**—a single source of truth that lives _outside_ our component tree."
+- **Vue - Pinia:**
+  - "Pinia is the new official store for Vue, replacing Vuex. It's _much_ simpler."
+  - "A 'store' is just a 'slice' of your state, created with `defineStore`."
+  - "It has a powerful plugin system. The most popular is `pinia-plugin-persistedstate`. You add it once, and then any store can save itself to `localStorage` just by adding one line: `persist: true`. This is incredibly powerful and saves you from writing complex `localStorage.setItem` logic."
+- **React - Redux Toolkit (RTK):**
+  - "This is the big one. Redux is the most battle-tested state library for React. 'RTK' is the modern, official way to use Redux that removes all the old boilerplate."
+  - "The core of Redux is the 'reducer' pattern: You `dispatch` an **action** (an object like `{ type: 'INCREMENT' }`), and a **reducer function** (a `switch` statement) handles it to create a _new_ state. State is **immutable**—you never change it directly."
+  - "`createSlice` is the RTK core. It's one function that _generates_ your state, your reducers, and your action creators all at once. It uses a library called 'Immer' inside, which lets you write 'mutating' logic (like `state.count += 1`) that it safely converts into an immutable update."
+  - **RTK Query:** "This is its killer feature. It's a full data-fetching library _inside_ Redux. It handles all the `loading` and `error` states for you, caches data, and invalidates that cache. For complex apps, this often replaces 90% of your manual `useEffect` fetches."
+
+#### ✅ Live Checkpoints
+
+- [ ] **Vue Task:**
+  - [ ] `pnpm -F vue-app add pinia-plugin-persistedstate`
+  - [ ] Open `main.ts`, import the plugin, and pass it to Pinia: `pinia.use(createPersistPlugin(...))` (using your file structure).
+  - [ ] Open your `useCounterStore`.
+  - [ ] In `defineStore`, add `{ persist: true }` as the third argument.
+  - [ ] Run the app, click the counter, refresh the page, and show that the count is still there.
+- [ ] **React Task (This is a 75-min refactor):**
+  - [ ] **"We Do":** Create a new `features/counter/counterSlice.ts` file.
+  - [ ] Live-code the `createSlice` call together. Explain how the `reducers` object functions generate "actions."
+  - [ ] **"We Do":** Open `store/index.ts`. Show how to import the slice and add its `reducer` to the main `configureStore` call.
+  - [ ] **"You Do":** "Your task: Go into your `Counter` component, remove `useContext`, and replace it with `useSelector` (to read the count) and `useDispatch` (to dispatch the increment/decrement actions)."
+
+---
+
+### D2.4: Theming & UI Libraries (60 mins)
+
+- **Slide:** `public/slides/day2/D2-4-Theming.md`
+- **Objective:** Compare component libraries (Vuetify/MUI) vs. utility-first (Tailwind).
+
+#### 🗣️ Key Talking Points
+
+- "Why not just write CSS? Speed, Consistency, and **Accessibility**."
+- "Good UI libraries give you keyboard navigation, color contrast, and ARIA roles for free."
+- **Approach 1: Component Libraries (Vuetify, MUI)**
+  - "These are 'batteries-included' frameworks. You get 80+ components (buttons, forms, data tables) that all look and feel the same (e.g., Material Design)."
+  - "Pros: Incredibly fast. You can build a complex admin dashboard in a day."
+  - "Cons: Your app can look generic, and deep customization is harder."
+- **Approach 2: Utility-First / Headless (Tailwind)**
+  - "This is what we're using. Tailwind gives you _utility classes_ (`flex`, `p-4`, `text-blue-500`) to build your _own_ components."
+  - "Pros: Full control over your design. It's fast once you learn it."
+  - "Cons: 'Class soup' in your HTML. You still have to build your own components."
+  - **Headless UI:** "This is the best of both worlds. It gives you the _logic_ and _accessibility_ for components (like a Dropdown or Modal) but _no styles_. You then style it yourself with Tailwind. The _same_ Headless UI library works for both Vue and React."
+
+#### ✅ Live Checkpoints
+
+- [ ] **Task:** "We're going to quickly add a component library just to see how it works."
+- [ ] **Vue Task:** `pnpm -F vue-app add vuetify`. Follow the setup in `main.ts` from `plugins/vuetify.ts`. Go to `App.vue` or your counter and change a button to `<v-btn>`.
+- [ ] **React Task:** `pnpm -F react-app add @mui/material @emotion/react @emotion/styled`. Go to `App.tsx` or your counter and change a button to `<Button>`.
+
+---
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\public\slides\day2\D2-Facilitator.md -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\public\slides\day3\D3-0-Branching.md -----
+## D3.0: Team Workflows (Time: 15 mins)
+
+**branch:** `(N/A - Concept)`
+
+### Goal: Predictable, Safe Code Integration
+
+How do we prevent 10 developers working on the same project from breaking each other's code? We use a **branching strategy**.
+
+---
+
+### Two Main Strategies
+
+<div class="d-flex">
+<div class="col">
+<h4>🌳 Trunk-Based</h4>
+
+- **Default:** The `main` (or "trunk") branch.
+- **Workflow:**
+  1. Create a short-lived feature branch (e.g., `feat/add-login`).
+  2. Commit and push to that branch.
+  3. Open a Pull Request (PR) to merge back into `main`.
+  4. CI/Tests pass, it's merged.
+- **Result:** Everyone is always < 1 day out of sync with `main`.
+- **Relies On:** Strong automated testing and CI/CD.
+</div>
+<div class="col">
+<h4>🔀 Git Flow</h4>
+
+- **Default:** The `develop` branch.
+- **Workflow:**
+  1. Create a `feature/` branch from `develop`.
+  2. When done, merge back into `develop`.
+  3. To deploy, you create a `release/` branch from `develop`.
+  4. After testing, `release/` is merged into `main` (for prod) AND back into `develop`.
+- **Result:** Very rigid, structured, and complex.
+- **Relies On:** Strict processes; good for versioned software (e.g., v1.0, v2.0).
+</div>
+</div>
+
+---
+
+### Our Choice: Trunk-Based Flow
+
+- For modern web apps with CI/CD (like Vercel/Netlify deploy-on-push), **Trunk-Based Flow is the standard.**
+- **Git Flow** is too complex for our needs.
+
+### Your Task
+
+- **(Discussion):** If everyone merges to `main` constantly, how do we protect it?
+- **Answer:** We automate our quality checks. This is the "why" for the rest of today.
+- We will use **Husky** and **lint-staged** to _block_ bad code from _ever_ being committed, protecting our trunk.
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\public\slides\day3\D3-0-Branching.md -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\public\slides\day3\D3-1-Tooling.md -----
+## D3.1: Team Tooling & Automation (Time: 45 mins)
+
+branch: day-3/00-tooling
+
+### Goal: Code Consistency
+
+When working in a team, consistent code is readable and maintainable. We use tools to enforce quality _automatically_ before code is ever committed.
+
+---
+
+### The Toolchain
+
+- **ESLint**: A linter that finds syntax errors and style issues in your code.
+- **Prettier**: An opinionated code _formatter_. It ends all debates about tabs vs. spaces by automatically reformatting your code on save.
+- **Husky**: A tool that runs scripts during `git` hooks (like `pre-commit`).
+- **lint-staged**: Runs your linters _only_ on the files you've staged for commit, making the check extremely fast.
+
+---
+
+### How It Works
+
+1.  You run `git commit`.
+2.  **Husky** intercepts this and triggers a `pre-commit` hook.
+3.  The hook runs **lint-staged**.
+4.  `lint-staged` runs `eslint --fix` and `prettier --write` on all your staged `.vue` and `.tsx` files.
+5.  If there are no errors, the commit proceeds. If there are, the commit is blocked.
+
+---
+
+### Your Task
+
+In both projects:
+
+1.  Install `husky` and `lint-staged`.
+2.  Configure `husky` to run `lint-staged` on `pre-commit`.
+3.  Configure `lint-staged` in `package.json` to run `eslint --fix` on staged files.
+4.  Make an intentional lint error in a file, try to commit it, and watch it fail.
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\public\slides\day3\D3-1-Tooling.md -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\public\slides\day3\D3-2-Testing.md -----
+## D3.2: Unit Testing (Time: 75 mins)
+
+branch: day-3/01-testing
+
+### The Testing Pyramid
+
+A model for a healthy testing strategy. We will focus on the bottom two layers.
+
+<div class="d-flex">
+  <div class="col">
+    <img
+      src="../../type-of-tests.jpg"
+      alt="Image of the testing pyramid"
+      width="800px"
+      height="600px"
+    />
+  </div>
+  <div class="col">
+
+#### Types
+
+- **Unit Tests (Base)**: Fast, cheap. Test a single function or component in isolation. (We are here.)
+- **Integration Tests (Middle)**: Test how multiple components work _together_.
+- **E2E Tests (Top)**: Slow, expensive. Test the full application in a real browser.
+  </div>
+</div>
+
+---
+
+### Vue: `Vitest` + `Vue Test Utils`
+
+- **Vitest**: A modern, Vite-native test runner. It's fast and has a great API.
+- **Vue Test Utils**: The official library for mounting Vue components.
+- **Pattern**: `mount()` the component, use `wrapper.find()` to get elements, `wrapper.trigger('click')` to interact, and `expect()` to assert.
+
+```js
+import { mount } from '@vue/test-utils'
+import Counter from './Counter.vue'
+
+test('it increments', async () => {
+  const wrapper = mount(Counter)
+  await wrapper.find('button').trigger('click')
+  expect(wrapper.html()).toContain('1')
+})
+```
+
+---
+
+### React: Vitest + React Testing Library
+
+- React Testing Library (RTL): The industry standard.
+- Philosophy: "Test your components the way a user would." You find elements by their text, label, or role, not by class or ID. This makes tests less brittle.
+- Pattern: render() the component, use screen.getByText() to find elements, fireEvent.click() to interact, and expect() to assert.
+
+```js
+import { render, screen, fireEvent } from '@testing-library/react'
+import Counter from './Counter'
+
+test('it increments', () => {
+  render(<Counter />)
+  fireEvent.click(screen.getByText('Increment'))
+  expect(screen.getByText('Count: 1')).toBeInTheDocument()
+})
+```
+
+---
+
+### Your Task
+
+In both apps, write a simple unit test for your Button component:
+
+1. Test that it renders the label prop correctly.
+2. Test that the onClick handler (Vue: @click emit) is called when it's clicked.
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\public\slides\day3\D3-2-Testing.md -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\public\slides\day3\D3-3-E2E-Testing.md -----
+## D3.3: End-to-End (E2E) Testing (Time: 60 mins)
+
+branch: day-3/02-e2e-testing
+
+### What is E2E Testing?
+
+E2E tests simulate a _real user's entire journey_ through your application in a _real browser_.
+
+**Example Flow**:
+
+1.  Launch Chrome.
+2.  Visit `localhost:5173`.
+3.  Click the "Login" link.
+4.  Fill in the "email" and "password" fields.
+5.  Click "Submit".
+6.  Assert that the URL is now `/dashboard`.
+
+---
+
+### Cypress vs. Playwright
+
+- **Cypress**: The classic E2E tool. Runs _inside_ the browser, which gives it a great time-traveling debugger.
+- **Playwright**: The modern successor from Microsoft. Runs _outside_ the browser, giving it more control. It's known for being extremely fast, reliable, and having excellent cross-browser support (Chrome, Firefox, Safari) with one API.
+
+We are using **Playwright**.
+
+---
+
+### Playwright Example
+
+Tests are written in a simple `test('name', ...)` format.
+
+```js
+import { test, expect } from '@playwright/test'
+
+test('counter page works', async ({ page }) => {
+  // 1. Visit the page
+  await page.goto('http://localhost:5173/')
+
+  // 2. Find elements and interact
+  await page.click('text=Increment')
+
+  // 3. Assert the result
+  const count = await page.locator('.count-display')
+  await expect(count).toHaveText('1')
+})
+```
+
+---
+
+### Your Task
+
+Choose one app (Vue or React):
+
+1. Add Playwright to the project.
+2. Write one E2E test that:
+   - Visits the home page (/).
+   - Clicks the link to the /about page.
+   - Asserts that the /about page shows the Pokémon's name ("pikachu").
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\public\slides\day3\D3-3-E2E-Testing.md -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\public\slides\day3\D3-4-Deployment.md -----
+## D3.4: Production & Deployment (Time: 45 mins)
+
+branch: day-3/03-deployment
+
+### Production Readiness
+
+Before we deploy, we must optimize our app.
+
+- **Code Splitting**: Vite does this automatically! Your routes (`/about`) are only loaded when a user visits them, making the initial app load much smaller.
+- **Bundle Analysis**: Use a plugin like `rollup-plugin-visualizer` to see a map of your final bundle. This helps you find large libraries that are slowing down your app.
+
+---
+
+### The "Git-Based" Workflow
+
+Modern platforms like **Netlify** (great for Vue/static sites) and **Vercel** (by the makers of Next.js, great for React) have perfected deployment.
+
+1.  Push your code to a GitHub/GitLab repository.
+2.  Connect your repo to Netlify or Vercel.
+3.  Set the build command: `pnpm build`
+4.  Set the output directory: `dist`
+5.  **Done.**
+
+Every time you `git push` to your `main` branch, your site will be automatically rebuilt and deployed.
+
+---
+
+### Your Task
+
+1.  Create a new, empty repository on GitHub.
+2.  Push one of your apps (Vue or React) to it.
+3.  Sign up for a free Netlify or Vercel account.
+4.  Connect your new repo and deploy it.
+5.  Share the live URL!
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\public\slides\day3\D3-4-Deployment.md -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\public\slides\day3\D3-Facilitator.md -----
+## ☀️ Day 3 Facilitator Guide (Revised)
+
+**Goal:** Professionalize the apps with team tooling, write robust tests (unit and E2E), and deploy them to a live URL.
+**Total Time:** 240 Minutes (4 Hours)
+
+### D3.0: Team Workflows (15 mins)
+
+- **Slide:** `public/slides/day3/D3-0-Branching.md`
+- **Objective:** Introduce Trunk-Based Development as the "why" for automated tooling.
+
+#### 🗣️ Key Talking Points
+
+- "This is a concept-only slide, but it's crucial. How do we stop 10 developers from breaking the `main` branch?"
+- "We're using **Trunk-Based Flow**. Everyone merges small, frequent pull requests back to `main`. This avoids the complex merge conflicts of long-running 'Git Flow' branches."
+- "But this only works if you have a **strong safety net**. You must _block_ bad code from ever getting into the `main` trunk."
+- "This is the 'why' for all of Day 3. Our safety net is:
+  1.  **Local Tooling (Husky):** Blocks bad _commits_.
+  2.  **CI Pipeline (GitHub Actions):** Blocks bad _merges_.
+  3.  **Tests (Vitest, Playwright):** The rules that _define_ 'bad code'."
+
+#### ✅ Live Checkpoints
+
+- [ ] (Discussion only) Ask the group: "What tools have you used to enforce code quality on a team?"
+
+---
+
+### D3.1: Team Tooling & Automation (45 mins)
+
+- **Slide:** `public/slides/day3/D3-1-Tooling.md`
+- **Objective:** Enforce code quality automatically with ESLint, Prettier, and git hooks.
+
+#### 🗣️ Key Talking Points
+
+- "This is our **first line of defense**. How do we stop 'style debates' and prevent broken code from _ever leaving your machine_?"
+- **ESLint:** This is a **linter**. It finds _problems_ in your code, like unused variables or broken rules.
+- **Prettier:** This is a **formatter**. It _only_ cares about style (tabs, spaces, semicolons). It will reformat your code on save.
+- **The Problem:** "What if someone ignores the linter and commits bad code?"
+- **The Solution:** We automate it with **Git Hooks**. A git hook is a script that runs at a certain git event, like `pre-commit` (before you commit).
+- **Husky:** A tool that makes it easy to set up git hooks.
+- **lint-staged:** Makes the hook _fast_. We don't want to lint our _entire_ project on every commit. `lint-staged` runs our tools _only_ on the files that are _staged for commit_.
+- **The Workflow:** (Show diagram/slide) "You run `git commit` -> Husky triggers `pre-commit` -> The hook runs `lint-staged` -> `lint-staged` runs `eslint --fix` on staged files -> If it passes, the commit is made. If it fails, the commit is blocked."
+
+#### ✅ Live Checkpoints
+
+- [ ] **Task:** "We will set this up in _one_ of the projects. Let's pick `vue-app`."
+- [ ] `pnpm -F vue-app add -D husky lint-staged`
+- [ ] `npx husky init` (in the `packages/vue-app` directory)
+- [ ] **"We Do":** Show them how to edit the `package.json` to add the `lint-staged` config.
+- [ ] **"We Do":** Show them how to edit `.husky/pre-commit` to run `npx lint-staged`.
+- [ ] **"You Do":** "Your task: Go into a `.vue` file, make an obvious lint error (like `var foo = 'bar'`), save it, stage it, and try to `git commit`. Watch it fail. Then, fix it and commit successfully."
+
+---
+
+### D3.2: Unit Testing (75 mins)
+
+- **Slide:** `public/slides/day3/D3-2-Testing.md`
+- **Objective:** Introduce unit testing philosophies, tools (Vitest, VTU, RTL), and mocking.
+
+#### 🗣️ Key Talking Points
+
+- **The Testing Pyramid:** "This is the most famous model in testing.
+  - **Unit Tests (Base):** Fast, cheap, and isolated. You should have _lots_ of these. They test one function or component.
+  - **Integration Tests (Middle):** Test how multiple components work _together_ (e.g., "does clicking the button in the form add an item to the list?").
+  - **E2E Tests (Top):** Slow, expensive, and brittle. They test the _full user journey_. You should have very few of these."
+- **Test Runner:** "We're using **Vitest**. It's the modern, Vite-native replacement for Jest. It's incredibly fast and has a compatible API. We use it for _both_ apps."
+- **Mocking:** "A key concept. Your unit test must be _isolated_. If your `Button` component's `onClick` prop calls a complex function, we don't want to run that function. We _mock_ it using `vi.fn()` (a "Vitest mock function"). Then, we just assert: 'Was our mock function _called_?'"
+- **Vue - Vue Test Utils:**
+  - "This is the _official_ library for testing Vue components."
+  - "You `mount` the component, which gives you a `wrapper`."
+  - "You use `wrapper.find()` to get elements and `wrapper.trigger('click')` to interact. To test events, you check `wrapper.emitted()`.
+- **React - React Testing Library (RTL):**
+  - "This is the _industry standard_ for React. It has a very important philosophy: **'Test your components the way a user would.'**"
+  - "This means you DO NOT find elements by class or ID. You find them by _what the user sees_: their text (`getByText`), their label (`getByLabelText`), or their accessibility role (`getByRole`)."
+  - "Why? This makes your tests resilient. You can refactor your CSS or component structure, and as long as the _text_ is the same, your test still passes. **Test behavior, not implementation.**"
+
+#### ✅ Live Checkpoints
+
+- [ ] **Vue Task:**
+  - [ ] Open `vue-app/src/components/__tests__/HelloWorld.spec.ts` as an example.
+  - [ ] **"You Do":** "Create a new test file for your `Button.vue` component.
+    1.  Write a test that `mount`s it with a `label` prop, and `expect` the `wrapper.text()` to contain the label.
+    2.  Write a second test that `trigger`s a 'click' and `expect` the `wrapper.emitted()` to have a 'click' event."
+- [ ] **React Task:**
+  - [ ] Open `react-app/src/__tests__/tasksSlice.test.ts` as an example (this is a _reducer_ test, not a component test).
+  - [ ] **"You Do":** "Create a new `Button.test.tsx` file.
+    1.  `render` your Button with a `label`. Use `screen.getByText('...')` to assert the label is in the document.
+    2.  Create a `vi.fn()` (a mock function), pass it as the `onClick` prop.
+    3.  `fireEvent.click()` the button.
+    4.  `expect` your mock `onClick` to have been `toHaveBeenCalled()`."
+
+---
+
+### D3.3: End-to-End (E2E) Testing (60 mins)
+
+- **Slide:** `public/slides/day3/D3-3-E2E-Testing.md`
+- **Objective:** Explain E2E testing and using Playwright.
+
+#### 🗣️ Key Talking Points
+
+- "This is the top of the pyramid. E2E tests are our **second line of defense** (in CI). They simulate a _full user journey_ in a _real browser_."
+- "The test will literally: 1. Launch Chrome. 2. Go to `localhost:5173`. 3. Click the 'About' link. 4. Assert that the text 'pikachu' is on the page."
+- **Cypress vs. Playwright:**
+  - **Cypress:** The classic, runs _inside_ the browser. Famous for its time-travel debugger.
+  - **Playwright:** The modern successor from Microsoft. Runs _outside_ the browser, giving it more control. It's faster and can control Chrome, Firefox, and Safari _all with one API_. We are using Playwright.
+- **Selectors:** "How do we find elements? Playwright prefers user-facing selectors, just like RTL. The best way is `getByRole` (e.g., `page.getByRole('link', { name: /about/i })`). This is robust, accessible, and not tied to implementation."
+
+#### ✅ Live Checkpoints
+
+- [ ] **Task:** "Choose _one_ app (e.g., `vue-app`)."
+- [ ] Show them `packages/vue-app/e2e/tasks.spec.ts` as an example.
+- [ ] **"You Do":** "Your task: Create a new test file `navigation.spec.ts`. Write a test that starts at the home page (`/`), clicks the 'About' link, and asserts that the Pokémon name 'pikachu' (from our D2-2 task) is visible on the page."
+- [ ] Run `pnpm -F vue-app test:e2e` to run it. Show the Playwright report.
+
+---
+
+### D3.4: Production & Deployment (45 mins)
+
+- **Slide:** `public/slides/day3/D3-4-Deployment.md`
+- **Objective:** Run a production build and deploy both apps to live URLs.
+
+#### 🗣️ Key Talking Points
+
+- "We're done! Now, how do we ship it?"
+- **Production Build:**
+  - "First, we run `pnpm build`. This tells Vite to _optimize_ our app. It will minify the code, tree-shake unused functions, and bundle it into a highly efficient `dist` folder."
+  - "This `dist` folder is our final, static application."
+- **Deployment (The 'Git-Based' Workflow):**
+  - "In the old days, we had to FTP files or manage complex servers. Not anymore."
+  - "Platforms like **Netlify** (great for Vue) and **Vercel** (great for React) have perfected this. We will deploy our Vue app to Netlify and our React app to Vercel."
+  - "The flow is simple: You connect your GitHub repo, tell it the build command (`pnpm build`) and the output directory (`dist`). That's it. Every time you push to `main`, it auto-deploys."
+- **Environment Variables:**
+  - "What about secret keys or API URLs? You _never_ hard-code them. You use Environment Variables (e.g., `VITE_API_URL`)."
+  - "In deployment, you don't use a `.env` file. You set these variables in the Netlify or Vercel project settings UI. They are securely injected _at build time_."
+
+#### ✅ Live Checkpoints
+
+- [ ] **Task:** "Everyone, create a new, empty repository on GitHub called `ptl-workshop`."
+- [ ] **Task:** "Push your _entire monorepo_ to this new repository."
+- [ ] **Task:** "Sign up for a free Netlify account."
+- [ ] **"We Do":** Walk them through "Add new site" -> "Import an existing project" -> Connect to GitHub -> Find the repo.
+- [ ] **CRITICAL:** Show them where to set the "Base directory" to `packages/vue-app`, build command to `pnpm build`, and publish directory to `packages/vue-app/dist`.
+- [ ] **Task:** "Now, do the same for the React app on Vercel. Connect your repo, set the 'Root Directory' to `packages/react-app`." (Vercel is usually smart enough to figure out the build settings).
+- [ ] **"The Win":** "Congratulations! You have two live, deployed applications. Share your URLs in the chat!"
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\public\slides\day3\D3-Facilitator.md -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\public\slides\welcome\D1-0-StateOfJS.md -----
+## The State of JS 2024: Why Vue & React?
+
+### Framework Usage: The "Big Three"
+
+The 2024 data shows React's continued dominance, but the biggest story is Vue.js solidifying its #2 spot in developer usage, officially overtaking Angular.
+
+This is why we're here: to learn the two most popular, in-demand frameworks in the world.
+
+---
+
+## Developer Sentiment: Who is Happy?
+
+### Retention & Interest
+
+Usage is one thing; developer _happiness_ is another. This chart shows what developers want to use again (retention) vs. their total usage.
+
+**Key Takeaway:** Both React and Vue are in the "High Usage, High Retention" quadrant. Developers who use them, _like_ using them.
+
+---
+
+## The Ecosystem: The "Vite" Revolution
+
+The survey also tells us _what tools_ to use.
+
+- **Vite** is the **#1 Most Loved** build tool by a huge margin.
+- It has a 98% retention rate, tying for the highest of _any_ tool.
+- **This is why we are scaffolding with Vite.**
+
+---
+
+## The Ecosystem: Why This Workshop Matters
+
+### The "Complexity" Problem
+
+Finally, the survey tells us what developers struggle with the most.
+
+- The top pain points include **"React issues"**, **"Excessive complexity"**, and **"State management"**.
+- This perfectly frames our workshop: we're learning the modern solutions to these exact problems (**Pinia** and **Redux Toolkit**).
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\public\slides\welcome\D1-0-StateOfJS.md -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\public\slides\welcome\introduction.md -----
+# Vue vs. React Workshop!
+
+### PTL Workshop 2025
+
+**Your Trainer:** James Lanzon
+
+---
+
+## Workshop Goals
+
+- Understand the core philosophies of Vue and React.
+- Confidently build components and manage state in both frameworks.
+- Learn modern tooling and professional best practices.
+- Have a clear framework for choosing the right tool for the job.
+
+---
+
+## A Quick Poll
+
+What's Your Experience Level?
+
+- New to JavaScript frameworks.
+- Have used jQuery or other libraries.
+- Comfortable with _one_ of Vue or React.
+- Experienced with _both_ frameworks.
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\public\slides\welcome\introduction.md -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\src\App.vue -----
+<script setup lang="ts">
+import HelloWorld from './components/Slides.vue';
+</script>
+
+<template>
+  <HelloWorld msg="Vite + Vue" />
+</template>
+
+<style scoped>
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.logo.vue:hover {
+  filter: drop-shadow(0 0 2em #42b883aa);
+}
+</style>
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\src\App.vue -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\src\main.ts -----
+import { createApp } from 'vue'
+// import './style.css'
+import App from './App.vue'
+
+createApp(App).mount('#app')
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\src\main.ts -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\src\components\Slides.vue -----
+<template>
+  <div
+    class="reveal"
+    ref="deckRef"
+  >
+    <div class="slides">
+      <WelcomeSlides />
+
+      <Day1Slides />
+      <Day2Slides />
+      <Day3Slides />
+
+      <FinalSlides />
+    </div>
+  </div>
+</template>
+
+<script setup>
+import { onMounted, ref, nextTick } from 'vue'
+
+import Reveal from 'reveal.js'
+import Markdown from 'reveal.js/plugin/markdown/markdown.js'
+import Highlight from 'reveal.js/plugin/highlight/highlight.js'
+import WelcomeSlides from './slides/WelcomeDeck.vue'
+import FinalSlides from './slides/FinalDeck.vue'
+import Day1Slides from './slides/SlidesDay1.vue'
+import Day2Slides from './slides/SlidesDay2.vue'
+import Day3Slides from './slides/SlidesDay3.vue'
+
+const deckRef = ref(null)
+
+onMounted(() => {
+  // nextTick(() => {
+  if (deckRef.value) {
+    const deck = new Reveal(deckRef.value, {
+      hash: true,
+      slideNumber: true,
+      plugins: [Markdown, Highlight],
+    })
+    deck.initialize({
+      width: 2048,
+      height: 1080,
+      margin: 0.04,
+      center: true,
+
+      // Bounds for smallest/largest possible scale to apply to content
+      minScale: 0.2,
+      maxScale: 2.0,
+      markdown: {
+        smartypants: true
+      },
+      highlight: {
+        highlightOnLoad: true
+      },
+    })
+  }
+})
+</script>
+
+<style>
+@import 'reveal.js/dist/reset.css';
+@import 'reveal.js/dist/reveal.css';
+@import 'reveal.js/dist/theme/moon.css';
+@import 'reveal.js/plugin/highlight/monokai.css';
+
+html,
+body,
+#app {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Custom styles for a cleaner look */
+:root {
+  --r-main-font: "Inter", "sans-serif";
+  --r-heading-font: "Inter", "sans-serif";
+  --r-heading-text-transform: none;
+}
+
+.reveal .slides section .fragment.fade-in-then-out {
+  opacity: 0;
+  display: none;
+}
+
+.reveal .slides section .fragment.fade-in-then-out.current-fragment {
+  opacity: 1;
+  display: inline;
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3 {
+  font-weight: 600;
+}
+
+.reveal .col {
+  flex: 1;
+  padding: 0 20px;
+}
+
+.reveal .d-flex {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.reveal ul {
+  width: 100%;
+}
+</style>
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\src\components\Slides.vue -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\src\components\slides\FinalDeck.vue -----
+<template>
+  <section
+    data-markdown="/slides/final-slides.md"
+    data-separator="^\r?\n---\r?\n$"
+  ></section>
+</template>
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\src\components\slides\FinalDeck.vue -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\src\components\slides\SlidesDay1.vue -----
+<template>
+  <!-- This parent section groups all Day 1 slides into a single vertical stack -->
+  <section>
+    <section>
+      <h2>Day 1</h2>
+      <h3>The Fundamentals: Building Components & Local State</h3>
+    </section>
+
+    <!-- D1.1 Welcome & Verify -->
+    <section
+      data-markdown="/slides/day1/D1-1-Welcome.md"
+      data-separator="^\r?\n---\r?\n$"
+    ></section>
+
+    <!-- D1.1A Scaffolding Overview -->
+    <section
+      data-markdown="/slides/day1/D1-1A-Scaffolding.md"
+      data-separator="^\r?\n---\r?\n$"
+    ></section>
+
+    <!-- D1.2 Vite in Vue & React -->
+    <section
+      data-markdown="/slides/day1/D1-2-Vite.md"
+      data-separator="^\r?\n---\r?\n$"
+    ></section>
+
+    <!-- D1.3 Folder Structure -->
+    <section
+      data-markdown="/slides/day1/D1-3-Folders.md"
+      data-separator="^\r?\n---\r?\n$"
+    ></section>
+
+    <!-- D1.4 Monorepo with pnpm -->
+    <section
+      data-markdown="/slides/day1/D1-4-Monorepo.md"
+      data-separator="^\r?\n---\r?\n$"
+    ></section>
+
+    <!-- D1.5 Vue SFC Basics -->
+    <section
+      data-markdown="/slides/day1/D1-5-VueSFC.md"
+      data-separator="^\r?\n---\r?\n$"
+    ></section>
+
+    <!-- D1.6 React FC Basics -->
+    <section
+      data-markdown="/slides/day1/D1-6-ReactFC.md"
+      data-separator="^\r?\n---\r?\n$"
+    ></section>
+
+    <!-- D1.7 Slots vs Children -->
+    <section
+      data-markdown="/slides/day1/D1-7-SlotsChildren.md"
+      data-separator="^\r?\n---\r?\n$"
+    ></section>
+
+    <!-- D1.9 Vue Local State -->
+    <section
+      data-markdown="/slides/day1/D1-9-VueState.md"
+      data-separator="^\r?\n---\r?\n$"
+    ></section>
+
+    <!-- D1.10 React Local State -->
+    <section
+      data-markdown="/slides/day1/D1-10-ReactState.md"
+      data-separator="^\r?\n---\r?\n$"
+    ></section>
+
+    <!-- D1.8 Routing Basics -->
+    <section
+      data-markdown="/slides/day1/D1-8-Routing.md"
+      data-separator="^\r?\n---\r?\n$"
+    ></section>
+
+    <!-- D1.11 Shared State Teaser -->
+    <section
+      data-markdown="/slides/day1/D1-11-SharedState.md"
+      data-separator="^\r?\n---\r?\n$"
+    ></section>
+  </section>
+</template>
+
+<script setup>
+// This component now provides a single root <section> element for Reveal.js to process.
+</script>
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\src\components\slides\SlidesDay1.vue -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\src\components\slides\SlidesDay2.vue -----
+<template>
+  <section>
+    <!-- Day 2 Title -->
+    <section>
+      <h2>Day 2</h2>
+      <h3>Building Applications: State, Routing & Data</h3>
+    </section>
+
+    <!-- D2.1: Routing -->
+    <section
+      data-markdown="slides/day2/D2-1-Routing.md"
+      data-separator="^\r?\n---\r?\n$"
+    >
+    </section>
+
+    <!-- D2.2: Data Fetching -->
+    <section
+      data-markdown="slides/day2/D2-2-DataFetching.md"
+      data-separator="^\r?\n---\r?\n$"
+    >
+    </section>
+
+    <!-- D2.3: Advanced State -->
+    <section
+      data-markdown="slides/day2/D2-3-AdvancedState.md"
+      data-separator="^\r?\n---\r?\n$"
+    >
+    </section>
+
+    <!-- D2.4: Theming -->
+    <section
+      data-markdown="slides/day2/D2-4-Theming.md"
+      data-separator="^\r?\n---\r?\n$"
+    >
+    </section>
+  </section>
+</template>
+
+<script setup>
+// This component just orchestrates the decks for Day 2
+</script>
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\src\components\slides\SlidesDay2.vue -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\src\components\slides\SlidesDay3.vue -----
+<template>
+  <section>
+    <!-- Day 3 Title -->
+    <section>
+      <h2>Day 3</h2>
+      <h3>The Professional Ecosystem: Tooling, Testing & Advanced Topics</h3>
+    </section>
+
+    <!-- D3.0: Branching Strategies -->
+    <section
+      data-markdown="slides/day3/D3-0-Branching.md"
+      data-separator="^\r?\n---\r?\n$"
+    >
+    </section>
+
+    <!-- D3.1: Tooling -->
+    <section
+      data-markdown="slides/day3/D3-1-Tooling.md"
+      data-separator="^\r?\n---\r?\n$"
+    >
+    </section>
+
+    <!-- D3.2: Unit Testing -->
+    <section
+      data-markdown="slides/day3/D3-2-Testing.md"
+      data-separator="^\r?\n---\r?\n$"
+    >
+    </section>
+
+    <!-- D3.3: E2E Testing -->
+    <section
+      data-markdown="slides/day3/D3-3-E2E-Testing.md"
+      data-separator="^\r?\n---\r?\n$"
+    >
+    </section>
+
+    <!-- D3.4: Deployment -->
+    <section
+      data-markdown="slides/day3/D3-4-Deployment.md"
+      data-separator="^\r?\n---\r?\n$"
+    >
+    </section>
+  </section>
+</template>
+
+<script setup>
+// This component just orchestrates the decks for Day 3
+</script>
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\src\components\slides\SlidesDay3.vue -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\src\components\slides\WelcomeDeck.vue -----
+<template>
+  <section
+    data-markdown="/slides/welcome/introduction.md"
+    data-separator="^\r?\n---\r?\n$"
+  ></section>
+  <section
+    data-markdown="/slides/welcome/D1-0-StateOfJS.md"
+    data-separator="^\r?\n---\r?\n$"
+  ></section>
+</template>
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\presentation\src\components\slides\WelcomeDeck.vue -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\react-app\eslint.config.js -----
+import react from 'eslint-plugin-react'
+import hooks from 'eslint-plugin-react-hooks'
+import globals from 'globals'
+import tseslint from '@typescript-eslint/eslint-plugin'
+
+export default [
+  {
+    ignores: ['dist'],
+  },
+  {
+    files: ['**/*.{js,ts,jsx,tsx}'],
+    languageOptions: {
+      ecmaVersion: 2022,
+      sourceType: 'module',
+      globals: globals.browser,
+    },
+    plugins: { react, hooks, tseslint },
+    rules: {
+      'react/react-in-jsx-scope': 'off',
+      'react/prop-types': 'off',
+      'react/jsx-uses-react': 'off',
+      'react-hooks/rules-of-hooks': 'error',
+      'react-hooks/exhaustive-deps': 'warn',
+    },
+  },
+]
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\react-app\eslint.config.js -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\react-app\index.html -----
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link
+    rel="icon"
+    type="image/svg+xml"
+    href="/vite.svg"
+  />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+  <title>react-app</title>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script
+    type="module"
+    src="/src/main.tsx"
+  ></script>
+  <script>
+    // Prefer saved choice; otherwise follow OS preference
+    (function () {
+      try {
+        const saved = localStorage.getItem('theme:dark');
+        const preferDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const shouldDark = saved === '1' || (saved === null && preferDark);
+        document.documentElement.classList.toggle('dark', shouldDark);
+      } catch (e) { }
+    })();
+  </script>
+
+</body>
+
+</html>
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\react-app\index.html -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\react-app\package.json -----
+{
+  "name": "react-app",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --fix --cache",
+    "format": "prettier --write src/",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui"
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^2.9.2",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "react-redux": "^9.2.0",
+    "react-router-dom": "^7.9.5"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.36.0",
+    "@playwright/test": "^1.56.1",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.0",
+    "@types/node": "^24.10.0",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "@vitejs/plugin-react": "^5.1.0",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^9.38.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.22",
+    "globals": "^16.4.0",
+    "jsdom": "^27.0.1",
+    "postcss": "^8.5.6",
+    "prettier": "3.6.2",
+    "tailwindcss": "3.4.14",
+    "typescript": "~5.9.3",
+    "typescript-eslint": "^8.45.0",
+    "vite": "^7.1.7",
+    "vitest": "^3.2.4"
+  }
+}
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\react-app\package.json -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\react-app\playwright.config.ts -----
+import { defineConfig, devices } from '@playwright/test'
+
+export default defineConfig({
+  testDir: './tests/e2e',
+  /* Maximum time one test can run for. */
+  timeout: 30 * 1000,
+  expect: {
+    /**
+     * Maximum time expect() should wait for the condition to be met.
+     * For example in `await expect(locator).toHaveText();`
+     */
+    timeout: 5000,
+  },
+  /* Run tests in files in parallel */
+  fullyParallel: true,
+  /* Fail the build on CI if you accidentally left test.only in the source code. */
+  forbidOnly: !!process.env.CI,
+  /* Retry on CI only */
+  retries: process.env.CI ? 2 : 0,
+  /* Opt out of parallel tests on CI. */
+  workers: process.env.CI ? 1 : undefined,
+  /* Reporter */
+  reporter: 'html',
+  // reporter: 'list',
+  /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
+  use: {
+    /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
+    actionTimeout: 0,
+    /* Base URL to use in actions like `await page.goto('/')`. */
+    baseURL: process.env.CI ? 'http://localhost:4173' : 'http://localhost:5173',
+
+    /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
+    trace: 'on-first-retry',
+
+    /* Only on CI systems run the tests headless */
+    headless: !!process.env.CI,
+  },
+
+  /* Configure projects for major browsers */
+  projects: [
+    {
+      name: 'chromium',
+      use: { ...devices['Desktop Chrome'] },
+    },
+    // you can enable these if you want
+    // {
+    //   name: 'firefox',
+    //   use: { ...devices['Desktop Firefox'] },
+    // },
+    // {
+    //   name: 'webkit',
+    //   use: { ...devices['Desktop Safari'] },
+    // },
+  ],
+
+  /* Run your local dev server before the tests */
+  webServer: {
+    // if you prefer preview: 'pnpm preview -- --host'
+    command: process.env.CI ? 'npm run preview' : 'npm run dev',
+    port: process.env.CI ? 4173 : 5173,
+    reuseExistingServer: !process.env.CI,
+  },
+})
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\react-app\playwright.config.ts -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\react-app\postcss.config.js -----
+export default {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+}
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\react-app\postcss.config.js -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\react-app\README.md -----
+# React + TypeScript + Vite
+
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+
+Currently, two official plugins are available:
+
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+## React Compiler
+
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+
+## Expanding the ESLint configuration
+
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+
+```js
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+
+      // Remove tseslint.configs.recommended and replace with this
+      tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      tseslint.configs.stylisticTypeChecked,
+
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
+
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
+
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
+
+### 🧩 Step 1 – Scaffold the app
+
+From your monorepo root:
+
+```bash
+cd packages
+pnpm create vite react-app --template react-ts
+cd react-app
+pnpm install
+```
+
+Your folder structure will now be:
+
+```
+packages/
+  vue-app/
+  react-app/
+```
+
+---
+
+### 🧩 Step 2 – Install dependencies
+
+We’ll match feature parity with the Vue app:
+
+```bash
+pnpm add react-router-dom @reduxjs/toolkit react-redux
+pnpm add -D eslint prettier eslint-config-prettier eslint-plugin-react eslint-plugin-react-hooks
+pnpm add -D tailwindcss postcss autoprefixer
+```
+
+Initialize Tailwind:
+
+```bash
+pnpm dlx tailwindcss init -p
+```
+
+Then set up **dark mode + custom tokens** like you did in Vue:
+
+`tailwind.config.js`
+
+```js
+export default {
+  darkMode: 'class',
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  theme: {
+    extend: {
+      colors: {
+        primary: '#4f46e5',
+        surface: '#ffffff',
+        'on-surface': '#0b1220',
+      },
+    },
+  },
+  plugins: [],
+}
+```
+
+Create `src/assets/tailwind.css`:
+
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+Import it in `main.tsx`:
+
+```tsx
+import './assets/tailwind.css'
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App.tsx'
+
+ReactDOM.createRoot(document.getElementById('root')!).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+)
+```
+
+---
+
+### 🧩 Step 3 – Configure ESLint + Prettier
+
+Add `eslint.config.js` (new flat format):
+
+```js
+import react from 'eslint-plugin-react'
+import hooks from 'eslint-plugin-react-hooks'
+import globals from 'globals'
+import tseslint from '@typescript-eslint/eslint-plugin'
+
+export default [
+  {
+    ignores: ['dist'],
+  },
+  {
+    files: ['**/*.{js,ts,jsx,tsx}'],
+    languageOptions: {
+      ecmaVersion: 2022,
+      sourceType: 'module',
+      globals: globals.browser,
+    },
+    plugins: { react, hooks, tseslint },
+    rules: {
+      'react/react-in-jsx-scope': 'off',
+      'react/prop-types': 'off',
+      'react/jsx-uses-react': 'off',
+      'react-hooks/rules-of-hooks': 'error',
+      'react-hooks/exhaustive-deps': 'warn',
+    },
+  },
+]
+```
+
+Add `.prettierrc`:
+
+```json
+{
+  "semi": false,
+  "singleQuote": true,
+  "printWidth": 100
+}
+```
+
+---
+
+### 🧩 Step 4 – Verify and run
+
+```bash
+pnpm dev
+```
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\react-app\README.md -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\react-app\tailwind.config.js -----
+/** @type {import('tailwindcss').Config} */
+export default {
+  darkMode: 'class',
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  theme: {
+    extend: {
+      colors: {
+        /* Use CSS variables with alpha support */
+        primary: 'rgb(var(--color-primary) / <alpha-value>)',
+        surface: 'rgb(var(--color-surface) / <alpha-value>)',
+        'on-surface': 'rgb(var(--color-on-surface) / <alpha-value>)',
+      },
+      borderRadius: {
+        xl: 'var(--radius-xl)',
+      },
+      boxShadow: {
+        soft: 'var(--shadow-soft)',
+      },
+    },
+  },
+  plugins: [],
+}
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\react-app\tailwind.config.js -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\react-app\tsconfig.app.json -----
+{
+  "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+    "target": "ES2022",
+    "useDefineForClassFields": true,
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "types": ["vite/client"],
+    "skipLibCheck": true,
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    "jsx": "react-jsx",
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "erasableSyntaxOnly": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedSideEffectImports": true
+  },
+  "include": ["src"]
+}
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\react-app\tsconfig.app.json -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\react-app\tsconfig.json -----
+{
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
+}
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\react-app\tsconfig.json -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\react-app\tsconfig.node.json -----
+{
+  "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
+    "target": "ES2023",
+    "lib": ["ES2023"],
+    "module": "ESNext",
+    "types": ["node", "vite/client", "vitest", "@testing-library/jest-dom"],
+    "skipLibCheck": true,
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "erasableSyntaxOnly": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedSideEffectImports": true
+  },
+  "include": [
+    "src",
+    "vitest.config.ts",
+    "vitest.setup.ts",
+    "src/vitest.d.ts",
+    "src/**/*.ts",
+    "playwright.config.ts"
+  ]
+}
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\react-app\tsconfig.node.json -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\react-app\vite.config.ts -----
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+// https://vite.dev/config/
+export default defineConfig({
+  plugins: [react()],
+})
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\react-app\vite.config.ts -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\react-app\vitest.config.ts -----
+import { defineConfig } from 'vitest/config'
+import react from '@vitejs/plugin-react'
+
+export default defineConfig({
+  plugins: [react()],
+  test: {
+    environment: 'jsdom',
+    globals: true,
+    setupFiles: './vitest.setup.ts',
+    coverage: {
+      reporter: ['text', 'html'],
+    },
+  },
+})
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\react-app\vitest.config.ts -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\react-app\vitest.setup.ts -----
+import '@testing-library/jest-dom'
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\react-app\vitest.setup.ts -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\react-app\src\vitest.d.ts -----
+/// <reference types="vitest" />
+/// <reference types="@testing-library/jest-dom" />
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\react-app\src\vitest.d.ts -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\react-app\src\__tests__\tasksSlice.test.ts -----
+import { describe, it, expect } from 'vitest'
+import tasksReducer, {
+  add,
+  setFilter,
+  toggle,
+} from '../features/tasks/tasksSlice'
+
+describe('tasks slice', () => {
+  it('adds a task', () => {
+    const state = { items: [], currentFilter: 'all' as const }
+    const next = tasksReducer(state, add('Hello'))
+    expect(next.items).toHaveLength(1)
+    expect(next.items[0]?.title).toBe('Hello')
+  })
+
+  it('toggles a task', () => {
+    const state = {
+      items: [{ id: '1', title: 'Hello', done: false }],
+      currentFilter: 'all' as const
+    }
+    const next = tasksReducer(state, toggle('1'))
+    expect(next.items[0]?.done).toBe(true)
+  })
+
+  it('changes filter', () => {
+    const state = { items: [], currentFilter: 'all' as const }
+    const next = tasksReducer(state, setFilter('done'))
+    expect(next.currentFilter).toBe('done')
+  })
+})
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\react-app\src\__tests__\tasksSlice.test.ts -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\react-app\src\features\tasks\tasksSlice.ts -----
+import { createSlice, type PayloadAction, createSelector } from '@reduxjs/toolkit'
+import type { RootState } from '../../store'
+
+export type Task = {
+  id: string
+  title: string
+  done: boolean
+  assigneeId?: number | null
+}
+
+export type Filter = 'all' | 'active' | 'done'
+
+type TasksState = {
+  items: Task[]
+  currentFilter: Filter
+}
+
+const initialState: TasksState = {
+  items: [],
+  currentFilter: 'all',
+}
+
+const tasksSlice = createSlice({
+  name: 'tasks',
+  initialState,
+  reducers: {
+    add(state, action: PayloadAction<string>) {
+      state.items.push({
+        id: crypto.randomUUID(),
+        title: action.payload,
+        done: false,
+        assigneeId: null,
+      })
+    },
+    toggle(state, action: PayloadAction<string | undefined>) {
+      const t = state.items.find(i => i.id === action.payload)
+      if (t) t.done = !t.done
+    },
+    assign(state, action: PayloadAction<{ id: string; userId: number | null }>) {
+      const t = state.items.find(i => i.id === action.payload.id)
+      if (t) t.assigneeId = action.payload.userId
+    },
+    setFilter(state, action: PayloadAction<Filter>) {
+      state.currentFilter = action.payload
+    },
+  },
+})
+
+export const { add, toggle, assign, setFilter } = tasksSlice.actions
+export default tasksSlice.reducer
+
+// selectors
+export const selectTasks = (s: RootState) => s.tasks.items
+export const selectFilter = (s: RootState) => s.tasks.currentFilter
+
+export const selectFiltered = createSelector(
+  [selectTasks, selectFilter],
+  (items, filter) => {
+    if (filter === 'all') return items
+    return items.filter(t => (filter === 'done' ? t.done : !t.done))
+  },
+)
+
+export const selectIsAll = (s: RootState) => s.tasks.currentFilter === 'all'
+export const selectIsActive = (s: RootState) => s.tasks.currentFilter === 'active'
+export const selectIsDone = (s: RootState) => s.tasks.currentFilter === 'done'
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\react-app\src\features\tasks\tasksSlice.ts -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\react-app\src\features\users\usersSlice.ts -----
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+import type { RootState } from '../../store'
+
+export type User = { id: number; name: string }
+
+type UsersState = {
+  list: User[]
+  loading: boolean
+  error: string | null
+  loaded: boolean
+}
+
+const initialState: UsersState = {
+  list: [],
+  loading: false,
+  error: null,
+  loaded: false,
+}
+
+export const fetchUsers = createAsyncThunk<User[], { force?: boolean }, { state: RootState }>(
+  'users/fetch',
+  async (_, { getState }) => {
+    const res = await fetch('https://jsonplaceholder.typicode.com/users')
+    if (!res.ok) throw new Error(`HTTP ${res.status}`)
+    const data = (await res.json()) as User[]
+    return data.map(u => ({ id: u.id, name: u.name }))
+  },
+  {
+    condition: (arg, { getState }) => {
+      const { loaded, loading } = getState().users
+      if (loading) return false
+      if (loaded && !arg?.force) return false
+      return true
+    },
+  },
+)
+
+const usersSlice = createSlice({
+  name: 'users',
+  initialState,
+  reducers: {},
+  extraReducers: builder => {
+    builder
+      .addCase(fetchUsers.pending, state => {
+        state.loading = true
+        state.error = null
+      })
+      .addCase(fetchUsers.fulfilled, (state, { payload }) => {
+        state.list = payload
+        state.loaded = true
+        state.loading = false
+      })
+      .addCase(fetchUsers.rejected, (state, { error }) => {
+        state.error = error.message || 'Failed to load users'
+        state.loading = false
+      })
+  },
+})
+
+export default usersSlice.reducer
+
+export const selectUsers = (s: RootState) => s.users.list
+export const selectUsersLoading = (s: RootState) => s.users.loading
+export const selectUsersLoaded = (s: RootState) => s.users.loaded
+export const selectUsersError = (s: RootState) => s.users.error
+
+export const userById =
+  (id?: number | null) =>
+    (s: RootState) =>
+      id == null ? undefined : s.users.list.find(u => u.id === id)
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\react-app\src\features\users\usersSlice.ts -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\react-app\src\store\hooks.ts -----
+import { type TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
+import type { RootState, AppDispatch } from './index'
+
+export const useAppDispatch: () => AppDispatch = useDispatch
+export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\react-app\src\store\hooks.ts -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\react-app\src\store\index.ts -----
+import { configureStore } from '@reduxjs/toolkit'
+import tasksReducer from '../features/tasks/tasksSlice'
+import usersReducer from '../features/users/usersSlice'
+import { createPersistor } from './persist'
+
+const persistor = createPersistor<{
+  tasks: { items: unknown; currentFilter: unknown }
+}>({
+  key: 'redux-react-app',
+  version: 2,
+  paths: ['tasks'], // we'll persist subset inside slice
+})
+
+const preloaded = persistor.load()
+
+export const store = configureStore({
+  reducer: {
+    tasks: tasksReducer,
+    users: usersReducer,
+  },
+  preloadedState: preloaded as any,
+})
+
+store.subscribe(() => {
+  const s = store.getState()
+  // only keep items + currentFilter from tasks slice
+  const minimal = {
+    tasks: {
+      items: s.tasks.items,
+      currentFilter: s.tasks.currentFilter,
+    },
+  }
+  persistor.save(minimal as any)
+})
+
+export type RootState = ReturnType<typeof store.getState>
+export type AppDispatch = typeof store.dispatch
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\react-app\src\store\index.ts -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\react-app\src\store\persist.ts -----
+// Minimal selective localStorage persistence (like your Pinia plugin)
+type PersistCfg = { key?: string; version?: number; paths?: string[] }
+
+export function createPersistor<T extends object>(cfg: PersistCfg = {}) {
+  const version = cfg.version ?? 1
+  const key = (cfg.key ?? 'redux-root') + `@v${version}`
+
+  function load(): Partial<T> | undefined {
+    try {
+      const raw = localStorage.getItem(key)
+      if (!raw) return
+      const parsed = JSON.parse(raw) as Record<string, unknown>
+      if (cfg.paths?.length) {
+        const subset: Record<string, unknown> = {}
+        for (const k of cfg.paths) if (k in parsed) subset[k] = parsed[k]
+        return subset as Partial<T>
+      }
+      return parsed as Partial<T>
+    } catch {
+      return
+    }
+  }
+
+  function save(state: T) {
+    try {
+      const toSave = cfg.paths?.length
+        ? cfg.paths!.reduce<Record<string, unknown>>((acc, k) => {
+            acc[k] = (state as any)[k]
+            return acc
+          }, {})
+        : state
+      localStorage.setItem(key, JSON.stringify(toSave))
+    } catch {}
+  }
+
+  return { load, save }
+}
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\react-app\src\store\persist.ts -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\react-app\tests\e2e\tasks.spec.ts -----
+import { test, expect } from '@playwright/test'
+
+test.describe('React Task Tracker', () => {
+  test.beforeEach(async ({ page }) => {
+    await page.addInitScript(() => {
+      localStorage.clear()
+    })
+  })
+
+  test('can load home and navigate to tasks', async ({ page }) => {
+    // go to root
+    await page.goto('/')
+
+    // assert something from your Home page
+    await expect(page.getByText(/home|welcome|react/i)).toBeVisible()
+
+    // if you have a nav link to Tasks:
+    const tasksLink = page.getByRole('link', { name: /tasks/i })
+    await tasksLink.click()
+
+    // now assert tasks page
+    await expect(page.getByText(/task tracker/i)).toBeVisible()
+  })
+
+  test('can add a task', async ({ page }) => {
+    await page.goto('/tasks')
+
+    // type in the input
+    await page.getByTestId('task-input').fill('Prepare demo')
+    // submit – pick ONE of these:
+    // A) click the real button
+    await page.getByRole('button', { name: /add/i }).click()
+    // B) or: await page.getByTestId('task-input').press('Enter')
+    await expect(page.getByTestId('task-list')).toContainText('Prepare demo')
+
+    const input = page.getByPlaceholder(/new task/i)
+    await input.fill('Write slides')
+    await page.getByRole('button', { name: /add/i }).click()
+
+    // check it rendered
+    await expect(page.getByText('Write slides')).toBeVisible()
+  })
+
+  test('can add a task - localstorage', async ({ page }) => {
+    await page.goto('/tasks')
+
+    await page.getByPlaceholder(/new task/i).fill('Write slides')
+    await page.getByRole('button', { name: /add/i }).click()
+
+    await expect(page.getByText('Write slides')).toBeVisible()
+  })
+
+})
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\react-app\tests\e2e\tasks.spec.ts -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\.prettierrc.json -----
+{
+  "$schema": "https://json.schemastore.org/prettierrc",
+  "semi": false,
+  "singleQuote": true,
+  "printWidth": 100
+}
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\.prettierrc.json -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\env.d.ts -----
+/// <reference types="vite/client" />
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\env.d.ts -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\eslint.config.ts -----
+import { globalIgnores } from 'eslint/config'
+import { defineConfigWithVueTs, vueTsConfigs } from '@vue/eslint-config-typescript'
+import pluginVue from 'eslint-plugin-vue'
+import pluginVitest from '@vitest/eslint-plugin'
+import pluginPlaywright from 'eslint-plugin-playwright'
+import skipFormatting from '@vue/eslint-config-prettier/skip-formatting'
+
+// To allow more languages other than `ts` in `.vue` files, uncomment the following lines:
+// import { configureVueProject } from '@vue/eslint-config-typescript'
+// configureVueProject({ scriptLangs: ['ts', 'tsx'] })
+// More info at https://github.com/vuejs/eslint-config-typescript/#advanced-setup
+
+export default defineConfigWithVueTs(
+  {
+    name: 'app/files-to-lint',
+    files: ['**/*.{ts,mts,tsx,vue}'],
+  },
+
+  globalIgnores(['**/dist/**', '**/dist-ssr/**', '**/coverage/**']),
+
+  pluginVue.configs['flat/essential'],
+  vueTsConfigs.recommended,
+  
+  {
+    ...pluginVitest.configs.recommended,
+    files: ['src/**/__tests__/*'],
+  },
+  
+  {
+    ...pluginPlaywright.configs['flat/recommended'],
+    files: ['e2e/**/*.{test,spec}.{js,ts,jsx,tsx}'],
+  },
+  skipFormatting,
+)
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\eslint.config.ts -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\index.html -----
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vite App</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\index.html -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\package.json -----
+{
+  "name": "vue-app",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "run-p type-check \"build-only {@}\" --",
+    "preview": "vite preview",
+    "test:unit": "vitest",
+    "test:e2e": "playwright test",
+    "build-only": "vite build",
+    "type-check": "vue-tsc --build",
+    "lint": "eslint . --fix --cache",
+    "format": "prettier --write src/"
+  },
+  "dependencies": {
+    "pinia": "^3.0.3",
+    "vue": "^3.5.22",
+    "vue-router": "^4.6.3",
+    "vuetify": "^3.10.8"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.1",
+    "@tsconfig/node22": "^22.0.2",
+    "@types/jsdom": "^27.0.0",
+    "@types/node": "^22.18.11",
+    "@vitejs/plugin-vue": "^6.0.1",
+    "@vitest/eslint-plugin": "^1.3.23",
+    "@vue/eslint-config-prettier": "^10.2.0",
+    "@vue/eslint-config-typescript": "^14.6.0",
+    "@vue/test-utils": "^2.4.6",
+    "@vue/tsconfig": "^0.8.1",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^9.37.0",
+    "eslint-plugin-playwright": "^2.2.2",
+    "eslint-plugin-vue": "~10.5.0",
+    "jiti": "^2.6.1",
+    "jsdom": "^27.0.1",
+    "npm-run-all2": "^8.0.4",
+    "postcss": "^8.5.6",
+    "prettier": "3.6.2",
+    "tailwindcss": "3.4.14",
+    "typescript": "~5.9.0",
+    "vite": "^7.1.11",
+    "vite-plugin-vue-devtools": "^8.0.3",
+    "vitest": "^3.2.4",
+    "vue-tsc": "^3.1.1"
+  }
+}
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\package.json -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\playwright.config.ts -----
+import process from 'node:process'
+import { defineConfig, devices } from '@playwright/test'
+
+/**
+ * Read environment variables from file.
+ * https://github.com/motdotla/dotenv
+ */
+// require('dotenv').config();
+
+/**
+ * See https://playwright.dev/docs/test-configuration.
+ */
+export default defineConfig({
+  testDir: './e2e',
+  /* Maximum time one test can run for. */
+  timeout: 30 * 1000,
+  expect: {
+    /**
+     * Maximum time expect() should wait for the condition to be met.
+     * For example in `await expect(locator).toHaveText();`
+     */
+    timeout: 5000,
+  },
+  /* Fail the build on CI if you accidentally left test.only in the source code. */
+  forbidOnly: !!process.env.CI,
+  /* Retry on CI only */
+  retries: process.env.CI ? 2 : 0,
+  /* Opt out of parallel tests on CI. */
+  workers: process.env.CI ? 1 : undefined,
+  /* Reporter to use. See https://playwright.dev/docs/test-reporters */
+  reporter: 'html',
+  /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
+  use: {
+    /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
+    actionTimeout: 0,
+    /* Base URL to use in actions like `await page.goto('/')`. */
+    baseURL: process.env.CI ? 'http://localhost:4173' : 'http://localhost:5173',
+
+    /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
+    trace: 'on-first-retry',
+
+    /* Only on CI systems run the tests headless */
+    headless: !!process.env.CI,
+  },
+
+  /* Configure projects for major browsers */
+  projects: [
+    {
+      name: 'chromium',
+      use: {
+        ...devices['Desktop Chrome'],
+      },
+    },
+    {
+      name: 'firefox',
+      use: {
+        ...devices['Desktop Firefox'],
+      },
+    },
+    {
+      name: 'webkit',
+      use: {
+        ...devices['Desktop Safari'],
+      },
+    },
+
+    /* Test against mobile viewports. */
+    // {
+    //   name: 'Mobile Chrome',
+    //   use: {
+    //     ...devices['Pixel 5'],
+    //   },
+    // },
+    // {
+    //   name: 'Mobile Safari',
+    //   use: {
+    //     ...devices['iPhone 12'],
+    //   },
+    // },
+
+    /* Test against branded browsers. */
+    // {
+    //   name: 'Microsoft Edge',
+    //   use: {
+    //     channel: 'msedge',
+    //   },
+    // },
+    // {
+    //   name: 'Google Chrome',
+    //   use: {
+    //     channel: 'chrome',
+    //   },
+    // },
+  ],
+
+  /* Folder for test artifacts such as screenshots, videos, traces, etc. */
+  // outputDir: 'test-results/',
+
+  /* Run your local dev server before starting the tests */
+  webServer: {
+    /**
+     * Use the dev server by default for faster feedback loop.
+     * Use the preview server on CI for more realistic testing.
+     * Playwright will re-use the local server if there is already a dev-server running.
+     */
+    command: process.env.CI ? 'npm run preview' : 'npm run dev',
+    port: process.env.CI ? 4173 : 5173,
+    reuseExistingServer: !process.env.CI,
+  },
+})
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\playwright.config.ts -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\postcss.config.js -----
+export default {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+}
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\postcss.config.js -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\README.md -----
+# packages/vue-app
+
+This template should help get you started developing with Vue 3 in Vite.
+
+## Recommended IDE Setup
+
+[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+
+## Recommended Browser Setup
+
+- Chromium-based browsers (Chrome, Edge, Brave, etc.):
+  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd) 
+  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
+- Firefox:
+  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
+  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+
+## Type Support for `.vue` Imports in TS
+
+TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+
+## Customize configuration
+
+See [Vite Configuration Reference](https://vite.dev/config/).
+
+## Project Setup
+
+```sh
+npm install
+```
+
+### Compile and Hot-Reload for Development
+
+```sh
+npm run dev
+```
+
+### Type-Check, Compile and Minify for Production
+
+```sh
+npm run build
+```
+
+### Run Unit Tests with [Vitest](https://vitest.dev/)
+
+```sh
+npm run test:unit
+```
+
+### Run End-to-End Tests with [Playwright](https://playwright.dev)
+
+```sh
+# Install browsers for the first run
+npx playwright install
+
+# When testing on CI, must build the project first
+npm run build
+
+# Runs the end-to-end tests
+npm run test:e2e
+# Runs the tests only on Chromium
+npm run test:e2e -- --project=chromium
+# Runs the tests of a specific file
+npm run test:e2e -- tests/example.spec.ts
+# Runs the tests in debug mode
+npm run test:e2e -- --debug
+```
+
+### Lint with [ESLint](https://eslint.org/)
+
+```sh
+npm run lint
+```
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\README.md -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\tailwind.config.js -----
+/** @type {import('tailwindcss').Config} */
+export default {
+  darkMode: 'class',
+  content: ['./index.html', './src/**/*.{vue,ts,js,tsx,jsx}'],
+  theme: {
+    extend: {
+      colors: {
+        primary: 'rgb(var(--v-theme-primary))',
+        surface: 'rgb(var(--v-theme-surface))',
+        'on-surface': 'rgb(var(--v-theme-on-surface))',
+      },
+      borderRadius: {
+        xl: '0.75rem',
+      },
+      boxShadow: {
+        soft: '0 8px 24px rgba(0, 0, 0, 0.12)',
+      },
+    },
+  },
+  plugins: [],
+}
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\tailwind.config.js -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\tsconfig.app.json -----
+{
+  "extends": "@vue/tsconfig/tsconfig.dom.json",
+  "include": ["env.d.ts", "src/**/*", "src/**/*.vue"],
+  "exclude": ["src/**/__tests__/*"],
+  "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  }
+}
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\tsconfig.app.json -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\tsconfig.json -----
+{
+  "files": [],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    },
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.vitest.json"
+    }
+  ]
+}
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\tsconfig.json -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\tsconfig.node.json -----
+{
+  "extends": "@tsconfig/node22/tsconfig.json",
+  "include": [
+    "vite.config.*",
+    "vitest.config.*",
+    "cypress.config.*",
+    "nightwatch.conf.*",
+    "playwright.config.*",
+    "eslint.config.*"
+  ],
+  "compilerOptions": {
+    "noEmit": true,
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
+
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "types": ["node"]
+  }
+}
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\tsconfig.node.json -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\tsconfig.vitest.json -----
+{
+  "extends": "./tsconfig.app.json",
+  "include": ["src/**/__tests__/*", "env.d.ts"],
+  "exclude": [],
+  "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.vitest.tsbuildinfo",
+
+    "lib": [],
+    "types": ["node", "jsdom"]
+  }
+}
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\tsconfig.vitest.json -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\vite.config.ts -----
+import { fileURLToPath, URL } from 'node:url'
+
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+import vueDevTools from 'vite-plugin-vue-devtools'
+
+// https://vite.dev/config/
+export default defineConfig({
+  // Use '/' on Netlify; override with VITE_BASE if you need a subpath (e.g. GH Pages)
+  base: process.env.VITE_BASE ?? '/',
+  plugins: [
+    vue(),
+    vueDevTools(),
+  ],
+  resolve: {
+    alias: {
+      '@': fileURLToPath(new URL('./src', import.meta.url))
+    },
+  },
+})
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\vite.config.ts -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\vitest.config.ts -----
+import { fileURLToPath } from 'node:url'
+import { mergeConfig, defineConfig, configDefaults } from 'vitest/config'
+import viteConfig from './vite.config'
+
+export default mergeConfig(
+  viteConfig,
+  defineConfig({
+    test: {
+      environment: 'jsdom',
+      exclude: [...configDefaults.exclude, 'e2e/**'],
+      root: fileURLToPath(new URL('./', import.meta.url)),
+    },
+  }),
+)
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\vitest.config.ts -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\e2e\tasks.spec.ts -----
+import { test, expect } from '@playwright/test'
+
+test('add -> toggle flow', async ({ page }) => {
+  await page.goto('http://localhost:5173/tasks')
+  await page.getByPlaceholder('New task...').fill('Playwright Task')
+  await page.getByRole('button', { name: 'add' }).click()
+
+  await expect(page.getByText('Playwright Task')).toBeVisible()
+
+  const row = page.getByText('Playwright Task')
+    .locator('..')
+    .locator('input[type="checkbox"]')
+  await row.check()
+
+  await page.getByRole('button', { name: 'done' }).click()
+  await expect(page.getByText('Playwright Task')).toBeVisible()
+})
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\e2e\tasks.spec.ts -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\e2e\tsconfig.json -----
+{
+  "extends": "@tsconfig/node22/tsconfig.json",
+  "include": ["./**/*"]
+}
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\e2e\tsconfig.json -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\e2e\vue.spec.ts -----
+import { test, expect } from '@playwright/test';
+
+// See here how to get started:
+// https://playwright.dev/docs/intro
+test('visits the app root url', async ({ page }) => {
+  await page.goto('/');
+  await expect(page.locator('h1')).toHaveText('You did it!');
+})
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\e2e\vue.spec.ts -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\src\App.vue -----
+<script setup lang="ts">
+import { RouterLink, RouterView } from 'vue-router'
+import HelloWorld from './components/HelloWorld.vue'
+import ThemeToggle from './components/ThemeToggle.vue';
+</script>
+
+<template>
+  <header>
+    <img
+      alt="Vue logo"
+      class="logo"
+      src="@/assets/logo.svg"
+      width="125"
+      height="125"
+    />
+
+    <div class="wrapper">
+      <HelloWorld msg="You did it!" />
+
+      <nav>
+        <RouterLink to="/">Home</RouterLink>
+        <RouterLink to="/about">About</RouterLink>
+        <RouterLink to="/assignees">Assignees</RouterLink>
+        <RouterLink to="/tasks">Tasks</RouterLink>
+        <ThemeToggle />
+      </nav>
+    </div>
+  </header>
+
+  <RouterView />
+</template>
+
+<style scoped>
+header {
+  line-height: 1.5;
+  max-height: 100vh;
+}
+
+.logo {
+  display: block;
+  margin: 0 auto 2rem;
+}
+
+nav {
+  width: 100%;
+  font-size: 12px;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+nav a.router-link-exact-active {
+  color: var(--color-text);
+}
+
+nav a.router-link-exact-active:hover {
+  background-color: transparent;
+}
+
+nav a {
+  display: inline-block;
+  padding: 0 1rem;
+  border-left: 1px solid var(--color-border);
+}
+
+nav a:first-of-type {
+  border: 0;
+}
+
+@media (min-width: 1024px) {
+  header {
+    display: flex;
+    place-items: center;
+    padding-right: calc(var(--section-gap) / 2);
+  }
+
+  .logo {
+    margin: 0 2rem 0 0;
+  }
+
+  header .wrapper {
+    display: flex;
+    place-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  nav {
+    text-align: left;
+    margin-left: -1rem;
+    font-size: 1rem;
+
+    padding: 1rem 0;
+    margin-top: 1rem;
+  }
+}
+</style>
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\src\App.vue -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\src\main.ts -----
+import './assets/tailwind.css'
+import './assets/main.css'
+
+import { createApp } from 'vue'
+import { createPinia } from 'pinia'
+
+import App from './App.vue'
+import router from './router'
+import { createPersistPlugin } from './plugins/persist'
+import { vuetify } from './plugins/vuetify'
+
+const app = createApp(App)
+const pinia = createPinia()
+
+pinia.use(createPersistPlugin({
+  paths: ['items', 'currentFilter'],
+  version: 2,
+}))
+
+app
+  .use(pinia)
+  .use(router)
+  .use(vuetify)
+  .mount('#app')
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\src\main.ts -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\src\components\HelloWorld.vue -----
+<script setup lang="ts">
+defineProps<{
+  msg: string
+}>()
+</script>
+
+<template>
+  <div class="greetings">
+    <h1 class="green">{{ msg }}</h1>
+    <h3>
+      You’ve successfully created a project with
+      <a href="https://vite.dev/" target="_blank" rel="noopener">Vite</a> +
+      <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 3</a>. What's next?
+    </h3>
+  </div>
+</template>
+
+<style scoped>
+h1 {
+  font-weight: 500;
+  font-size: 2.6rem;
+  position: relative;
+  top: -10px;
+}
+
+h3 {
+  font-size: 1.2rem;
+}
+
+.greetings h1,
+.greetings h3 {
+  text-align: center;
+}
+
+@media (min-width: 1024px) {
+  .greetings h1,
+  .greetings h3 {
+    text-align: left;
+  }
+}
+</style>
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\src\components\HelloWorld.vue -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\src\components\ThemeToggle.vue -----
+<template>
+  <button
+    @click="toggle"
+    class="
+      rounded-xl border px-3 py-1.5
+      bg-white text-[rgb(var(--v-theme-on-surface))] border-gray-300 hover:bg-gray-50
+      dark:bg-gray-900 dark:text-[rgb(var(--v-theme-on-surface))] dark:border-gray-700 dark:hover:bg-gray-800
+      focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60
+  "
+    :aria-pressed="isDark"
+    :title="isDark ? 'Switch to Light' : 'Switch to Dark'"
+  >
+    {{ isDark ? '☾ Dark' : '☀︎ Light' }}
+  </button>
+</template>
+
+<script setup lang="ts">
+import { onMounted, ref } from 'vue'
+import { useTheme } from 'vuetify'
+
+const theme = useTheme()
+const isDark = ref(false)
+
+onMounted(() => {
+  isDark.value = document.documentElement.classList.contains('dark')
+  theme.global.name.value = isDark.value ? 'dark' : 'light'
+})
+
+function toggle() {
+  isDark.value = !isDark.value
+  document.documentElement.classList.toggle('dark', isDark.value)
+  theme.global.name.value = isDark.value ? 'dark' : 'light'
+}
+</script>
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\src\components\ThemeToggle.vue -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\src\components\TheWelcome.vue -----
+<script setup lang="ts">
+import WelcomeItem from './WelcomeItem.vue'
+import DocumentationIcon from './icons/IconDocumentation.vue'
+import ToolingIcon from './icons/IconTooling.vue'
+import EcosystemIcon from './icons/IconEcosystem.vue'
+import CommunityIcon from './icons/IconCommunity.vue'
+import SupportIcon from './icons/IconSupport.vue'
+
+const openReadmeInEditor = () => fetch('/__open-in-editor?file=README.md')
+</script>
+
+<template>
+  <WelcomeItem>
+    <template #icon>
+      <DocumentationIcon />
+    </template>
+    <template #heading>Documentation</template>
+
+    Vue’s
+    <a href="https://vuejs.org/" target="_blank" rel="noopener">official documentation</a>
+    provides you with all information you need to get started.
+  </WelcomeItem>
+
+  <WelcomeItem>
+    <template #icon>
+      <ToolingIcon />
+    </template>
+    <template #heading>Tooling</template>
+
+    This project is served and bundled with
+    <a href="https://vite.dev/guide/features.html" target="_blank" rel="noopener">Vite</a>. The
+    recommended IDE setup is
+    <a href="https://code.visualstudio.com/" target="_blank" rel="noopener">VSCode</a>
+    +
+    <a href="https://github.com/vuejs/language-tools" target="_blank" rel="noopener"
+      >Vue - Official</a
+    >. If you need to test your components and web pages, check out
+    <a href="https://vitest.dev/" target="_blank" rel="noopener">Vitest</a>
+    and
+    <a href="https://www.cypress.io/" target="_blank" rel="noopener">Cypress</a>
+    /
+    <a href="https://playwright.dev/" target="_blank" rel="noopener">Playwright</a>.
+
+    <br />
+
+    More instructions are available in
+    <a href="javascript:void(0)" @click="openReadmeInEditor"><code>README.md</code></a
+    >.
+  </WelcomeItem>
+
+  <WelcomeItem>
+    <template #icon>
+      <EcosystemIcon />
+    </template>
+    <template #heading>Ecosystem</template>
+
+    Get official tools and libraries for your project:
+    <a href="https://pinia.vuejs.org/" target="_blank" rel="noopener">Pinia</a>,
+    <a href="https://router.vuejs.org/" target="_blank" rel="noopener">Vue Router</a>,
+    <a href="https://test-utils.vuejs.org/" target="_blank" rel="noopener">Vue Test Utils</a>, and
+    <a href="https://github.com/vuejs/devtools" target="_blank" rel="noopener">Vue Dev Tools</a>. If
+    you need more resources, we suggest paying
+    <a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">Awesome Vue</a>
+    a visit.
+  </WelcomeItem>
+
+  <WelcomeItem>
+    <template #icon>
+      <CommunityIcon />
+    </template>
+    <template #heading>Community</template>
+
+    Got stuck? Ask your question on
+    <a href="https://chat.vuejs.org" target="_blank" rel="noopener">Vue Land</a>
+    (our official Discord server), or
+    <a href="https://stackoverflow.com/questions/tagged/vue.js" target="_blank" rel="noopener"
+      >StackOverflow</a
+    >. You should also follow the official
+    <a href="https://bsky.app/profile/vuejs.org" target="_blank" rel="noopener">@vuejs.org</a>
+    Bluesky account or the
+    <a href="https://x.com/vuejs" target="_blank" rel="noopener">@vuejs</a>
+    X account for latest news in the Vue world.
+  </WelcomeItem>
+
+  <WelcomeItem>
+    <template #icon>
+      <SupportIcon />
+    </template>
+    <template #heading>Support Vue</template>
+
+    As an independent project, Vue relies on community backing for its sustainability. You can help
+    us by
+    <a href="https://vuejs.org/sponsor/" target="_blank" rel="noopener">becoming a sponsor</a>.
+  </WelcomeItem>
+</template>
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\src\components\TheWelcome.vue -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\src\components\WelcomeItem.vue -----
+<template>
+  <div class="item">
+    <i>
+      <slot name="icon"></slot>
+    </i>
+    <div class="details">
+      <h3>
+        <slot name="heading"></slot>
+      </h3>
+      <slot></slot>
+    </div>
+  </div>
+</template>
+
+<style scoped>
+.item {
+  margin-top: 2rem;
+  display: flex;
+  position: relative;
+}
+
+.details {
+  flex: 1;
+  margin-left: 1rem;
+}
+
+i {
+  display: flex;
+  place-items: center;
+  place-content: center;
+  width: 32px;
+  height: 32px;
+
+  color: var(--color-text);
+}
+
+h3 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 0.4rem;
+  color: var(--color-heading);
+}
+
+@media (min-width: 1024px) {
+  .item {
+    margin-top: 0;
+    padding: 0.4rem 0 1rem calc(var(--section-gap) / 2);
+  }
+
+  i {
+    top: calc(50% - 25px);
+    left: -26px;
+    position: absolute;
+    border: 1px solid var(--color-border);
+    background: var(--color-background);
+    border-radius: 8px;
+    width: 50px;
+    height: 50px;
+  }
+
+  .item:before {
+    content: ' ';
+    border-left: 1px solid var(--color-border);
+    position: absolute;
+    left: 0;
+    bottom: calc(50% + 25px);
+    height: calc(50% - 25px);
+  }
+
+  .item:after {
+    content: ' ';
+    border-left: 1px solid var(--color-border);
+    position: absolute;
+    left: 0;
+    top: calc(50% + 25px);
+    height: calc(50% - 25px);
+  }
+
+  .item:first-of-type:before {
+    display: none;
+  }
+
+  .item:last-of-type:after {
+    display: none;
+  }
+}
+</style>
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\src\components\WelcomeItem.vue -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\src\components\__tests__\HelloWorld.spec.ts -----
+import { describe, it, expect } from 'vitest'
+
+import { mount } from '@vue/test-utils'
+import HelloWorld from '../HelloWorld.vue'
+
+describe('HelloWorld', () => {
+  it('renders properly', () => {
+    const wrapper = mount(HelloWorld, { props: { msg: 'Hello Vitest' } })
+    expect(wrapper.text()).toContain('Hello Vitest')
+  })
+})
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\src\components\__tests__\HelloWorld.spec.ts -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\src\components\icons\IconCommunity.vue -----
+<template>
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor">
+    <path
+      d="M15 4a1 1 0 1 0 0 2V4zm0 11v-1a1 1 0 0 0-1 1h1zm0 4l-.707.707A1 1 0 0 0 16 19h-1zm-4-4l.707-.707A1 1 0 0 0 11 14v1zm-4.707-1.293a1 1 0 0 0-1.414 1.414l1.414-1.414zm-.707.707l-.707-.707.707.707zM9 11v-1a1 1 0 0 0-.707.293L9 11zm-4 0h1a1 1 0 0 0-1-1v1zm0 4H4a1 1 0 0 0 1.707.707L5 15zm10-9h2V4h-2v2zm2 0a1 1 0 0 1 1 1h2a3 3 0 0 0-3-3v2zm1 1v6h2V7h-2zm0 6a1 1 0 0 1-1 1v2a3 3 0 0 0 3-3h-2zm-1 1h-2v2h2v-2zm-3 1v4h2v-4h-2zm1.707 3.293l-4-4-1.414 1.414 4 4 1.414-1.414zM11 14H7v2h4v-2zm-4 0c-.276 0-.525-.111-.707-.293l-1.414 1.414C5.42 15.663 6.172 16 7 16v-2zm-.707 1.121l3.414-3.414-1.414-1.414-3.414 3.414 1.414 1.414zM9 12h4v-2H9v2zm4 0a3 3 0 0 0 3-3h-2a1 1 0 0 1-1 1v2zm3-3V3h-2v6h2zm0-6a3 3 0 0 0-3-3v2a1 1 0 0 1 1 1h2zm-3-3H3v2h10V0zM3 0a3 3 0 0 0-3 3h2a1 1 0 0 1 1-1V0zM0 3v6h2V3H0zm0 6a3 3 0 0 0 3 3v-2a1 1 0 0 1-1-1H0zm3 3h2v-2H3v2zm1-1v4h2v-4H4zm1.707 4.707l.586-.586-1.414-1.414-.586.586 1.414 1.414z"
+    />
+  </svg>
+</template>
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\src\components\icons\IconCommunity.vue -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\src\components\icons\IconDocumentation.vue -----
+<template>
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" fill="currentColor">
+    <path
+      d="M11 2.253a1 1 0 1 0-2 0h2zm-2 13a1 1 0 1 0 2 0H9zm.447-12.167a1 1 0 1 0 1.107-1.666L9.447 3.086zM1 2.253L.447 1.42A1 1 0 0 0 0 2.253h1zm0 13H0a1 1 0 0 0 1.553.833L1 15.253zm8.447.833a1 1 0 1 0 1.107-1.666l-1.107 1.666zm0-14.666a1 1 0 1 0 1.107 1.666L9.447 1.42zM19 2.253h1a1 1 0 0 0-.447-.833L19 2.253zm0 13l-.553.833A1 1 0 0 0 20 15.253h-1zm-9.553-.833a1 1 0 1 0 1.107 1.666L9.447 14.42zM9 2.253v13h2v-13H9zm1.553-.833C9.203.523 7.42 0 5.5 0v2c1.572 0 2.961.431 3.947 1.086l1.107-1.666zM5.5 0C3.58 0 1.797.523.447 1.42l1.107 1.666C2.539 2.431 3.928 2 5.5 2V0zM0 2.253v13h2v-13H0zm1.553 13.833C2.539 15.431 3.928 15 5.5 15v-2c-1.92 0-3.703.523-5.053 1.42l1.107 1.666zM5.5 15c1.572 0 2.961.431 3.947 1.086l1.107-1.666C9.203 13.523 7.42 13 5.5 13v2zm5.053-11.914C11.539 2.431 12.928 2 14.5 2V0c-1.92 0-3.703.523-5.053 1.42l1.107 1.666zM14.5 2c1.573 0 2.961.431 3.947 1.086l1.107-1.666C18.203.523 16.421 0 14.5 0v2zm3.5.253v13h2v-13h-2zm1.553 12.167C18.203 13.523 16.421 13 14.5 13v2c1.573 0 2.961.431 3.947 1.086l1.107-1.666zM14.5 13c-1.92 0-3.703.523-5.053 1.42l1.107 1.666C11.539 15.431 12.928 15 14.5 15v-2z"
+    />
+  </svg>
+</template>
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\src\components\icons\IconDocumentation.vue -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\src\components\icons\IconEcosystem.vue -----
+<template>
+  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="20" fill="currentColor">
+    <path
+      d="M11.447 8.894a1 1 0 1 0-.894-1.789l.894 1.789zm-2.894-.789a1 1 0 1 0 .894 1.789l-.894-1.789zm0 1.789a1 1 0 1 0 .894-1.789l-.894 1.789zM7.447 7.106a1 1 0 1 0-.894 1.789l.894-1.789zM10 9a1 1 0 1 0-2 0h2zm-2 2.5a1 1 0 1 0 2 0H8zm9.447-5.606a1 1 0 1 0-.894-1.789l.894 1.789zm-2.894-.789a1 1 0 1 0 .894 1.789l-.894-1.789zm2 .789a1 1 0 1 0 .894-1.789l-.894 1.789zm-1.106-2.789a1 1 0 1 0-.894 1.789l.894-1.789zM18 5a1 1 0 1 0-2 0h2zm-2 2.5a1 1 0 1 0 2 0h-2zm-5.447-4.606a1 1 0 1 0 .894-1.789l-.894 1.789zM9 1l.447-.894a1 1 0 0 0-.894 0L9 1zm-2.447.106a1 1 0 1 0 .894 1.789l-.894-1.789zm-6 3a1 1 0 1 0 .894 1.789L.553 4.106zm2.894.789a1 1 0 1 0-.894-1.789l.894 1.789zm-2-.789a1 1 0 1 0-.894 1.789l.894-1.789zm1.106 2.789a1 1 0 1 0 .894-1.789l-.894 1.789zM2 5a1 1 0 1 0-2 0h2zM0 7.5a1 1 0 1 0 2 0H0zm8.553 12.394a1 1 0 1 0 .894-1.789l-.894 1.789zm-1.106-2.789a1 1 0 1 0-.894 1.789l.894-1.789zm1.106 1a1 1 0 1 0 .894 1.789l-.894-1.789zm2.894.789a1 1 0 1 0-.894-1.789l.894 1.789zM8 19a1 1 0 1 0 2 0H8zm2-2.5a1 1 0 1 0-2 0h2zm-7.447.394a1 1 0 1 0 .894-1.789l-.894 1.789zM1 15H0a1 1 0 0 0 .553.894L1 15zm1-2.5a1 1 0 1 0-2 0h2zm12.553 2.606a1 1 0 1 0 .894 1.789l-.894-1.789zM17 15l.447.894A1 1 0 0 0 18 15h-1zm1-2.5a1 1 0 1 0-2 0h2zm-7.447-5.394l-2 1 .894 1.789 2-1-.894-1.789zm-1.106 1l-2-1-.894 1.789 2 1 .894-1.789zM8 9v2.5h2V9H8zm8.553-4.894l-2 1 .894 1.789 2-1-.894-1.789zm.894 0l-2-1-.894 1.789 2 1 .894-1.789zM16 5v2.5h2V5h-2zm-4.553-3.894l-2-1-.894 1.789 2 1 .894-1.789zm-2.894-1l-2 1 .894 1.789 2-1L8.553.106zM1.447 5.894l2-1-.894-1.789-2 1 .894 1.789zm-.894 0l2 1 .894-1.789-2-1-.894 1.789zM0 5v2.5h2V5H0zm9.447 13.106l-2-1-.894 1.789 2 1 .894-1.789zm0 1.789l2-1-.894-1.789-2 1 .894 1.789zM10 19v-2.5H8V19h2zm-6.553-3.894l-2-1-.894 1.789 2 1 .894-1.789zM2 15v-2.5H0V15h2zm13.447 1.894l2-1-.894-1.789-2 1 .894 1.789zM18 15v-2.5h-2V15h2z"
+    />
+  </svg>
+</template>
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\src\components\icons\IconEcosystem.vue -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\src\components\icons\IconSupport.vue -----
+<template>
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor">
+    <path
+      d="M10 3.22l-.61-.6a5.5 5.5 0 0 0-7.666.105 5.5 5.5 0 0 0-.114 7.665L10 18.78l8.39-8.4a5.5 5.5 0 0 0-.114-7.665 5.5 5.5 0 0 0-7.666-.105l-.61.61z"
+    />
+  </svg>
+</template>
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\src\components\icons\IconSupport.vue -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\src\components\icons\IconTooling.vue -----
+<!-- This icon is from <https://github.com/Templarian/MaterialDesign>, distributed under Apache 2.0 (https://www.apache.org/licenses/LICENSE-2.0) license-->
+<template>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    aria-hidden="true"
+    role="img"
+    class="iconify iconify--mdi"
+    width="24"
+    height="24"
+    preserveAspectRatio="xMidYMid meet"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M20 18v-4h-3v1h-2v-1H9v1H7v-1H4v4h16M6.33 8l-1.74 4H7v-1h2v1h6v-1h2v1h2.41l-1.74-4H6.33M9 5v1h6V5H9m12.84 7.61c.1.22.16.48.16.8V18c0 .53-.21 1-.6 1.41c-.4.4-.85.59-1.4.59H4c-.55 0-1-.19-1.4-.59C2.21 19 2 18.53 2 18v-4.59c0-.32.06-.58.16-.8L4.5 7.22C4.84 6.41 5.45 6 6.33 6H7V5c0-.55.18-1 .57-1.41C7.96 3.2 8.44 3 9 3h6c.56 0 1.04.2 1.43.59c.39.41.57.86.57 1.41v1h.67c.88 0 1.49.41 1.83 1.22l2.34 5.39z"
+      fill="currentColor"
+    ></path>
+  </svg>
+</template>
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\src\components\icons\IconTooling.vue -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\src\plugins\persist.ts -----
+import type { PiniaPluginContext } from "pinia";
+
+type PersistOptions = {
+  key?: string;
+  paths?: string[];
+  version?: number;
+}
+
+export function createPersistPlugin(opts: PersistOptions = {}) {
+  const version = opts?.version ?? 1
+
+  return ({ store }: PiniaPluginContext) => {
+    const persistKey = (opts?.key ?? `pinia-${store.$id}`) + `@v${version}`
+
+    try {
+      const raw = localStorage.getItem(persistKey)
+
+      if (raw) {
+        const saved = JSON.parse(raw)
+
+        if (Array.isArray(opts?.paths) && opts!.paths!.length) {
+          const patch: Partial<typeof store.$state> = {}
+          const keys = opts.paths as (keyof typeof store.$state)[]
+
+          for (const k of keys) {
+            if (k in saved) {
+              patch[k] = (saved as Partial<typeof store.$state>)[k]
+            }
+          }
+
+          store.$patch(patch)
+        } else {
+          store.$patch(saved)
+        }
+      }
+    } catch (e) {
+      console.warn('[persist] restore failed:', e)
+    }
+
+    store.$subscribe((_mutation, state) => {
+      try {
+        const toSave = Array.isArray(opts?.paths) && opts!.paths!.length
+          ? opts!.paths!.reduce<Record<string, unknown>>((acc, k) => {
+            acc[k] = state[k]
+            return acc
+          }, {})
+          : state
+
+        localStorage.setItem(persistKey, JSON.stringify(toSave))
+      } catch (e) {
+        console.warn('[persist] save failed', e)
+      }
+    })
+  }
+}
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\src\plugins\persist.ts -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\src\plugins\vuetify.ts -----
+import 'vuetify/styles'
+import { createVuetify } from 'vuetify'
+
+export const vuetify = createVuetify({
+  theme: {
+    defaultTheme: 'light',
+    themes: {
+      light: {
+        colors: {
+          primary: '#4f46e5',   // = Tailwind primary light
+          surface: '#ffffff',
+          'on-surface': '#0b1220',
+        },
+      },
+      dark: {
+        colors: {
+          primary: '#818cf8',   // = Tailwind primary dark
+          surface: '#0f172a',
+          'on-surface': '#e5e7eb',
+        },
+      },
+    },
+  }
+})
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\src\plugins\vuetify.ts -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\src\router\index.ts -----
+import { createRouter, createWebHistory } from 'vue-router'
+import HomeView from '../views/HomeView.vue'
+import TasksView from '../views/TasksView.vue'
+
+const router = createRouter({
+  history: createWebHistory(import.meta.env.BASE_URL),
+  routes: [
+    {
+      path: '/',
+      name: 'home',
+      component: HomeView,
+    },
+    {
+      path: '/tasks',
+      name: 'tasks',
+      component: TasksView,
+    },
+    {
+      path: '/about',
+      name: 'about',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/AboutView.vue'),
+    },
+    {
+      path: '/assignees',
+      name: 'assignees',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/AssigneesView.vue'),
+    },
+  ],
+})
+
+export default router
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\src\router\index.ts -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\src\stores\counter.ts -----
+import { ref, computed } from 'vue'
+import { defineStore } from 'pinia'
+
+export const useCounterStore = defineStore('counter', () => {
+  const count = ref(0)
+  const doubleCount = computed(() => count.value * 2)
+  function increment() {
+    count.value++
+  }
+
+  return { count, doubleCount, increment }
+})
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\src\stores\counter.ts -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\src\stores\tasks.ts -----
+import { computed, ref } from 'vue'
+import { defineStore } from 'pinia'
+
+export type Task = {
+  id: string
+  title: string
+  done: boolean
+  assigneeId?: number | null
+}
+
+export type Filter = 'all' | 'active' | 'done'
+
+export const useTasks = defineStore('tasks', () => {
+  const items = ref<Task[]>([])
+  const currentFilter = ref<Filter>('all')
+
+  function add(title: string) {
+    items.value.push({
+      id: crypto.randomUUID(),
+      title,
+      done: false,
+      assigneeId: null,
+    })
+  }
+
+  function assign(id: string, userId: number | null) {
+    const task = items.value.find(x => x.id === id)
+    if (task) {
+      task.assigneeId = userId
+    }
+  }
+
+  function toggle(id: string | undefined) {
+    const task = items.value.find((item) => item.id === id)
+
+    if (task) {
+      task.done = !task.done
+    }
+  }
+
+  function setFilter(filter: Filter) {
+    currentFilter.value = filter
+  }
+
+  const filteredItems = computed<Task[]>(() => {
+    return currentFilter.value === 'all'
+      ? items.value
+      : items.value.filter((item) => {
+        return currentFilter.value === 'done' ? item.done : !item.done
+      })
+  })
+
+  const isAll = computed(() => currentFilter.value === 'all')
+  const isActive = computed(() => currentFilter.value === 'active')
+  const isDone = computed(() => currentFilter.value === 'done')
+
+  return {
+    assign,
+    isAll,
+    isActive,
+    isDone,
+    items,
+    currentFilter,
+    add,
+    toggle,
+    setFilter,
+    filteredItems,
+  }
+})
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\src\stores\tasks.ts -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\src\stores\users.ts -----
+import { ref } from 'vue'
+import { defineStore } from 'pinia'
+
+export type User = {
+  id: number
+  name: string
+}
+
+export const useUsers = defineStore('users', () => {
+  const list = ref<User[]>([])
+  const loading = ref(false)
+  const error = ref<string | null>('')
+  const loaded = ref<boolean>(false)
+
+  async function fetchUsers(force = false) {
+    if (loaded.value && !force) return
+    loading.value = true
+    error.value = null
+
+    try {
+      const res = await fetch('https://jsonplaceholder.typicode.com/users')
+      if (!res.ok) throw new Error(`HTTP ${res.status}`)
+      const data = (await res.json()) as User[]
+
+      list.value = data.map(user => {
+        return { id: user.id, name: user.name }
+      })
+      loaded.value = true
+    } catch (e: unknown) {
+      error.value = e instanceof Error ? e.message : 'Failed to load users'
+    } finally {
+      loading.value = false
+    }
+  }
+
+  function byId(id?: number | null) {
+    return id == null ? undefined : list.value.find(user => user.id === id)
+  }
+
+  return {
+    byId,
+    error,
+    fetchUsers,
+    list,
+    loaded,
+    loading,
+  }
+})
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\src\stores\users.ts -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\src\stores\__tests__\tasks.store.spec.ts -----
+import { describe, beforeEach, it, expect } from 'vitest'
+import { setActivePinia, createPinia } from 'pinia'
+import { useTasks } from '../tasks'
+
+describe('tasks store', () => {
+  beforeEach(() => setActivePinia(createPinia()))
+
+  it('adds and toggles tasks, filters correctly', () => {
+    const s = useTasks()
+    s.add('A')
+    s.add('B')
+    s.add('C')
+
+    expect(s.items.length).toBe(3)
+    expect(s.filteredItems.length).toBe(3)
+
+    const id = s.items[0]?.id
+    s.toggle(id)
+    s.setFilter('done')
+    expect(s.filteredItems.map(t => t.title)).toEqual(['A'])
+    expect(s.filteredItems.length).toBe(1)
+
+    s.setFilter('active')
+    expect(s.filteredItems.map(t => t.title)).toEqual(['B', 'C'])
+  })
+})
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\src\stores\__tests__\tasks.store.spec.ts -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\src\views\AboutView.vue -----
+<template>
+  <div class="about">
+    <h1>About (Vue)</h1>
+  </div>
+</template>
+
+<style>
+@media (min-width: 1024px) {
+  .about {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+  }
+}
+</style>
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\src\views\AboutView.vue -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\src\views\AssigneesView.vue -----
+<template>
+  <section class="max-w-xl mx-auto space-y-4">
+    <h1 class="text-2xl font-semibold">Assignees</h1>
+
+    <div class="flex items-center gap-3">
+      <VBtn
+        class="rounded-xl border px-3 py-1.5"
+        @click="users.fetchUsers(true)"
+        :disabled="users.loading"
+      >
+        {{ users.loading ? 'Loading...' : 'Load Assignees' }}
+      </VBtn>
+      <span
+        v-if="users.error"
+        class="text-red-600"
+      >{{ users.error }}</span>
+    </div>
+
+    <ul class="space-y-2">
+      <li
+        v-for="user in users.list"
+        :key="user.id"
+        class="card flex items-center gap-3"
+      >
+        <span class="font-mono w-10 text-center">{{ user.id }}</span>
+        <span>{{ user.name }}</span>
+      </li>
+    </ul>
+  </section>
+</template>
+
+<script setup lang="ts">
+import { useUsers } from '@/stores/users';
+import { onMounted } from 'vue';
+
+const users = useUsers()
+onMounted(() => {
+  users.fetchUsers()
+})
+</script>
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\src\views\AssigneesView.vue -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\src\views\HomeView.vue -----
+<script setup lang="ts">
+import TheWelcome from '../components/TheWelcome.vue'
+</script>
+
+<template>
+  <main>
+    <TheWelcome />
+  </main>
+</template>
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\src\views\HomeView.vue -----
+
+----- START: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\src\views\TasksView.vue -----
+<template>
+  <section class="max-w-2xl mx-auto space-y-4">
+    <h1 class="text-2xl font-semibold">Task Tracker (Vue)</h1>
+
+    <form
+      @submit.prevent="handleAdd"
+      class="flex gap-2"
+    >
+      <input
+        type="text"
+        v-model="title"
+        placeholder="New task..."
+        class="flex-1 rounded-xl border border-gray-300 px-3 py-2 outline-none
+          focus:ring-2 focus:ring-primary/40 focus:border-primary/60
+          placeholder-gray-500 dark:placeholder-gray-400
+          text-[rgb(var(--v-theme-on-surface))]
+          dark:bg-gray-900 dark:border-gray-700"
+      />
+      <VBtn
+        type="submit"
+        name="add"
+        class="rounded-xl bg-primary text-white px-4 py-2 hover:opacity-90 active:opacity-80"
+      >
+        Add
+      </VBtn>
+    </form>
+
+    <div class="flex gap-2">
+      <VBtn
+        type="button"
+        @click="set('all')"
+        :disabled="isAll"
+        class="rounded-xl border px-3 py-1.5
+          border-gray-300 text-[rgb(var(--v-theme-on-surface))]
+          hover:bg-gray-100
+          dark:border-gray-700 dark:hover:bg-gray-800"
+        :class="isAll ? 'bg-gray-200 dark:bg-gray-800' : ''"
+      >
+        All
+      </VBtn>
+      <VBtn
+        @click="set('active')"
+        :disabled="isActive"
+        class="rounded-xl border px-3 py-1.5
+          border-gray-300 text-[rgb(var(--v-theme-on-surface))]
+          hover:bg-gray-100
+          dark:border-gray-700 dark:hover:bg-gray-800"
+        :class="isActive ? 'bg-gray-200 dark:bg-gray-800' : ''"
+      >
+        Active
+      </VBtn>
+      <VBtn
+        @click="set('done')"
+        :disabled="isDone"
+        class="rounded-xl border px-3 py-1.5
+          border-gray-300 text-[rgb(var(--v-theme-on-surface))]
+          hover:bg-gray-100
+          dark:border-gray-700 dark:hover:bg-gray-800"
+        :class="isDone ? 'bg-gray-200 dark:bg-gray-800' : ''"
+      >
+        Done
+      </VBtn>
+    </div>
+
+    <div class="tasks-assignee">
+      <VBtn
+        type="button"
+        @click="users.fetchUsers()"
+        :disabled="users.loading || users.loaded"
+        title="Fetch assignees from API"
+      >
+        {{
+          users.loaded
+            ? 'Assignees loaded'
+            : (users.loading ? 'Loading...' : 'Load assignees')
+        }}
+      </VBtn>
+      <span
+        v-if="users.error"
+        class="tasks-assignee--error"
+      >
+        {{ users.error }}
+      </span>
+    </div>
+
+    <ul class="space-y-2">
+      <li
+        v-for="task in filteredItems"
+        :key="task.id"
+        class="card flex items-center gap-3"
+      >
+        <label class="flex-1 flex items-center gap-2">
+          <input
+            type="checkbox"
+            name="done"
+            :checked="task.done"
+            @change="tasks.toggle(task.id)"
+            class="size-4"
+          />
+          <span :class="{ 'line-through text-gray-800 dark:text-gray-100': task.done }">
+            {{ task.title }}
+          </span>
+        </label>
+
+        <select
+          v-if="users.list.length"
+          :value="task.assigneeId ?? ''"
+          class="rounded-xl border border-gray-300 px-2 py-1
+            text-[rgb(var(--v-theme-on-surface))]
+            dark:bg-gray-900 dark:border-gray-700"
+          @change="tasks.assign(task.id, (
+            $event.target as HTMLSelectElement).value
+            ? Number(($event.target as HTMLSelectElement).value)
+            : null
+          )"
+        >
+          <option value="">Unassigned</option>
+          <option
+            v-for="user in users.list"
+            :key="user.id"
+            :value="user.id"
+          >
+            {{ user.name }}
+          </option>
+        </select>
+
+        <!-- Fallback label before loading users -->
+        <small
+          v-else
+          class="opacity-70"
+        >
+          {{ nameOf(task.assigneeId) }}
+        </small>
+      </li>
+    </ul>
+  </section>
+</template>
+
+<script setup lang="ts">
+import { ref } from 'vue'
+import { storeToRefs } from 'pinia'
+import { useTasks, type Filter } from '../stores/tasks'
+import { useUsers } from '../stores/users'
+import { VBtn } from 'vuetify/components'
+
+const tasks = useTasks()
+const users = useUsers()
+
+const { isAll, isActive, isDone, filteredItems } = storeToRefs(tasks)
+
+const title = ref('')
+function handleAdd() {
+  const value = title.value.trim()
+
+  if (!value) return
+
+  tasks.add(value)
+  title.value = ''
+}
+
+const set = (filter: Filter) => {
+  tasks.setFilter(filter)
+}
+
+const nameOf = (id: number | null | undefined) => {
+  return id == null ? 'Unassigned' : users.byId(id)?.name ?? `User #${id}`
+}
+</script>
+
+----- END: C:\Users\james\Documents\GitHub\vue-vs-react\packages\vue-app\src\views\TasksView.vue -----
+
