@@ -1,9 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import tasksReducer, {
-  add,
-  setFilter,
-  toggle,
-} from '../features/tasks/tasksSlice'
+import tasksReducer, { add, setFilter, toggle } from '../features/tasks/tasksSlice'
 
 describe('tasks slice', () => {
   it('adds a task', () => {
@@ -16,7 +12,7 @@ describe('tasks slice', () => {
   it('toggles a task', () => {
     const state = {
       items: [{ id: '1', title: 'Hello', done: false }],
-      currentFilter: 'all' as const
+      currentFilter: 'all' as const,
     }
     const next = tasksReducer(state, toggle('1'))
     expect(next.items[0]?.done).toBe(true)

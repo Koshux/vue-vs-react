@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import type { RootState } from '../../store'
+import axios from 'axios'
 
 export type User = { id: number; name: string }
 
@@ -20,10 +21,16 @@ const initialState: UsersState = {
 export const fetchUsers = createAsyncThunk<User[], { force?: boolean }, { state: RootState }>(
   'users/fetch',
   async (_, { getState }) => {
-    const res = await fetch('https://jsonplaceholder.typicode.com/users')
-    if (!res.ok) throw new Error(`HTTP ${res.status}`)
-    const data = (await res.json()) as User[]
-    return data.map(u => ({ id: u.id, name: u.name }))
+    // const res = await fetch('https://jsonplaceholder.typicode.com/users')
+    // if (!res.ok) throw new Error(`HTTP ${res.status}`)
+    // const data = (await res.json()) as User[]
+
+    // --- Axios (Alternative) ---
+    const res = await axios.get('https://jsonplaceholder.typicode.com/users')
+    if (res.status !== 200) throw new Error(`HTTP ${res.status}`)
+    const data = res.data as User[] // axios auto-parses JSON and data is on res.data
+
+    return data.map((u) => ({ id: u.id, name: u.name }))
   },
   {
     condition: (arg, { getState }) => {
@@ -39,9 +46,9 @@ const usersSlice = createSlice({
   name: 'users',
   initialState,
   reducers: {},
-  extraReducers: builder => {
+  extraReducers: (builder) => {
     builder
-      .addCase(fetchUsers.pending, state => {
+      .addCase(fetchUsers.pending, (state) => {
         state.loading = true
         state.error = null
       })
@@ -64,7 +71,6 @@ export const selectUsersLoading = (s: RootState) => s.users.loading
 export const selectUsersLoaded = (s: RootState) => s.users.loaded
 export const selectUsersError = (s: RootState) => s.users.error
 
-export const userById =
-  (id?: number | null) =>
-    (s: RootState) =>
-      id == null ? undefined : s.users.list.find(u => u.id === id)
+export const userById = (id?: number | null) => (s: RootState) => {
+  return id == null ? undefined : s?.users?.list.find((u) => u.id === id)
+}

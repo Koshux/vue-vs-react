@@ -12,13 +12,11 @@ import { vuetify } from './plugins/vuetify'
 const app = createApp(App)
 const pinia = createPinia()
 
-pinia.use(createPersistPlugin({
-  paths: ['items', 'currentFilter'],
-  version: 2,
-}))
+pinia.use(
+  createPersistPlugin({
+    paths: ['items', 'currentFilter'],
+    version: 2,
+  }),
+)
 
-app
-  .use(pinia)
-  .use(router)
-  .use(vuetify)
-  .mount('#app')
+app.use(pinia).use(router).use(vuetify).mount('#app')

@@ -2,19 +2,12 @@
   <section class="max-w-2xl mx-auto space-y-4">
     <h1 class="text-2xl font-semibold">Task Tracker (Vue)</h1>
 
-    <form
-      @submit.prevent="handleAdd"
-      class="flex gap-2"
-    >
+    <form @submit.prevent="handleAdd" class="flex gap-2">
       <input
         type="text"
         v-model="title"
         placeholder="New task..."
-        class="flex-1 rounded-xl border border-gray-300 px-3 py-2 outline-none
-          focus:ring-2 focus:ring-primary/40 focus:border-primary/60
-          placeholder-gray-500 dark:placeholder-gray-400
-          text-[rgb(var(--v-theme-on-surface))]
-          dark:bg-gray-900 dark:border-gray-700"
+        class="flex-1 rounded-xl border border-gray-300 px-3 py-2 outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/60 placeholder-gray-500 dark:placeholder-gray-400 text-[rgb(var(--v-theme-on-surface))] dark:bg-gray-900 dark:border-gray-700"
       />
       <VBtn
         type="submit"
@@ -30,10 +23,7 @@
         type="button"
         @click="set('all')"
         :disabled="isAll"
-        class="rounded-xl border px-3 py-1.5
-          border-gray-300 text-[rgb(var(--v-theme-on-surface))]
-          hover:bg-gray-100
-          dark:border-gray-700 dark:hover:bg-gray-800"
+        class="rounded-xl border px-3 py-1.5 border-gray-300 text-[rgb(var(--v-theme-on-surface))] hover:bg-gray-100 dark:border-gray-700 dark:hover:bg-gray-800"
         :class="isAll ? 'bg-gray-200 dark:bg-gray-800' : ''"
       >
         All
@@ -41,10 +31,7 @@
       <VBtn
         @click="set('active')"
         :disabled="isActive"
-        class="rounded-xl border px-3 py-1.5
-          border-gray-300 text-[rgb(var(--v-theme-on-surface))]
-          hover:bg-gray-100
-          dark:border-gray-700 dark:hover:bg-gray-800"
+        class="rounded-xl border px-3 py-1.5 border-gray-300 text-[rgb(var(--v-theme-on-surface))] hover:bg-gray-100 dark:border-gray-700 dark:hover:bg-gray-800"
         :class="isActive ? 'bg-gray-200 dark:bg-gray-800' : ''"
       >
         Active
@@ -52,10 +39,7 @@
       <VBtn
         @click="set('done')"
         :disabled="isDone"
-        class="rounded-xl border px-3 py-1.5
-          border-gray-300 text-[rgb(var(--v-theme-on-surface))]
-          hover:bg-gray-100
-          dark:border-gray-700 dark:hover:bg-gray-800"
+        class="rounded-xl border px-3 py-1.5 border-gray-300 text-[rgb(var(--v-theme-on-surface))] hover:bg-gray-100 dark:border-gray-700 dark:hover:bg-gray-800"
         :class="isDone ? 'bg-gray-200 dark:bg-gray-800' : ''"
       >
         Done
@@ -69,26 +53,15 @@
         :disabled="users.loading || users.loaded"
         title="Fetch assignees from API"
       >
-        {{
-          users.loaded
-            ? 'Assignees loaded'
-            : (users.loading ? 'Loading...' : 'Load assignees')
-        }}
+        {{ users.loaded ? 'Assignees loaded' : users.loading ? 'Loading...' : 'Load assignees' }}
       </VBtn>
-      <span
-        v-if="users.error"
-        class="tasks-assignee--error"
-      >
+      <span v-if="users.error" class="tasks-assignee--error">
         {{ users.error }}
       </span>
     </div>
 
     <ul class="space-y-2">
-      <li
-        v-for="task in filteredItems"
-        :key="task.id"
-        class="card flex items-center gap-3"
-      >
+      <li v-for="task in filteredItems" :key="task.id" class="card flex items-center gap-3">
         <label class="flex-1 flex items-center gap-2">
           <input
             type="checkbox"
@@ -105,30 +78,24 @@
         <select
           v-if="users.list.length"
           :value="task.assigneeId ?? ''"
-          class="rounded-xl border border-gray-300 px-2 py-1
-            text-[rgb(var(--v-theme-on-surface))]
-            dark:bg-gray-900 dark:border-gray-700"
-          @change="tasks.assign(task.id, (
-            $event.target as HTMLSelectElement).value
-            ? Number(($event.target as HTMLSelectElement).value)
-            : null
-          )"
+          class="rounded-xl border border-gray-300 px-2 py-1 text-[rgb(var(--v-theme-on-surface))] dark:bg-gray-900 dark:border-gray-700"
+          @change="
+            tasks.assign(
+              task.id,
+              ($event.target as HTMLSelectElement).value
+                ? Number(($event.target as HTMLSelectElement).value)
+                : null,
+            )
+          "
         >
           <option value="">Unassigned</option>
-          <option
-            v-for="user in users.list"
-            :key="user.id"
-            :value="user.id"
-          >
+          <option v-for="user in users.list" :key="user.id" :value="user.id">
             {{ user.name }}
           </option>
         </select>
 
         <!-- Fallback label before loading users -->
-        <small
-          v-else
-          class="opacity-70"
-        >
+        <small v-else class="opacity-70">
           {{ nameOf(task.assigneeId) }}
         </small>
       </li>
@@ -163,6 +130,6 @@ const set = (filter: Filter) => {
 }
 
 const nameOf = (id: number | null | undefined) => {
-  return id == null ? 'Unassigned' : users.byId(id)?.name ?? `User #${id}`
+  return id == null ? 'Unassigned' : (users.byId(id)?.name ?? `User #${id}`)
 }
 </script>

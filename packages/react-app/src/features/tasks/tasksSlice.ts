@@ -33,11 +33,11 @@ const tasksSlice = createSlice({
       })
     },
     toggle(state, action: PayloadAction<string | undefined>) {
-      const t = state.items.find(i => i.id === action.payload)
+      const t = state.items.find((i) => i.id === action.payload)
       if (t) t.done = !t.done
     },
     assign(state, action: PayloadAction<{ id: string; userId: number | null }>) {
-      const t = state.items.find(i => i.id === action.payload.id)
+      const t = state.items.find((i) => i.id === action.payload.id)
       if (t) t.assigneeId = action.payload.userId
     },
     setFilter(state, action: PayloadAction<Filter>) {
@@ -53,13 +53,10 @@ export default tasksSlice.reducer
 export const selectTasks = (s: RootState) => s.tasks.items
 export const selectFilter = (s: RootState) => s.tasks.currentFilter
 
-export const selectFiltered = createSelector(
-  [selectTasks, selectFilter],
-  (items, filter) => {
-    if (filter === 'all') return items
-    return items.filter(t => (filter === 'done' ? t.done : !t.done))
-  },
-)
+export const selectFiltered = createSelector([selectTasks, selectFilter], (items, filter) => {
+  if (filter === 'all') return items
+  return items.filter((t) => (filter === 'done' ? t.done : !t.done))
+})
 
 export const selectIsAll = (s: RootState) => s.tasks.currentFilter === 'all'
 export const selectIsActive = (s: RootState) => s.tasks.currentFilter === 'active'

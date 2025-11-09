@@ -17,10 +17,10 @@ describe('tasks store', () => {
     const id = s.items[0]?.id
     s.toggle(id)
     s.setFilter('done')
-    expect(s.filteredItems.map(t => t.title)).toEqual(['A'])
+    expect(s.filteredItems.map((t) => t.title)).toEqual(['A'])
     expect(s.filteredItems.length).toBe(1)
 
     s.setFilter('active')
-    expect(s.filteredItems.map(t => t.title)).toEqual(['B', 'C'])
+    expect(s.filteredItems.map((t) => t.title)).toEqual(['B', 'C'])
   })
 })

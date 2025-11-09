@@ -24,7 +24,7 @@ export const useTasks = defineStore('tasks', () => {
   }
 
   function assign(id: string, userId: number | null) {
-    const task = items.value.find(x => x.id === id)
+    const task = items.value.find((x) => x.id === id)
     if (task) {
       task.assigneeId = userId
     }
@@ -46,8 +46,8 @@ export const useTasks = defineStore('tasks', () => {
     return currentFilter.value === 'all'
       ? items.value
       : items.value.filter((item) => {
-        return currentFilter.value === 'done' ? item.done : !item.done
-      })
+          return currentFilter.value === 'done' ? item.done : !item.done
+        })
   })
 
   const isAll = computed(() => currentFilter.value === 'all')

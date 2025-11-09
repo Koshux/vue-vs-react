@@ -1,5 +1,6 @@
 import { ref } from 'vue'
 import { defineStore } from 'pinia'
+import axios from 'axios'
 
 export type User = {
   id: number
@@ -18,11 +19,16 @@ export const useUsers = defineStore('users', () => {
     error.value = null
 
     try {
-      const res = await fetch('https://jsonplaceholder.typicode.com/users')
-      if (!res.ok) throw new Error(`HTTP ${res.status}`)
-      const data = (await res.json()) as User[]
+      // const res = await fetch('https://jsonplaceholder.typicode.com/users')
+      // if (!res.ok) throw new Error(`HTTP ${res.status}`)
+      // const data = (await res.json()) as User[]
 
-      list.value = data.map(user => {
+      //  --- Axios (Alternative) ---
+      const res = await axios.get('https://jsonplaceholder.typicode.com/users')
+      if (res.status !== 200) throw new Error(`HTTP ${res.status}`)
+      const data = res.data as User[] // axios auto-parses JSON and data is on res.data
+
+      list.value = data.map((user) => {
         return { id: user.id, name: user.name }
       })
       loaded.value = true
@@ -34,7 +40,7 @@ export const useUsers = defineStore('users', () => {
   }
 
   function byId(id?: number | null) {
-    return id == null ? undefined : list.value.find(user => user.id === id)
+    return id == null ? undefined : list.value.find((user) => user.id === id)
   }
 
   return {

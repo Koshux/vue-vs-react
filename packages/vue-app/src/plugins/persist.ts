@@ -1,9 +1,9 @@
-import type { PiniaPluginContext } from "pinia";
+import type { PiniaPluginContext } from 'pinia'
 
 type PersistOptions = {
-  key?: string;
-  paths?: string[];
-  version?: number;
+  key?: string
+  paths?: string[]
+  version?: number
 }
 
 export function createPersistPlugin(opts: PersistOptions = {}) {
@@ -39,12 +39,13 @@ export function createPersistPlugin(opts: PersistOptions = {}) {
 
     store.$subscribe((_mutation, state) => {
       try {
-        const toSave = Array.isArray(opts?.paths) && opts!.paths!.length
-          ? opts!.paths!.reduce<Record<string, unknown>>((acc, k) => {
-            acc[k] = state[k]
-            return acc
-          }, {})
-          : state
+        const toSave =
+          Array.isArray(opts?.paths) && opts!.paths!.length
+            ? opts!.paths!.reduce<Record<string, unknown>>((acc, k) => {
+                acc[k] = state[k]
+                return acc
+              }, {})
+            : state
 
         localStorage.setItem(persistKey, JSON.stringify(toSave))
       } catch (e) {

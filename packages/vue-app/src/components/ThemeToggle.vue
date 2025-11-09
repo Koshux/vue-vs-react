@@ -1,12 +1,7 @@
 <template>
   <button
     @click="toggle"
-    class="
-      rounded-xl border px-3 py-1.5
-      bg-white text-[rgb(var(--v-theme-on-surface))] border-gray-300 hover:bg-gray-50
-      dark:bg-gray-900 dark:text-[rgb(var(--v-theme-on-surface))] dark:border-gray-700 dark:hover:bg-gray-800
-      focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60
-  "
+    class="rounded-xl border px-3 py-1.5 bg-white text-[rgb(var(--v-theme-on-surface))] border-gray-300 hover:bg-gray-50 dark:bg-gray-900 dark:text-[rgb(var(--v-theme-on-surface))] dark:border-gray-700 dark:hover:bg-gray-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60"
     :aria-pressed="isDark"
     :title="isDark ? 'Switch to Light' : 'Switch to Dark'"
   >

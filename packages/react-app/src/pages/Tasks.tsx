@@ -144,7 +144,7 @@ export default function Tasks() {
               </select>
             ) : (
               <small className="opacity-70">
-                {task.assigneeId == null ? 'Unassigned' : `User #${task.assigneeId}`}
+                {task.assigneeId == null ? 'Unassigned' : nameOf(task.assigneeId)}
               </small>
             )}
           </li>

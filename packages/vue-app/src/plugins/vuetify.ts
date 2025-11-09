@@ -7,18 +7,18 @@ export const vuetify = createVuetify({
     themes: {
       light: {
         colors: {
-          primary: '#4f46e5',   // = Tailwind primary light
+          primary: '#4f46e5', // = Tailwind primary light
           surface: '#ffffff',
           'on-surface': '#0b1220',
         },
       },
       dark: {
         colors: {
-          primary: '#818cf8',   // = Tailwind primary dark
+          primary: '#818cf8', // = Tailwind primary dark
           surface: '#0f172a',
           'on-surface': '#e5e7eb',
         },
       },
     },
-  }
+  },
 })
