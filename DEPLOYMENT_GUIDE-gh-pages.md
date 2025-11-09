@@ -2,15 +2,13 @@
 
 This guide explains how to deploy your applications to GitHub Pages, which is a fantastic free hosting service, but works differently than Netlify or Vercel.
 
-**The Strategy:** We will create a GitHub Action that _builds_ our `vue-app` and automatically pushes the final `dist` folder to a special `gh-pages` branch. We then tell GitHub to host our site from that branch.
+**The Strategy:** We will create a GitHub Action that _builds_ one of our apps and automatically pushes the final `dist` folder to a special `gh-pages` branch. We then tell GitHub to host our site from that branch.
 
 ---
 
 ### Step 1: Ensure Your Vite Config is Ready
 
-GitHub Pages hosts your site in a subdirectory (e.g., `.../my-repo/`). We must tell Vite to use relative paths.
-
-Your `packages/vue-app/vite.config.ts` should be configured to accept a `base` path from an environment variable.
+GitHub Pages hosts your site in a subdirectory (e.g., `.../my-repo/`). We must tell Vite to use relative paths. Make sure both your `vue-app` and `react-app` `vite.config.ts` files include the `base` property:
 
 ```ts
 import { defineConfig } from 'vite'

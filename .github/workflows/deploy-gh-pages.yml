@@ -49,6 +49,7 @@ jobs:
           # This dynamically sets the base path to your repo name
           VITE_BASE: /${{ github.event.repository.name }}/
         run: pnpm --filter vue-app build
+        # run: pnpm --filter react-app build
 
       # 6. Upload the build artifact
       - name: Upload artifact
@@ -56,6 +57,7 @@ jobs:
         with:
           # This is the directory our build command created
           path: ./packages/vue-app/dist
+          # path: ./packages/react-app/dist
 
       # 7. Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
