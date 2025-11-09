@@ -4,7 +4,7 @@
     "target": "ES2023",
     "lib": ["ES2023"],
     "module": "ESNext",
-    "types": ["node", "vite/client", "vitest", "@testing-library/jest-dom"],
+    "types": ["node"],
     "skipLibCheck": true,
 
     /* Bundler mode */
@@ -22,12 +22,5 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": [
-    "src",
-    "vitest.config.ts",
-    "vitest.setup.ts",
-    "src/vitest.d.ts",
-    "src/**/*.ts",
-    "playwright.config.ts"
-  ]
+  "include": ["vite.config.ts"]
 }

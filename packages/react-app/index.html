@@ -1,38 +1,13 @@
 <!doctype html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <link
-    rel="icon"
-    type="image/svg+xml"
-    href="/vite.svg"
-  />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  />
-  <title>react-app</title>
-</head>
-
-<body>
-  <div id="root"></div>
-  <script
-    type="module"
-    src="/src/main.tsx"
-  ></script>
-  <script>
-    // Prefer saved choice; otherwise follow OS preference
-    (function () {
-      try {
-        const saved = localStorage.getItem('theme:dark');
-        const preferDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const shouldDark = saved === '1' || (saved === null && preferDark);
-        document.documentElement.classList.toggle('dark', shouldDark);
-      } catch (e) { }
-    })();
-  </script>
-
-</body>
-
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>react-app</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>

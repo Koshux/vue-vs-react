@@ -72,24 +72,25 @@ export function App() {
 
 <div class="d-flex">
 <div class="col">
-<h4>🔵 Vue: `App.vue`</h4>
+<h4>🔵 Vue: App.vue</h4>
 
-- You already have <RouterView /> in App.vue, provided by the scaffolder.
-- Add the /about route in src/router/index.ts.
+1. Create `packages/vue-app/src/views/AboutView.vue` (just put `<h1>About Vue</h1>` in it).
+2. Open packages/vue-app/src/router/index.ts.
+3. Add the new route object (it's already scaffolded, just copy/paste the home route and modify).
+4. Open `packages/vue-app/src/App.vue` and add `<RouterLink to="/about">About</RouterLink>` inside the `<nav>`.
 
 </div>
+
 <div class="col">
 <h4>⚛️ React: App.tsx</h4>
 
-1. Install: pnpm -F react-app add react-router-dom
+1. Install: `pnpm -F react-app add react-router-dom`
 2. Create: src/pages folder.
 3. Create page files:
    - src/pages/Home.tsx
    - src/pages/About.tsx
    - (You can just put a simple `<h1>Home</h1>` or `<h1>About</h1>` in them for now).
-4. Create src/router.tsx: Add the code from the example to define your routes using createBrowserRouter, lazy, and Suspense.
-5. Replace src/App.tsx with the layout code from the example (the one with <Outlet />).
-6. Replace src/main.tsx to import and use the <RouterProvider />.
+4. Create a layout component: src/Layout.tsx file.
 
 </div>
 </div>

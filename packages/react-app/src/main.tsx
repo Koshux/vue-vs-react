@@ -1,20 +1,29 @@
-import './styles/theme.css'
-import './assets/tailwind.css'
-
+// import { StrictMode } from 'react'
+// import { createRoot } from 'react-dom/client'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { AppThemeProvider } from './theme'
-import { RouterProvider } from 'react-router-dom'
-import { Provider as ReduxProvider } from 'react-redux'
-import { store } from './store'
-import { router } from './router'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import './index.css'
+import App from './App.tsx'
+
+import { Layout } from './Layout'
+import { Test } from './pages/Test.tsx'
+import { About } from './pages/About'
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Layout />,
+    children: [
+      { index: true, element: <App /> },
+      { path: 'test', element: <Test /> },
+      { path: 'about', element: <About /> },
+    ],
+  },
+])
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <AppThemeProvider>
-      <ReduxProvider store={store}>
-        <RouterProvider router={router} />
-      </ReduxProvider>
-    </AppThemeProvider>
+    <RouterProvider router={router} />
   </React.StrictMode>,
 )

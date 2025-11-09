@@ -1,33 +1,37 @@
-import { Link, Outlet } from 'react-router-dom'
-import ThemeToggle from './components/ThemeToggle'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
+import Button from './components/Button'
 
-export default function App() {
+function App() {
   return (
-    <div className="min-h-screen text-[rgb(var(--v-theme-on-surface))] bg-surface dark:bg-gray-900">
-      <header className="max-w-5xl mx-auto p-4">
-        <div className="flex items-center justify-between gap-4">
-          <img src="/vite.svg" alt="React logo" width="42" height="42" />
-          <nav className="flex gap-4 text-sm">
-            <Link to="/" className="hover:underline">
-              Home
-            </Link>
-            <Link to="/about" className="hover:underline">
-              About
-            </Link>
-            <Link to="/assignees" className="hover:underline">
-              Assignees
-            </Link>
-            <Link to="/tasks" className="hover:underline">
-              Tasks
-            </Link>
-            <ThemeToggle />
-          </nav>
-        </div>
-      </header>
+    <>
+      <div>
+        <a href="https://vite.dev" target="_blank">
+          <img src={viteLogo} className="logo" alt="Vite logo" />
+        </a>
+        <a href="https://react.dev" target="_blank">
+          <img src={reactLogo} className="logo react" alt="React logo" />
+        </a>
+      </div>
+      <h1>Vite + React</h1>
+      <div className="card">
+        <p>
+          Edit <code>src/App.tsx</code> and save to test HMR
+        </p>
 
-      <main className="app-main max-w-5xl mx-auto p-4">
-        <Outlet />
-      </main>
-    </div>
+        <Button
+          label="My react button"
+          onClick={() => console.log('React button clicked!')}
+        >
+          <span>ICON </span>
+        </Button>
+      </div>
+      <p className="read-the-docs">
+        Click on the Vite and React logos to learn more
+      </p>
+    </>
   )
 }
+
+export default App
