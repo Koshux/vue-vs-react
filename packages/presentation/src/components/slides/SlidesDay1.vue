@@ -1,6 +1,11 @@
 <template>
   <!-- This parent section groups all Day 1 slides into a single vertical stack -->
   <section>
+    <section>
+      <h2>Day 1</h2>
+      <h3>The Fundamentals: Building Components & Local State</h3>
+    </section>
+
     <!-- D1.1 Welcome & Verify -->
     <section
       data-markdown="/slides/day1/D1-1-Welcome.md"

@@ -1,7 +1,10 @@
-D1.4: Monorepo with pnpm
-branch: day-1/03-workspaces
+## D1.4: Our Monorepo Stack (Layer 1: PNPM)
 
-### What is a Monorepo?
+**branch:** `day-1/03-workspaces`
+
+### Layer 1: The Package Manager
+
+#### What is a Monorepo?
 
 A single repository containing multiple, distinct projects (or "packages").
 
@@ -28,3 +31,18 @@ Let's practice. Run these commands from the **root** of the monorepo:
 1.  `pnpm -F vue-app add axios`
 2.  `pnpm -F react-app add axios`
     (We'll use this later for data fetching).
+
+---
+
+## D1.4: Our Monorepo Stack (Layer 2: Turborepo)
+
+### Layer 2: The Task Orchestrator
+
+**Turborepo** is our "smart" task runner. It sits _on top_ of PNPM.
+
+- **Why?** It's built for **speed**.
+- **Caching:** If we run `turbo build` and the code hasn't changed, it restores the `dist` folder from cache instantly.
+- **Pipelining:** It understands task dependencies (e.g., `build` must finish before `test`).
+- **Parallelism:** It runs tasks like `lint` for all packages at the same time.
+
+We define all our tasks in a single `turbo.json` at the root.

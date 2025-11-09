@@ -3,4 +3,8 @@
     data-markdown="/slides/welcome/introduction.md"
     data-separator="^\r?\n---\r?\n$"
   ></section>
+  <section
+    data-markdown="/slides/welcome/D1-0-StateOfJS.md"
+    data-separator="^\r?\n---\r?\n$"
+  ></section>
 </template>

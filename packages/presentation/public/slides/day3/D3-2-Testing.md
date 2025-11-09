@@ -6,11 +6,24 @@ branch: day-3/01-testing
 
 A model for a healthy testing strategy. We will focus on the bottom two layers.
 
-![Image of the testing pyramid](../../type-of-tests.jpg 'Types of Tests')
+<div class="d-flex">
+  <div class="col">
+    <img
+      src="../../type-of-tests.jpg"
+      alt="Image of the testing pyramid"
+      width="800px"
+      height="600px"
+    />
+  </div>
+  <div class="col">
+
+#### Types
 
 - **Unit Tests (Base)**: Fast, cheap. Test a single function or component in isolation. (We are here.)
 - **Integration Tests (Middle)**: Test how multiple components work _together_.
 - **E2E Tests (Top)**: Slow, expensive. Test the full application in a real browser.
+  </div>
+</div>
 
 ---
 

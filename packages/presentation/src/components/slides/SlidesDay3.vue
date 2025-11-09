@@ -1,10 +1,10 @@
 <template>
   <section>
     <!-- Day 3 Title -->
-    <!-- <section>
+    <section>
       <h2>Day 3</h2>
-      <h3>Workflow, Testing & Deployments</h3>
-    </section> -->
+      <h3>The Professional Ecosystem: Tooling, Testing & Advanced Topics</h3>
+    </section>
 
     <!-- D3.1: Tooling -->
     <section

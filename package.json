@@ -1,13 +1,16 @@
 {
   "name": "vue-vs-react-workshop",
   "private": true,
+  "packageManager": "pnpm@9.6.0",
   "scripts": {
-    "dev:vue": "pnpm --filter vue-app dev",
-    "dev:format:vue:": "pnpm --filter vue-app format",
-    "test:e2e:vue": "pnpm -C packages/vue-app test:e2e",
-    "dev:react": "pnpm --filter vue-app dev",
-    "dev:format:react:": "pnpm --filter vue-app format",
-    "test:e2e:react": "pnpm -C packages/vue-app test:e2e",
+    "llm:all": "node combine-files.cjs --path .",
+    "llm:react": "node combine-files.cjs --path ./packages/react-app",
+    "llm:vue": "node combine-files.cjs --path ./packages/vue-app",
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "format": "turbo run format",
+    "test:e2e": "turbo run test:e2e",
     "dev:presentation": "pnpm --filter presentation dev",
     "start": "pnpm dev:presentation"
   },
@@ -15,6 +18,7 @@
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.4",
     "minimist": "^1.2.8",
-    "prettier": "3.6.2"
+    "prettier": "3.6.2",
+    "turbo": "^2.6.0"
   }
 }

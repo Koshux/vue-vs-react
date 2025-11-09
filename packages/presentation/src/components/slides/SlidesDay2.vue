@@ -1,10 +1,10 @@
 <template>
   <section>
     <!-- Day 2 Title -->
-    <!-- <section>
+    <section>
       <h2>Day 2</h2>
       <h3>Building Applications: State, Routing & Data</h3>
-    </section> -->
+    </section>
 
     <!-- D2.1: Routing -->
     <section

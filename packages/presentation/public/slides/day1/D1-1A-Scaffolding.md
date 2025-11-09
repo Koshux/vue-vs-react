@@ -25,3 +25,12 @@ From the **root** of the `vue-vs-react` directory, run **one** of these commands
 # This uses the official Vue scaffolder
 pnpm create vue@latest packages/vue-app --ts --router --pinia
 ```
+
+#### ⚛️ Team React:
+
+```bash
+# This uses the official Vite scaffolder
+pnpm create vite@latest packages/react-app -- --template react-ts
+```
+
+_Follow the prompts, and say 'Yes' to installing/using pnpm._

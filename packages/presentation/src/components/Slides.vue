@@ -4,44 +4,15 @@
     ref="deckRef"
   >
     <div class="slides">
-      <!-- Slide 1: Title -->
-      <!-- <section data-markdown>
-        <textarea data-template>
-          # Vue vs React
-          ### A 3-Day Workshop
-          ---
-          **Client:** PTL Ltd.
-          <br>
-          **Date:** October 20-22, 2025
-        </textarea>
-      </section> -->
-      <IntroductionSlides />
-
-      <section>
-        <h2>Day 1</h2>
-        <h3>The Fundamentals: Building Components & Local State</h3>
-      </section>
-
+      <WelcomeSlides />
       <Day1Slides />
-
-      <section>
-        <h2>Day 2</h2>
-        <h3>Building Applications: State, Routing & Data</h3>
-      </section>
-
       <Day2Slides />
-
-      <section>
-        <h2>Day 3</h2>
-        <h3>The Professional Ecosystem: Tooling, Testing & Advanced Topics</h3>
-      </section>
-
       <Day3Slides />
 
       <section data-markdown>
         <textarea data-template>
           ## Questions?
-          <br>
+          ---
           ### Thank You!
         </textarea>
       </section>
@@ -55,7 +26,7 @@ import { onMounted, ref, nextTick } from 'vue'
 import Reveal from 'reveal.js'
 import Markdown from 'reveal.js/plugin/markdown/markdown.js'
 import Highlight from 'reveal.js/plugin/highlight/highlight.js'
-import IntroductionSlides from './slides/WelcomeDeck.vue'
+import WelcomeSlides from './slides/WelcomeDeck.vue'
 import Day1Slides from './slides/SlidesDay1.vue'
 import Day2Slides from './slides/SlidesDay2.vue'
 import Day3Slides from './slides/SlidesDay3.vue'
@@ -66,8 +37,6 @@ onMounted(() => {
   // nextTick(() => {
   if (deckRef.value) {
     const deck = new Reveal(deckRef.value, {
-      // embedded: true,
-      // keyboardCondition: 'focused',
       hash: true,
       slideNumber: true,
       plugins: [Markdown, Highlight],
@@ -88,13 +57,7 @@ onMounted(() => {
         highlightOnLoad: true
       },
     })
-    // Change the size of our presentation
-    // document.querySelector('.reveal').style.width = '50vw';
-
-    // // Make reveal.js aware of the size change
-    // Reveal.layout();
   }
-  // })
 })
 </script>
 
