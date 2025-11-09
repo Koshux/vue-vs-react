@@ -1,4 +1,4 @@
-## D1.10: React Local State
+## D1.10: React Local State (Time: 25 mins)
 
 branch: day-1/09-react-local-state
 

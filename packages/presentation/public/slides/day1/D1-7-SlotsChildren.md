@@ -1,4 +1,4 @@
-## D1.7: Slots vs. Children
+## D1.7: Slots vs. Children (Time: 15 mins)
 
 branch: day-1/06-slots-vs-children
 

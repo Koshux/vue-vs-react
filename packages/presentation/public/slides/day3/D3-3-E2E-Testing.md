@@ -1,4 +1,4 @@
-## D3.3: End-to-End (E2E) Testing
+## D3.3: End-to-End (E2E) Testing (Time: 45 mins)
 
 branch: day-3/02-e2e-testing
 

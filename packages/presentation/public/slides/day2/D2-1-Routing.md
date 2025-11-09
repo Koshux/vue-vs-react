@@ -1,4 +1,4 @@
-## D2.1: Advanced Routing
+## D2.1: Advanced Routing (Time: 30 mins)
 
 branch: day-2/00-routing
 

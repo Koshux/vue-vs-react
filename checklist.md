@@ -1,11 +1,3 @@
-That's a fantastic adjustment. Having them scaffold their own apps is _much_ more impactful.
-
-You're correct. The `FACILITATOR_GUIDE.md` files I created are your "cheat sheets" with the detailed explanations. What you need now is a high-level **Facilitator Checklist** to keep you on track each day, listing all the assets you need.
-
-Here is that day-by-day checklist.
-
----
-
 ## 📋 Pre-Workshop Checklist (Your Prep)
 
 - [ ] **Hardware/Software:**

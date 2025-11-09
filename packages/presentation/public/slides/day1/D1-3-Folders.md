@@ -1,4 +1,4 @@
-## D1.3: Directory structure
+## D1.3: Directory structure (Time: 10 mins)
 
 ### Scalable Architecture
 

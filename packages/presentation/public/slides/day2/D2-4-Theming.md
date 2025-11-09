@@ -1,4 +1,4 @@
-## D2.4: Theming & UI Libraries
+## D2.4: Theming & UI Libraries (Time: 60 mins)
 
 branch: day-2/03-theming
 

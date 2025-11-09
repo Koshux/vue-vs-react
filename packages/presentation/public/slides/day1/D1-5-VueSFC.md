@@ -1,4 +1,4 @@
-## D1.5: Vue SFC Basics
+## D1.5: Vue SFC Basics (Time: 30 mins)
 
 branch: day-1/04-vue-sfc
 

@@ -1,4 +1,4 @@
-## D1.4: Our Monorepo Stack (Layer 1: PNPM)
+## D1.4: Our Monorepo Stack (Layer 1: PNPM) (Time: 15 mins)
 
 **branch:** `day-1/03-workspaces`
 <br />

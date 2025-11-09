@@ -1,4 +1,4 @@
-## D1.1A: Let's Build Our Apps!
+## D1.1A: Let's Build Our Apps! (Time: 15 mins)
 
 **branch:** `day-1/01-scaffolding`
 

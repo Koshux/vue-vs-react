@@ -1,4 +1,4 @@
-## D3.4: Production & Deployment
+## D3.4: Production & Deployment (Time: 30 mins)
 
 branch: day-3/03-deployment
 

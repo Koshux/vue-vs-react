@@ -1,4 +1,4 @@
-## D1.9: Vue Local State
+## D1.9: Vue Local State (Time: 25 mins)
 
 branch: day-1/08-vue-local-state
 

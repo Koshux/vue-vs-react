@@ -1,4 +1,4 @@
-## D1.1: Environment Check
+## D1.1: Environment Check (Time: 15 mins)
 
 **branch:** `day-1/00-welcome`
 

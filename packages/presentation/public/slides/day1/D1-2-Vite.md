@@ -1,4 +1,4 @@
-## D1.2: Vite in Vue & React
+## D1.2: Vite in Vue & React (Time: 10 mins)
 
 branch: day-1/02-vite-basics
 

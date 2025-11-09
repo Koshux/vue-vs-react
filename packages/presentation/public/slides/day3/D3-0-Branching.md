@@ -1,4 +1,4 @@
-## D3.0: Team Workflows
+## D3.0: Team Workflows (Time: 15 mins)
 
 **branch:** `(N/A - Concept)`
 
