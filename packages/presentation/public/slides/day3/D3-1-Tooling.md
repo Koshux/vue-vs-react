@@ -1,4 +1,4 @@
-## D3.1: Team Tooling & Automation (Time: 30 mins)
+## D3.1: Team Tooling & Automation (Time: 45 mins)
 
 branch: day-3/00-tooling
 

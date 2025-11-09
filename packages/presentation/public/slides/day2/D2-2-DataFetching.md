@@ -1,4 +1,4 @@
-## D2.2: Basic Data Fetching (Time: 30 mins)
+## D2.2: Basic Data Fetching (Time: 45 mins)
 
 branch: day-2/01-data-fetching
 

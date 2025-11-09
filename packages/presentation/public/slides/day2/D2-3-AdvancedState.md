@@ -1,4 +1,4 @@
-## D2.3: Global State Management (Time: 60 mins)
+## D2.3: Global State Management (Time: 75 mins)
 
 branch: day-2/02-advanced-state
 

@@ -1,4 +1,4 @@
-## D3.2: Unit Testing (Time: 45 mins)
+## D3.2: Unit Testing (Time: 75 mins)
 
 branch: day-3/01-testing
 
