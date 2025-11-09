@@ -98,7 +98,3 @@ After you commit and push the new `.yml` file, you must do this **one-time setup
 5.  GitHub will automatically detect your `deploy-gh-pages.yml` and use it.
 
 **That's it\!** Now, every time you push to your `main` branch, the Action will automatically run, build your `vue-app`, and deploy it. After a minute or two, your site will be live at the URL shown on the "Pages" settings screen.
-
-```
-
-```
