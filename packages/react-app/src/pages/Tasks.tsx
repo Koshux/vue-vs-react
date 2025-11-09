@@ -18,6 +18,7 @@ import {
   selectUsersError,
   userById,
 } from '../features/users/usersSlice'
+import { Button } from '@mui/material'
 
 export default function Tasks() {
   const dispatch = useAppDispatch()
@@ -46,6 +47,61 @@ export default function Tasks() {
       ? 'Unassigned'
       : ((userById(id) as any)((window as any).reduxState ?? {})?.name ?? `User #${id}`)
 
+  const useUserById = (id?: number | null) => {
+    return useAppSelector(userById(id))
+  }
+
+  function TaskItem({
+    task,
+    users,
+    useUserById,
+  }: {
+    task: any
+    users: any[]
+    useUserById: (id?: number | null) => any
+  }) {
+    const dispatch = useAppDispatch()
+    const user = useUserById(task.assigneeId)
+    const taskAssigneeName = user?.name ?? nameOf(task.assigneeId)
+
+    return (
+      <li className="card flex items-center gap-3">
+        <label className="flex-1 flex items-center gap-2">
+          <input
+            type="checkbox"
+            name="done"
+            checked={task.done}
+            onChange={() => dispatch(toggle(task.id))}
+            className="size-4"
+          />
+          <span className={task.done ? 'line-through text-gray-800 dark:text-gray-100' : ''}>
+            {task.title}
+          </span>
+        </label>
+
+        {users.length > 0 ? (
+          <select
+            value={task.assigneeId ?? ''}
+            className="rounded-xl border border-gray-300 px-2 py-1 text-[rgb(var(--color-on-surface))] dark:bg-gray-900 dark:border-gray-700"
+            onChange={(e) =>
+              dispatch(
+                assign({ id: task.id, userId: e.target.value ? Number(e.target.value) : null }),
+              )
+            }
+          >
+            <option value="">Unassigned</option>
+            {users.map((u) => (
+              <option key={u.id} value={u.id}>
+                {u.name}
+              </option>
+            ))}
+          </select>
+        ) : (
+          <small className="opacity-70">{taskAssigneeName}</small>
+        )}
+      </li>
+    )
+  }
   return (
     <section className="max-w-2xl mx-auto space-y-4">
       <h1 className="text-2xl font-semibold">Task Tracker (React)</h1>
@@ -62,92 +118,61 @@ export default function Tasks() {
              text-on-surface bg-surface dark:border-gray-700"
           data-testid="task-input"
         />
-        <button
+        <Button
           type="submit"
+          variant="contained"
           className="rounded-xl bg-indigo-600 text-white px-4 py-2 hover:opacity-90 active:opacity-80"
         >
           Add
-        </button>
+        </Button>
       </form>
 
       <div className="flex gap-2">
-        <button
+        <Button
+          variant={isAll ? 'contained' : 'outlined'}
           onClick={() => dispatch(setFilter('all'))}
           disabled={isAll}
           className={`rounded-xl border px-3 py-1.5 border-gray-300 dark:border-gray-700
                       ${isAll ? 'bg-gray-200 dark:bg-gray-800' : 'hover:bg-gray-100 dark:hover:bg-gray-800'}`}
         >
           All
-        </button>
-        <button
+        </Button>
+        <Button
+          variant={isActive ? 'contained' : 'outlined'}
           onClick={() => dispatch(setFilter('active'))}
           disabled={isActive}
           className={`rounded-xl border px-3 py-1.5 border-gray-300 dark:border-gray-700
                       ${isActive ? 'bg-gray-200 dark:bg-gray-800' : 'hover:bg-gray-100 dark:hover:bg-gray-800'}`}
         >
           Active
-        </button>
-        <button
+        </Button>
+        <Button
+          variant={isDone ? 'contained' : 'outlined'}
           onClick={() => dispatch(setFilter('done'))}
           disabled={isDone}
           className={`rounded-xl border px-3 py-1.5 border-gray-300 dark:border-gray-700
                       ${isDone ? 'bg-gray-200 dark:bg-gray-800' : 'hover:bg-gray-100 dark:hover:bg-gray-800'}`}
         >
           Done
-        </button>
+        </Button>
       </div>
 
       <div className="flex items-center gap-3">
-        <button
+        <Button
+          variant="outlined"
           onClick={() => dispatch(fetchUsers({}))}
           disabled={usersLoading || usersLoaded}
           title="Fetch assignees from API"
           className="rounded-xl border px-3 py-1.5"
         >
           {usersLoaded ? 'Assignees loaded' : usersLoading ? 'Loading…' : 'Load assignees'}
-        </button>
+        </Button>
         {usersError && <span className="text-red-600">{usersError}</span>}
       </div>
 
       <ul className="space-y-2" data-testid="task-list">
         {filtered.map((task) => (
-          <li key={task.id} className="card flex items-center gap-3">
-            <label className="flex-1 flex items-center gap-2">
-              <input
-                type="checkbox"
-                checked={task.done}
-                onChange={() => dispatch(toggle(task.id))}
-                className="size-4"
-              />
-              <span className={task.done ? 'line-through text-gray-800 dark:text-gray-100' : ''}>
-                {task.title}
-              </span>
-            </label>
-
-            {users.length ? (
-              <select
-                value={task.assigneeId ?? ''}
-                onChange={(e) =>
-                  dispatch(
-                    assign({ id: task.id, userId: e.target.value ? Number(e.target.value) : null }),
-                  )
-                }
-                className="rounded-xl border border-gray-300 px-2 py-1
-                  text-on-surface bg-surface dark:border-gray-700"
-              >
-                <option value="">Unassigned</option>
-                {users.map((u) => (
-                  <option key={u.id} value={u.id}>
-                    {u.name}
-                  </option>
-                ))}
-              </select>
-            ) : (
-              <small className="opacity-70">
-                {task.assigneeId == null ? 'Unassigned' : nameOf(task.assigneeId)}
-              </small>
-            )}
-          </li>
+          <TaskItem key={task.id} task={task} users={users} useUserById={useUserById} />
         ))}
       </ul>
     </section>

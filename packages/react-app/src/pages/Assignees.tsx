@@ -6,6 +6,7 @@ import {
   selectUsersLoading,
 } from '../features/users/usersSlice'
 import { useEffect } from 'react'
+import { Button } from '@mui/material'
 
 export default function Assignees() {
   const dispatch = useAppDispatch()
@@ -22,13 +23,14 @@ export default function Assignees() {
       <h1 className="text-2xl font-semibold">Assignees</h1>
 
       <div className="flex items-center gap-3">
-        <button
+        <Button
+          variant="outlined"
           className="rounded-xl border px-3 py-1.5"
           onClick={() => dispatch(fetchUsers({ force: true }))}
           disabled={loading}
         >
           {loading ? 'Loading…' : 'Load Assignees'}
-        </button>
+        </Button>
         {error && <span className="text-red-600">{error}</span>}
       </div>
 
