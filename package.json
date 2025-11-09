@@ -12,13 +12,26 @@
     "format": "turbo run format",
     "test:e2e": "turbo run test:e2e",
     "dev:presentation": "pnpm --filter presentation dev",
-    "start": "pnpm dev:presentation"
+    "start": "pnpm dev:presentation",
+    "prepare": "husky"
   },
   "devDependencies": {
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.4",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.6",
     "minimist": "^1.2.8",
     "prettier": "3.6.2",
     "turbo": "^2.6.0"
+  },
+  "lint-staged": {
+    "packages/vue-app/src/**/*.{ts,vue}": [
+      "pnpm -F vue-app lint",
+      "pnpm -F vue-app format"
+    ],
+    "packages/react-app/src/**/*.{ts,tsx}": [
+      "pnpm -F react-app lint",
+      "pnpm -F react-app format"
+    ]
   }
 }
