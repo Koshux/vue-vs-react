@@ -1,0 +1,45 @@
+name: CI - Build & Test
+
+on:
+  push:
+    branches: ['main']
+  pull_request:
+    branches: ['main']
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Get the code
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2. Set up pnpm (uses Corepack by default, which is perfect)
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9 # Matches packageManager version
+
+      # 3. Set up Node.js (version 20) and enable pnpm caching
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          cache: 'pnpm' # This caches your pnpm store for faster installs
+
+      # 4. Install all dependencies
+      - name: Install dependencies
+        run: pnpm install
+
+      # 5. Run linting for all packages
+      - name: Run lint
+        run: pnpm lint
+
+      # 6. Run unit tests for all packages
+      - name: Run unit tests for all packages
+        run: pnpm test:unit
+
+      # 7. Run the production build for all packages
+      - name: Run build
+        run: pnpm build
