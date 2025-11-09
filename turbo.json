@@ -18,7 +18,7 @@
     "lint": {
       "outputs": []
     },
-    "test": {
+    "test:unit": {
       "outputs": []
     },
     "test:e2e": {

@@ -149,10 +149,10 @@ Output Directory: dist
 
 ## 🧪 6. Testing Tools
 
-| **Framework** | **Unit Testing**             | **E2E Testing**       |
-| ------------- | ---------------------------- | --------------------- |
-| **Vue**       | Vitest + Vue Test Utils      | Playwright            |
-| **React**     | Jest + React Testing Library | Cypress or Playwright |
+| **Framework**  | **Unit Testing**               | **E2E Testing**        |
+| -------------- | ------------------------------ | ---------------------- |
+| **Vue**        | Vitest + Vue Test Utils        | Playwright             |
+| **React**      | Vitest + React Testing Library | Playwright             |
 
 ### Run Tests Locally
 
