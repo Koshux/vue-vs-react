@@ -19,7 +19,7 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 9 # Matches packageManager version
+          version: 9.6.0 # Matches packageManager version
 
       # 3. Set up Node.js (version 20) and enable pnpm caching
       - name: Setup Node.js
