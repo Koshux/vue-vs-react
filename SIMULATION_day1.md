@@ -477,3 +477,593 @@
 - **Final Check:**
   - Do both apps now share state between the `Home` component and the `DisplayCount` component?
   - **Pacing Verdict:** The Vue task is _much_ faster (5-10 min) because Pinia was scaffolded. The React task (20-30 min) requires creating the Context, Provider, hook, and refactoring two components. **This is the second major pacing imbalance.** Be prepared to help Team React heavily.
+
+---
+
+# Cheatsheet:
+
+## Code Snippets in order of lessons:
+
+> Here are the final solution code snippets for each task in your Day 1 dry run. You can use this as a "copy/paste" reference to quickly build the solutions as you practice.
+
+---
+
+### 1.5: Vue SFC Basics
+
+**File:** `packages/vue-app/src/components/Button.vue`
+
+```vue
+<script setup lang="ts">
+defineProps<{ label: string }>()
+const emit = defineEmits(['click'])
+</script>
+
+<template>
+  <button @click="emit('click')">{{ label }}</button>
+</template>
+```
+
+**File:** `packages/vue-app/src/views/HomeView.vue` (Usage)
+
+```vue
+<script setup lang="ts">
+import TheWelcome from '../components/TheWelcome.vue'
+import Button from '@/components/Button.vue' // <-- Add
+</script>
+
+<template>
+  <main>
+    <TheWelcome />
+
+    <Button
+      label="My Vue Button"
+      @click="() => console.log('Vue Button Clicked!')"
+    />
+  </main>
+</template>
+```
+
+---
+
+### 1.6: React FC Basics
+
+**File:** `packages/react-app/src/components/Button.tsx`
+
+```tsx
+import React from 'react'
+
+interface ButtonProps {
+  label: string
+  onClick: () => void
+}
+
+export function Button({ label, onClick }: ButtonProps) {
+  return <button onClick={onClick}>{label}</button>
+}
+```
+
+**File:** `packages/react-app/src/App.tsx` (Usage - simplified)
+
+```tsx
+import { Button } from './components/Button'
+// Note: You can delete App.css if you want
+// import './App.css'
+
+function App() {
+  return (
+    <>
+      <h1>React App</h1>
+      <Button
+        label="My React Button"
+        onClick={() => console.log('React Button Clicked!')}
+      />
+    </>
+  )
+}
+
+export default App
+```
+
+---
+
+### 1.7: Slots vs. Children
+
+**File:** `packages/vue-app/src/components/Button.vue` (Updated)
+
+```vue
+<script setup lang="ts">
+defineProps<{ label: string }>()
+const emit = defineEmits(['click'])
+</script>
+
+<template>
+  <button @click="emit('click')"><slot /> {{ label }}</button>
+</template>
+```
+
+**File:** `packages/react-app/src/components/Button.tsx` (Updated)
+
+```tsx
+import React from 'react'
+
+interface ButtonProps {
+  label: string
+  onClick: () => void
+  children?: React.ReactNode // <-- Add this
+}
+
+export function Button({ label, onClick, children }: ButtonProps) {
+  // <-- Add 'children'
+  return (
+    <button onClick={onClick}>
+      {children} {/* <-- Add this */}
+      {label}
+    </button>
+  )
+}
+```
+
+**File:** `packages/vue-app/src/views/HomeView.vue` (Updated Usage)
+
+```vue
+<Button label="Vue Button" @click="() => console.log('Vue Button Clicked!')">
+  <span>ICON </span>
+</Button>
+```
+
+**File:** `packages/react-app/src/App.tsx` (Updated Usage)
+
+```tsx
+<Button
+  label="React Button"
+  onClick={() => console.log('React Button Clicked!')}
+>
+  <span>ICON </span>
+</Button>
+```
+
+---
+
+### 1.8: Routing Basics
+
+#### 🔵 Vue
+
+**File:** `packages/vue-app/src/views/AboutView.vue` (New File)
+
+```vue
+<template>
+  <div class="about">
+    <h1>About Vue</h1>
+  </div>
+</template>
+```
+
+**File:** `packages/vue-app/src/router/index.ts` (Updated)
+
+```ts
+import { createRouter, createWebHistory } from 'vue-router'
+import HomeView from '../views/HomeView.vue'
+
+const router = createRouter({
+  history: createWebHistory(import.meta.env.BASE_URL),
+  routes: [
+    {
+      path: '/',
+      name: 'home',
+      component: HomeView,
+    },
+    {
+      path: '/about',
+      name: 'about',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/AboutView.vue'), // <-- This was already scaffolded!
+    },
+  ],
+})
+
+export default router
+```
+
+**File:** `packages/vue-app/src/App.vue` (Updated Nav)
+
+```vue
+<nav>
+  <RouterLink to="/">Home</RouterLink>
+  <RouterLink to="/about">About</RouterLink>
+</nav>
+```
+
+---
+
+#### ⚛️ React
+
+**File:** `packages/react-app/src/pages/Home.tsx` (New File)
+
+```tsx
+import { Button } from '../components/Button'
+
+export function Home() {
+  return (
+    <>
+      <h1>Home Page</h1>
+      <Button
+        label="React Button"
+        onClick={() => console.log('React Button Clicked!')}
+      >
+        <span>ICON </span>
+      </Button>
+    </>
+  )
+}
+```
+
+**File:** `packages/react-app/src/pages/About.tsx` (New File)
+
+```tsx
+export function About() {
+  return <h1>About React</h1>
+}
+```
+
+**File:** `packages/react-app/src/Layout.tsx` (New File)
+
+```tsx
+import { Link, Outlet } from 'react-router-dom'
+
+export function Layout() {
+  return (
+    <>
+      <nav style={{ display: 'flex', gap: '1rem' }}>
+        <Link to="/">Home</Link>
+        <Link to="/about">About</Link>
+      </nav>
+      <hr />
+      <main>
+        <Outlet />
+      </main>
+    </>
+  )
+}
+```
+
+**File:** `packages/react-app/src/main.tsx` (Full Replacement)
+
+```tsx
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+// import './index.css' // Your tailwind styles
+// import './App.css' // You can delete this
+
+import { Layout } from './Layout'
+import { Home } from './pages/Home'
+import { About } from './pages/About'
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Layout />,
+    children: [
+      { index: true, element: <Home /> },
+      { path: 'about', element: <About /> },
+    ],
+  },
+])
+
+ReactDOM.createRoot(document.getElementById('root')!).render(
+  <React.StrictMode>
+    <RouterProvider router={router} />
+  </React.StrictMode>
+)
+```
+
+_(Remember to delete `App.tsx` and `App.css` after this)_
+
+---
+
+### 1.9: Vue Local State (Counter)
+
+**File:** `packages/vue-app/src/views/HomeView.vue` (Updated)
+
+```vue
+<script setup lang="ts">
+import { ref, computed } from 'vue' // <-- Add these
+import Button from '@/components/Button.vue'
+
+// --- Add this logic ---
+const count = ref(0)
+const double = computed(() => count.value * 2)
+const increment = () => count.value++
+const decrement = () => count.value--
+const reset = () => (count.value = 0)
+// ----------------------
+</script>
+
+<template>
+  <main>
+    <h1>Home Page</h1>
+
+    <div style="margin-top: 2rem;">
+      <h2>Counter (Local State)</h2>
+      <p>Count: {{ count }}</p>
+      <p>Double: {{ double }}</p>
+      <div style="display: flex; gap: 0.5rem; margin-top: 1rem;">
+        <Button label="Increment" @click="increment" />
+        <Button label="Decrement" @click="decrement" />
+        <Button label="Reset" @click="reset" />
+      </div>
+    </div>
+  </main>
+</template>
+```
+
+---
+
+### 1.10: React Local State (Counter)
+
+**File:** `packages/react-app/src/pages/Home.tsx` (Updated - with `useReducer`)
+
+```tsx
+import { useReducer } from 'react'
+import { Button } from '../components/Button'
+
+type State = { count: number }
+type Action = { type: 'INC' } | { type: 'DEC' } | { type: 'RESET' }
+
+const reducer = (state: State, action: Action): State => {
+  switch (action.type) {
+    case 'INC':
+      return { count: state.count + 1 }
+    case 'DEC':
+      return { count: state.count - 1 }
+    case 'RESET':
+      return { count: 0 }
+    default:
+      throw new Error('Unknown action')
+  }
+}
+
+export function Home() {
+  const [state, dispatch] = useReducer(reducer, { count: 0 })
+  const double = state.count * 2
+
+  return (
+    <div>
+      <h1>Home</h1>
+      <div style={{ marginTop: '2rem' }}>
+        <h2>Counter (useReducer)</h2>
+        <p>Count: {state.count}</p>
+        <p>Double: {double}</p>
+        <div style={{ display: 'flex', gap: '0.5rem', marginTop: '1rem' }}>
+          <Button label="Increment" onClick={() => dispatch({ type: 'INC' })} />
+          <Button label="Decrement" onClick={() => dispatch({ type: 'DEC' })} />
+          <Button label="Reset" onClick={() => dispatch({ type: 'RESET' })} />
+        </div>
+      </div>
+    </div>
+  )
+}
+```
+
+---
+
+### 1.11: Shared State Teaser
+
+#### 🔵 Vue (Pinia)
+
+**File:** `packages/vue-app/src/stores/counter.ts` (This was scaffolded by `create-vue`)
+
+```ts
+import { ref, computed } from 'vue'
+import { defineStore } from 'pinia'
+
+export const useCounterStore = defineStore('counter', () => {
+  const count = ref(0)
+  const doubleCount = computed(() => count.value * 2)
+  function increment() {
+    count.value++
+  }
+  function decrement() {
+    count.value--
+  }
+  function reset() {
+    count.value = 0
+  }
+
+  return { count, doubleCount, increment, decrement, reset }
+})
+```
+
+**File:** `packages/vue-app/src/components/DisplayCount.vue` (New File)
+
+```vue
+<script setup lang="ts">
+import { useCounterStore } from '@/stores/counter'
+const store = useCounterStore()
+</script>
+
+<template>
+  <h3 style="padding: 1rem; border: 1px solid gray;">
+    Display from Store: {{ store.count }}
+  </h3>
+</template>
+```
+
+**File:** `packages/vue-app/src/views/HomeView.vue` (Updated)
+
+```vue
+<script setup lang="ts">
+import { useCounterStore } from '@/stores/counter' // <-- Import store
+import Button from '@/components/Button.vue'
+import DisplayCount from '@/components/DisplayCount.vue' // <-- Import display
+
+const store = useCounterStore() // <-- Use store
+// (Local ref, computed, and functions are now deleted)
+</script>
+
+<template>
+  <main>
+    <h1>Home Page</h1>
+    <DisplayCount /> {/* <-- Add this */}
+
+    <div style="margin-top: 2rem;">
+      <h2>Counter (Pinia Store)</h2>
+      <p>Count: {{ store.count }}</p>
+      <p>Double: {{ store.doubleCount }}</p>
+      <div style="display: flex; gap: 0.5rem; margin-top: 1rem;">
+        <Button label="Increment" @click="store.increment" />
+        <Button label="Decrement" @click="store.decrement" />
+        <Button label="Reset" @click="store.reset" />
+      </div>
+    </div>
+  </main>
+</template>
+```
+
+---
+
+#### ⚛️ React (Context)
+
+**File:** `packages/react-app/src/context/CounterContext.tsx` (New File)
+
+```tsx
+import React, {
+  createContext,
+  useContext,
+  useReducer,
+  type Dispatch,
+} from 'react'
+
+// 1. Define State and Action types
+type State = { count: number }
+type Action = { type: 'INC' } | { type: 'DEC' } | { type: 'RESET' }
+
+// 2. Define the Context shape
+type CounterContextType = {
+  state: State
+  dispatch: Dispatch<Action>
+}
+
+// 3. Create the Context
+const CounterContext = createContext<CounterContextType | undefined>(undefined)
+
+// 4. Create the Reducer
+const reducer = (state: State, action: Action): State => {
+  switch (action.type) {
+    case 'INC':
+      return { count: state.count + 1 }
+    case 'DEC':
+      return { count: state.count - 1 }
+    case 'RESET':
+      return { count: 0 }
+    default:
+      throw new Error('Unknown action')
+  }
+}
+
+// 5. Create the Provider Component
+type ProviderProps = { children: React.ReactNode }
+
+export function CounterProvider({ children }: ProviderProps) {
+  const [state, dispatch] = useReducer(reducer, { count: 0 })
+
+  // Memoize the value to prevent unnecessary re-renders
+  const value = React.useMemo(() => ({ state, dispatch }), [state])
+
+  return (
+    <CounterContext.Provider value={value}>{children}</CounterContext.Provider>
+  )
+}
+
+// 6. Create the custom hook
+export function useCounter() {
+  const context = useContext(CounterContext)
+  if (context === undefined) {
+    throw new Error('useCounter must be used within a CounterProvider')
+  }
+  return context
+}
+```
+
+**File:** `packages/react-app/src/components/DisplayCount.tsx` (New File)
+
+```tsx
+import { useCounter } from '../context/CounterContext'
+
+export function DisplayCount() {
+  const { state } = useCounter()
+  return (
+    <h3 style={{ padding: '1rem', border: '1px solid gray' }}>
+      Display from Context: {state.count}
+    </h3>
+  )
+}
+```
+
+**File:** `packages/react-app/src/main.tsx` (Updated - wrap with Provider)
+
+```tsx
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { CounterProvider } from './context/CounterContext' // <-- Import
+
+import { Layout } from './Layout'
+import { Home } from './pages/Home'
+import { About } from './pages/About'
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Layout />,
+    children: [
+      { index: true, element: <Home /> },
+      { path: 'about', element: <About /> },
+    ],
+  },
+])
+
+ReactDOM.createRoot(document.getElementById('root')!).render(
+  <React.StrictMode>
+    <CounterProvider>
+      {' '}
+      {/* <-- Add Provider here */}
+      <RouterProvider router={router} />
+    </CounterProvider>
+  </React.StrictMode>
+)
+```
+
+**File:** `packages/react-app/src/pages/Home.tsx` (Updated - use Context)
+
+```tsx
+import { Button } from '../components/Button'
+import { useCounter } from '../context/CounterContext' // <-- Import hook
+import { DisplayCount } from '../components/DisplayCount' // <-- Import display
+
+export function Home() {
+  const { state, dispatch } = useCounter() // <-- Use hook
+  // (Local useReducer is now deleted)
+
+  const double = state.count * 2
+
+  return (
+    <div>
+      <h1>Home</h1>
+      <DisplayCount /> {/* <-- Add this */}
+      <div style={{ marginTop: '2rem' }}>
+        <h2>Counter (Context)</h2>
+        <p>Count: {state.count}</p>
+        <p>Double: {double}</p>
+        <div style={{ display: 'flex', gap: '0.5rem', marginTop: '1rem' }}>
+          <Button label="Increment" onClick={() => dispatch({ type: 'INC' })} />
+          <Button label="Decrement" onClick={() => dispatch({ type: 'DEC' })} />
+          <Button label="Reset" onClick={() => dispatch({ type: 'RESET' })} />
+        </div>
+      </div>
+    </div>
+  )
+}
+```
