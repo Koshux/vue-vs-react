@@ -21,17 +21,24 @@ const darkTheme = createTheme({
   },
 })
 
-// 2. Create a context to pass down the theme toggler
-const ThemeToggleContext = createContext({
+// 2. Define the shape of the context
+type ThemeToggleContextType = {
+  toggleTheme: () => void
+  mode: 'light' | 'dark'
+}
+
+// 3. Create a context to pass down the theme toggler AND mode
+const ThemeToggleContext = createContext<ThemeToggleContextType>({
   toggleTheme: () => {},
+  mode: 'light',
 })
 
-// 3. Create a custom hook for components to use
+// 4. Create a custom hook for components to use
 export const useThemeToggle = () => {
   return useContext(ThemeToggleContext)
 }
 
-// 4. Create the main provider component
+// 5. Create the main provider component
 export function AppThemeProvider({ children }: { children: ReactNode }) {
   // Check localStorage and system preference
   const getInitialMode = () => {
@@ -61,8 +68,9 @@ export function AppThemeProvider({ children }: { children: ReactNode }) {
           return newMode
         })
       },
+      mode,
     }),
-    [],
+    [mode],
   )
 
   // 6. Select the correct MUI theme
