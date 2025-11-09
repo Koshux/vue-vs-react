@@ -54,6 +54,12 @@
       data-separator="^\r?\n---\r?\n$"
     ></section>
 
+    <!-- D1.8 Routing Basics -->
+    <section
+      data-markdown="/slides/day1/D1-8-Routing.md"
+      data-separator="^\r?\n---\r?\n$"
+    ></section>
+
     <!-- D1.9 Vue Local State -->
     <section
       data-markdown="/slides/day1/D1-9-VueState.md"
@@ -63,12 +69,6 @@
     <!-- D1.10 React Local State -->
     <section
       data-markdown="/slides/day1/D1-10-ReactState.md"
-      data-separator="^\r?\n---\r?\n$"
-    ></section>
-
-    <!-- D1.8 Routing Basics -->
-    <section
-      data-markdown="/slides/day1/D1-8-Routing.md"
       data-separator="^\r?\n---\r?\n$"
     ></section>
 
