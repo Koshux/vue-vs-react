@@ -18,7 +18,14 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <App /> },
       { path: 'test', element: <Test /> },
-      { path: 'about', element: <About /> },
+      {
+        path: 'about',
+        element: <About />,
+        loader: async () => {
+          console.log('React Router Loader: Fetching data...')
+          return { message: 'Hello from the loader!' }
+        },
+      },
     ],
   },
 ])
