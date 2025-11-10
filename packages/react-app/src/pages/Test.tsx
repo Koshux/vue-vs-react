@@ -1,47 +1,34 @@
-import {
-  useReducer,
-  // useState
-} from 'react'
+import Button from '../components/Button'
+import { DisplayCount } from '../components/DisplayCount'
+import { useCounter } from '../hooks/useCounter'
 
-type CounterAction =
-  | { type: 'INCREMENT' }
-  | { type: 'DECREMENT' }
-  | { type: 'RESET' }
-
-function reducer(state: number, action: CounterAction): number {
-  switch (action.type) {
-    case 'INCREMENT':
-      return state + 1
-    case 'DECREMENT':
-      return state - 1
-    case 'RESET':
-      return 0
-    default:
-      return state
-  }
-}
 export function Test() {
-  // Basic:
-  // const [count, setCount] = useState(0)
-  // const increment = () => setCount((count) => count + 1)
+  const { state, dispatch } = useCounter()
+  const double = state.count * 2
 
-  // Advanced:
-  const [state, dispatch] = useReducer(reducer, 0)
-  function handleButtonClick(type: CounterAction) {
-    dispatch(type)
-  }
   return (
     <div>
       <h1>Home</h1>
-      <button onClick={() => handleButtonClick({ type: 'INCREMENT' })}>
-        count is {state}
-      </button>
-      <button onClick={() => handleButtonClick({ type: 'DECREMENT' })}>
-        count is {state}
-      </button>
-      <button onClick={() => handleButtonClick({ type: 'RESET' })}>
-        count is {state}
-      </button>
+      <DisplayCount />
+      <div style={{ marginTop: '2rem' }}>
+        <h2>Counter (Context)</h2>
+        <p>Count: {state.count}</p>
+        <p>Double: {double}</p>
+        <div style={{ display: 'flex', gap: '0.5rem', marginTop: '1rem' }}>
+          <Button
+            label="Increment"
+            onClick={() => dispatch({ type: 'INC' })}
+          ></Button>
+          <Button
+            label="Decrement"
+            onClick={() => dispatch({ type: 'DEC' })}
+          ></Button>
+          <Button
+            label="Reset"
+            onClick={() => dispatch({ type: 'RESET' })}
+          ></Button>
+        </div>
+      </div>
     </div>
   )
 }

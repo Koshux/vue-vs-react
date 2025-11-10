@@ -1,40 +1,41 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+// import { computed, ref } from 'vue'
+import { useCounterStore } from '@/stores/counter';
 import TheWelcome from '../components/TheWelcome.vue'
 import Button from '@/components/Button.vue'
+import DisplayCount from '@/components/DisplayCount.vue';
 
-const count = ref(0)
-const double = computed(() => count.value * 2)
-const increment = () => count.value++
-const decrement = () => count.value--
-const reset = () => (count.value = 0)
-
+const store = useCounterStore()
 </script>
 
 <template>
   <main>
-    <TheWelcome />
-    <h2>Counter</h2>
-    <p>Count: {{ count }}</p>
-    <p>Double: {{ double }}</p>
-    <Button
+    <!-- <TheWelcome /> -->
+    <h1>Home Page</h1>
+    <DisplayCount />
+    <h2>Counter (Pinia Store)</h2>
+    <p>Count: {{ store.count }}</p>
+    <p>Double: {{ store.doubleCount }}</p>
+    <!-- <Button
       label="My Vue Button"
       @click="() => console.log('Vue button clicked!')"
     >
       <span>ICON </span>
-    </Button>
+    </Button> -->
 
-    <Button
-      label="Increment"
-      @click="increment"
-    ></Button>
-    <Button
-      label="Decrement"
-      @click="decrement"
-    ></Button>
-    <Button
-      label="Reset"
-      @click="reset"
-    ></Button>
+    <div class="home-page__counter-buttons">
+      <Button
+        label="Increment"
+        @click="store.increment"
+      ></Button>
+      <Button
+        label="Decrement"
+        @click="store.decrement"
+      ></Button>
+      <Button
+        label="Reset"
+        @click="store.reset"
+      ></Button>
+    </div>
   </main>
 </template>

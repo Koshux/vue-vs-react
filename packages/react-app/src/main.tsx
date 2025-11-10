@@ -9,6 +9,7 @@ import App from './App.tsx'
 import { Layout } from './Layout'
 import { Test } from './pages/Test.tsx'
 import { About } from './pages/About'
+import { CounterProvider } from './context/CounterContext.tsx'
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,9 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>,
+    <CounterProvider>
+      {' '}
+      <RouterProvider router={router} />
+    </CounterProvider>
+  </React.StrictMode>
 )
