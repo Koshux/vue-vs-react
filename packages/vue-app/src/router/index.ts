@@ -20,4 +20,9 @@ const router = createRouter({
   ],
 })
 
+router.beforeEach((to, from) => {
+  console.log('Vue Router Guard: Navigating from', from.path, 'to', to.path)
+
+})
+
 export default router
