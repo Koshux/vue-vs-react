@@ -1,11 +1,16 @@
 <template>
-  <button @click="$emit('submit')">
+  <button
+    :type="type"
+    @click="$emit('submit')"
+  >
     <slot /> {{ label }}
   </button>
 </template>
 
 <script setup lang="ts">
 import { defineProps } from 'vue'
-defineProps<{ label: string }>()
+defineProps<{
+  type?: 'button' | 'submit' | 'reset', label: string
+}>()
 defineEmits(['submit'])
 </script>
