@@ -1,12 +1,17 @@
 import { useEffect, useState } from 'react'
-import Button from '../components/Button'
-import { DisplayCount } from '../components/DisplayCount'
-import { useCounter } from '../hooks/useCounter'
+// import Button from '../components/Button'
+// import { DisplayCount } from '../components/DisplayCount'
+// import { useCounter } from '../hooks/useCounter'
+
+type Pokemon = {
+  name: string
+  weight: number
+}
 
 export function Test() {
-  const { dispatch } = useCounter()
+  // const { dispatch } = useCounter()
 
-  const [data, setData] = useState<string>()
+  const [data, setData] = useState<Pokemon>()
   const [loading, setLoading] = useState<boolean>(true)
   const [error, setError] = useState<string | null>(null)
 
@@ -29,7 +34,7 @@ export function Test() {
   return (
     <div>
       <h1>Home</h1>
-      <DisplayCount />
+      {/* <DisplayCount /> */}
 
       <div
         style={{ marginTop: '2rem', border: '1px solid gray', padding: '1rem' }}
@@ -43,7 +48,7 @@ export function Test() {
           </p>
         )}
 
-        <div style={{ display: 'flex', gap: '0.5rem', marginTop: '1rem' }}>
+        {/* <div style={{ display: 'flex', gap: '0.5rem', marginTop: '1rem' }}>
           <Button
             label="Increment"
             onClick={() => dispatch({ type: 'INC' })}
@@ -56,7 +61,7 @@ export function Test() {
             label="Reset"
             onClick={() => dispatch({ type: 'RESET' })}
           ></Button>
-        </div>
+        </div> */}
       </div>
     </div>
   )
