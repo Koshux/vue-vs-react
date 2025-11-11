@@ -9,7 +9,9 @@ import App from './App.tsx'
 import { Layout } from './Layout'
 import { Test } from './pages/Test.tsx'
 import { About } from './pages/About'
-import { CounterProvider } from './context/CounterContext.tsx'
+import TasksView from './pages/Tasks.tsx'
+import { Provider } from 'react-redux'
+import { store } from './store/index.ts'
 
 const router = createBrowserRouter([
   {
@@ -18,6 +20,7 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <App /> },
       { path: 'test', element: <Test /> },
+      { path: 'tasks', element: <TasksView /> },
       {
         path: 'about',
         element: <About />,
@@ -32,9 +35,9 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <CounterProvider>
+    <Provider store={store}>
       {' '}
       <RouterProvider router={router} />
-    </CounterProvider>
+    </Provider>
   </React.StrictMode>
 )

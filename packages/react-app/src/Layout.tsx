@@ -4,7 +4,7 @@ export function Layout() {
     <>
       <nav>
         <Link to="/">Home</Link> | <Link to="/about">About</Link> |
-        <Link to="/test">Test</Link>
+        <Link to="/test">Test</Link>|<Link to="/tasks">Tasks</Link>
       </nav>
 
       <hr />
