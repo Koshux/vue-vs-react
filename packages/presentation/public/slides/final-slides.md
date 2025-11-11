@@ -143,6 +143,14 @@ All code for this workshop is available on my GitHub:
           href="https://www.youtube.com/@TheAlexLichter"
           target="_blank"
         >Alexander Lichter (Nuxt/Vue)</a></li>
+      <li><a
+          href="https://www.udemy.com/course/understand-javascript/"
+          target="_blank"
+        >Anthony Alicea (Understanding the weird parts in JavaScript - Udemy course)</a></li>
+      <li><a
+          href="https://youtu.be/Bv_5Zv5c-Ts?si=CCcoSU534dgV_7jw"
+          target="_blank"
+        >Anthony Alicea (Understanding the weird parts in JavaScript - YouTube first 3.5 hours)</a></li>
     </ul>
   </div>
 </div>

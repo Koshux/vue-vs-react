@@ -8,7 +8,14 @@ branch: day-2/02-advanced-state
 
 This is where a **global state manager** comes in. It's a single "source of truth" outside your component tree.
 
-![Image of global state management diagram](../../global%20state%20diagram-1.gif 'redux flow')
+<!-- ![Image of global state management diagram](../../global%20state%20diagram-1.gif 'redux flow') -->
+
+<img
+  src="../../global%20state%20diagram-1.gif"
+  alt="GIF of the redux flow"
+  width="800px"
+  height="600px"
+/>
 
 ---
 
