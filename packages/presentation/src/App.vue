@@ -1,9 +1,9 @@
-<script setup lang="ts">
-import HelloWorld from './components/Slides.vue';
+<script setup>
+import Slides from '@/components/Slides.vue';
 </script>
 
 <template>
-  <HelloWorld msg="Vite + Vue" />
+  <Slides />
 </template>
 
 <style scoped>
